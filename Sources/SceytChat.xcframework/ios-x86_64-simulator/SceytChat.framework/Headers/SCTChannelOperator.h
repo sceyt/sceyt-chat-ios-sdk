@@ -81,7 +81,7 @@ NS_SWIFT_NAME(markMessagesAsDisplayed(ids:completion:));
 /// @param markerName the marker name.
 /// @param messageIds the `SCTMessageId` list.
 /// @param completion The handler block to execute.
-- (void)markMessages:(NSString *)markerName messageIds:(NSArray<NSNumber*>*)messageIds completion:(nullable SCTCompletion)completion
+- (void)markMessages:(NSString *)markerName messageIds:(nonnull NSArray<NSNumber*>*)messageIds completion:(nullable SCTMessageMarkerListCompletion)completion
 NS_SWIFT_NAME(markMessages(markerName:ids:completion:));
 
 /// Send start typing message.
@@ -111,6 +111,10 @@ NS_SWIFT_NAME(sendMessage(_:completion:));
 - (void)editMessage:(nonnull SCTMessage *)message completion:(nonnull SCTMessageCompletion)completion
 NS_SWIFT_NAME(editMessage(_:completion:));
 
+- (void)forwardMessagesWithIds:(nonnull NSArray<NSNumber*>*)messageIds toChannelIds:(nonnull NSArray<NSNumber*>*)channelIds completion:(nonnull SCTForwardMessageCompletion)completion
+NS_SWIFT_NAME(forwardMessages(ids:toChannelIds:completion:));
+
+
 /// Resend the failed message.
 /// @param failedMessage The message which will be resend.
 /// @param completion The handler block to execute.
@@ -119,15 +123,17 @@ NS_SWIFT_NAME(resendMessage(_:completion:));
 
 /// Delete the message.
 /// @param messageId The message id which will be deleted.
+/// @param forMe If set to YES, only the message for the current user will be deleted.
 /// @param completion The handler block to execute.
-- (void)deleteMessageWithId:(SCTMessageId)messageId completion:(SCTMessageCompletion)completion
-NS_SWIFT_NAME(deleteMessage(id:completion:));
+- (void)deleteMessageWithId:(SCTMessageId)messageId forMe:(BOOL)forMe completion:(SCTMessageCompletion)completion
+NS_SWIFT_NAME(deleteMessage(id:forMe:completion:));
 
 /// Delete the message.
 /// @param message The message which will be deleted.
+/// @param forMe If set to YES, only the message for the current user will be deleted.
 /// @param completion The handler block to execute.
-- (void)deleteMessage:(nonnull SCTMessage *)message completion:(nonnull SCTMessageCompletion)completion
-NS_SWIFT_NAME(deleteMessage(_:completion:));
+- (void)deleteMessage:(nonnull SCTMessage *)message forMe:(BOOL)forMe completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(deleteMessage(_:forMe:completion:));
 
 /// Add reaction to the message.
 /// @param messageId  Id of the message to which the reaction will be added.

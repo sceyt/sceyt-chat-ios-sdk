@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTUser;
 @class SCTSettings;
 @class SCTPresence;
+@class SCTContact;
+@class SCTContactDiscovery;
 @protocol SCTChannelDelegate;
 @protocol SCTChatClientDelegate;
 
@@ -263,6 +265,27 @@ NS_SWIFT_NAME(reportMessages(ids:channelId:report:description:completion:));
 /// @param completion The completion handler to call after execution.
 - (void)reportUser:(nonnull SCTUserId)userId messageIds:(nullable NSArray<NSNumber*> *)messageIds report:(nonnull NSString *)report description:(nullable NSString *)description completion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(reportUser(id:messageIds:report:description:completion:));
+
+
+- (void)addContactDiscoveries:(NSArray<SCTContactDiscovery*>*)contactDiscoveries completion:(nullable SCTContactsDiscoveryCompletion)completion
+NS_SWIFT_NAME(addContactDiscoveries(_:completion:));
+- (void)getAllContactDiscoveriesWithCompletion:(nullable SCTContactsDiscoveryCompletion)completion
+NS_SWIFT_NAME(getAllContactDiscoveries(completion:));
+
+- (void)deleteContactDiscoveriesWithKeys:(NSArray<NSString*>*)discoveryKeys completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteContactDiscoveries(keys:completion:));
+- (void)deleteAllContactDiscoveriesWithCompletion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteAllContactDiscoveries(completion:));
+
+- (void)addContacts:(NSArray<SCTContact*>*)contacts completion:(nullable SCTContactsCompletion)completion
+NS_SWIFT_NAME(addContacts(_:completion:));
+- (void)getAllContactsWithCompletion:(nullable SCTContactsCompletion)completion
+NS_SWIFT_NAME(getAllContacts(completion:));
+
+- (void)deleteContactsWithIds:(NSArray<SCTContactId>*)ids completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteContacts(ids:completion:));
+- (void)deleteAllContactsWithCompletion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteAllContacts(completion:));
 
 @end
 

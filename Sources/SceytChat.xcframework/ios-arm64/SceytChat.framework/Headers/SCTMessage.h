@@ -13,6 +13,7 @@
 @class SCTReactionScore;
 @class SCTMessageMarkerCount;
 @class SCTAttachment;
+@class SCTMessageForwardInfo;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -87,9 +88,15 @@ NS_SWIFT_NAME(Message)
 /// The parent message of replied message
 @property (nonatomic, readonly, nullable) SCTMessage *parent;
 
+/// The main message which forwarded
+@property (nonatomic, readonly, nullable) SCTMessageForwardInfo *forwardInfo;
+
+
 @property (nonatomic, readonly) BOOL repliedInThread;
 
 @property (nonatomic, readonly) NSInteger replyCount;
+
+@property (nonatomic, readonly) NSInteger displayCount;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
@@ -163,6 +170,11 @@ NS_SWIFT_NAME(transient(_:));
 /// @param silent `YES` to do not send a push notification for the messa
 - (instancetype)silent:(BOOL)silent
 NS_SWIFT_NAME(silent(_:));
+
+/// Add custom read count.
+/// @param displayCount Default value is 1
+- (instancetype)displayCount:(NSInteger)displayCount
+NS_SWIFT_NAME(displayCount(_:));
 
 /// Built a message.
 - (SCTMessage *)build

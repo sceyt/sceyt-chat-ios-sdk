@@ -33,9 +33,13 @@
 @class SCTHiddenChannelListQuery;
 @class SCTMessageMarkerListQuery;
 @class SCTMessageListQueryByType;
+@class SCTContactDiscovery;
+@class SCTContact;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
+NS_SWIFT_NAME(ContactId)
+typedef NSString * SCTContactId NS_SWIFT_BRIDGED_TYPEDEF;
 NS_SWIFT_NAME(ChannelId)
 typedef UInt64 SCTChannelId NS_SWIFT_BRIDGED_TYPEDEF;
 NS_SWIFT_NAME(MessageId)
@@ -228,6 +232,8 @@ typedef void(^SCTGetUnreadCountCompletion)(NSUInteger totalUnreadChannelCount, N
 NS_SWIFT_NAME(GetUnreadCountCompletion);
 typedef void(^SCTMessageCompletion)(SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(MessageCompletion);
+typedef void(^SCTForwardMessageCompletion)(NSArray <NSNumber *> * _Nullable messageIds, NSArray <NSNumber *> * _Nullable channelIds, SCTError * _Nullable)
+NS_SWIFT_NAME(ForwardMessageCompletion);
 typedef void(^SCTReactionCompletion)(SCTReaction * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ReactionCompletion);
 typedef void(^SCTMessageMarkerListCompletion)(SCTMessageListMarker * _Nullable, SCTError *_Nullable)
@@ -260,6 +266,9 @@ typedef void(^SCTBlockedUserListQueryCompletion)(SCTBlockedUserListQuery * _Nonn
 NS_SWIFT_NAME(BlockedUserListQueryCompletion);
 typedef void(^SCTBlockedMemberListQueryCompletion)(SCTBlockedMemberListQuery * _Nonnull, NSArray <SCTMember *> * _Nullable newLoadedMembers, SCTError *_Nullable)
 NS_SWIFT_NAME(BlockedMemberListQueryCompletion);
+typedef void(^SCTContactsDiscoveryCompletion)(NSArray <SCTContactDiscovery *> * _Nullable discoveries, NSArray <SCTContact *> * _Nullable contacts, SCTError *_Nullable)
+NS_SWIFT_NAME(ContactsDiscoveryCompletion);
+typedef void(^SCTContactsCompletion)(NSArray <SCTContact *> * _Nullable contacts, SCTError *_Nullable)
+NS_SWIFT_NAME(ContactsCompletion);
 
 #endif /* SCTTypes_h */
-
