@@ -26,6 +26,9 @@ NS_SWIFT_NAME(Message)
 /// Temporary id for checking ACK.
 @property (nonatomic, readonly) NSInteger tid;
 
+/// The unique Channel id.
+@property (nonatomic, readonly) SCTChannelId channelId;
+
 /// The message body.
 @property (nonatomic, readonly, nonnull) NSString *body;
 

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/SCTAttachment.h</key>
 		<data>
-		FkgZNv5r+Zm9IPotIR7D2kNww9w=
+		FE77KU5cl9P/mu3fTKJ/Le9ExJc=
 		</data>
 		<key>Headers/SCTBlockedChannelListQuery.h</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Headers/SCTMessage.h</key>
 		<data>
-		IU/+N/zL3znB3MYE+z0pSNyD/GM=
+		lDnKFeELQQ0PM1QlkShBcR9F5m0=
 		</data>
 		<key>Headers/SCTMessageForwardInfo.h</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		7dNZ90mNp74NmDYIrzHKjhddvp0=
+		XNTcEo3aoymeZMxeARQO4hRfwzs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -171,7 +171,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			X606H6kZCxtMMn42wlbR2ddQUdeEjQcXenIXb67CNWE=
+			52HkBYELyQZj5s6u5HE5pOuuichvtM6rzaiS/LSLSWI=
 			</data>
 		</dict>
 		<key>Headers/SCTBlockedChannelListQuery.h</key>
@@ -304,7 +304,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HlCwR5pwhg5fbH1kLAHGzHy5DZMXt5UOxDbCex4Ozrk=
+			9ikk6kodo0IsguZsC/iMsITEhsWMIb9prhnVJG20CvI=
 			</data>
 		</dict>
 		<key>Headers/SCTMessageForwardInfo.h</key>

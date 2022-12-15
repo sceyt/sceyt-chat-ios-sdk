@@ -14,7 +14,13 @@ NS_SWIFT_NAME(Attachment)
 @interface SCTAttachment : NSObject
 
 /// An any URL.
-@property (nonatomic, readonly, nonnull) NSURL *url;
+@property (nonatomic, readonly) SCTMessageId messageId;
+
+/// An any URL.
+@property (nonatomic, readonly, nullable) NSString *url;
+
+/// filePath for upload.
+@property (nonatomic, readonly, nullable) NSString *filePath;
 
 /// The attachment custom type.
 @property (nonatomic, readonly, nonnull) NSString *type;
@@ -50,7 +56,12 @@ NS_SWIFT_NAME(Attachment.Builder)
 /// Create message builder with attachment url.
 /// @param url The attachment url.
 /// @param type The attachment type.
-- (instancetype)initWithUrl:(nonnull NSURL *)url type:(nonnull NSString *)type;
+- (instancetype)initWithUrl:(nonnull NSString *)url type:(nonnull NSString *)type;
+
+/// Create message builder with attachment filePath.
+/// @param filePath The attachment filePath which needs to upload .
+/// @param type The attachment type.
+- (instancetype)initWithFilePath:(nonnull NSString *)filePath type:(nonnull NSString *)type;
 
 /// Set custom name to attachment.
 /// @param name The attachment name.
@@ -59,10 +70,6 @@ NS_SWIFT_NAME(Attachment.Builder)
 /// Use metadata for describe attachment.
 /// @param metadata The attachment metadata.
 - (instancetype)metadata:(nonnull NSString *)metadata;
-
-/// If upload is YES and url is file url, then will upload file before send message.
-/// @param upload Set YES for upload file, Default value is NO.
-- (instancetype)upload:(BOOL)upload;
 
 /// Built an Attachment.
 - (SCTAttachment *)build;
