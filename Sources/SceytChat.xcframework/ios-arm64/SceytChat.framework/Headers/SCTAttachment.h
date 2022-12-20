@@ -31,8 +31,8 @@ NS_SWIFT_NAME(Attachment)
 /// The metadata for file.
 @property (nonatomic, readonly, nullable) NSString *metadata;
 
-/// The uploaded file size.
-@property (nonatomic, readonly) NSUInteger uploadedFileSize;
+/// The  file size.
+@property (nonatomic, readonly) NSUInteger fileSize;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
@@ -70,6 +70,10 @@ NS_SWIFT_NAME(Attachment.Builder)
 /// Use metadata for describe attachment.
 /// @param metadata The attachment metadata.
 - (instancetype)metadata:(nonnull NSString *)metadata;
+
+/// Set remote uploaded file size
+/// @param fileSize The attachment fileSize
+- (instancetype)fileSize:(NSUInteger)fileSize;
 
 /// Built an Attachment.
 - (SCTAttachment *)build;

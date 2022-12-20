@@ -267,6 +267,14 @@ NS_SWIFT_NAME(reportMessages(ids:channelId:report:description:completion:));
 NS_SWIFT_NAME(reportUser(id:messageIds:report:description:completion:));
 
 
+/// Send a direct message.to a user
+/// @param message The message which will be send.
+/// @param userId The user id
+/// @param completion The handler block to execute.
++ (nonnull SCTMessage *)sendMessage:(nonnull SCTMessage *)message toUser:(SCTUserId)userId completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(sendMessage(_:to:completion:));
+
+
 - (void)addContactDiscoveries:(NSArray<SCTContactDiscovery*>*)contactDiscoveries completion:(nullable SCTContactsDiscoveryCompletion)completion
 NS_SWIFT_NAME(addContactDiscoveries(_:completion:));
 - (void)getAllContactDiscoveriesWithCompletion:(nullable SCTContactsDiscoveryCompletion)completion

@@ -92,13 +92,6 @@ NS_SWIFT_NAME(startTyping());
 - (void)stopTyping
 NS_SWIFT_NAME(stopTyping());
 
-/// Send a direct message.to a user
-/// @param message The message which will be send.
-/// @param userId The user id
-/// @param completion The handler block to execute.
-+ (nonnull SCTMessage *)sendMessage:(nonnull SCTMessage *)message toUser:(SCTUserId)userId completion:(nonnull SCTMessageCompletion)completion
-NS_SWIFT_NAME(sendMessage(_:to:completion:));
-
 /// Send a message.
 /// @param message The message which will be send.
 /// @param completion The handler block to execute.

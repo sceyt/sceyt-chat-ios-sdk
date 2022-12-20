@@ -33,6 +33,9 @@ NS_SWIFT_NAME(chatClient(_:tokenWillExpire:));
 - (void)chatClientTokenExpired:(SCTChatClient *)chatClient
 NS_SWIFT_NAME(chatClientTokenExpired(_:));
 
+- (void)chatClient:(SCTChatClient *)chatClient didReceiveDirectMessage:(SCTMessage *)message
+NS_SWIFT_NAME(chatClient(_:didReceiveDirectMessage:));
+
 @end
 
 NS_ASSUME_NONNULL_END

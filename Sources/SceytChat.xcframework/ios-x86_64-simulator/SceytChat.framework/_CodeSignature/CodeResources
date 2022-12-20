@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/SCTAttachment.h</key>
 		<data>
-		FE77KU5cl9P/mu3fTKJ/Le9ExJc=
+		QmtUGy3Er2Crhfk+cDudnNg9qtI=
 		</data>
 		<key>Headers/SCTBlockedChannelListQuery.h</key>
 		<data>
@@ -34,15 +34,15 @@
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
-		2qiVkqSEmdA72CXx9dE0WESCVrk=
+		iy+h6WmBcYieE8Xir8KuSS7Widk=
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		768xvDkFYBQBLI44HW8WYWmPTqM=
+		QXj39ZzlnUkN9gS7+pZW5UPIeTk=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
-		Kr8pILtKVQ7RWijiBy2PIxsS1Yg=
+		mCDl/h8px5NY7JGP0H/QX2h+JPk=
 		</data>
 		<key>Headers/SCTContact.h</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XNTcEo3aoymeZMxeARQO4hRfwzs=
+		hlh8s9QOaEd2vUDtu6SWHjIPRkA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -171,7 +171,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			52HkBYELyQZj5s6u5HE5pOuuichvtM6rzaiS/LSLSWI=
+			g6dsGRMlVx4FI5D+yad3P+RpfLYAJPNH1wfiGh2dqIg=
 			</data>
 		</dict>
 		<key>Headers/SCTBlockedChannelListQuery.h</key>
@@ -220,21 +220,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7aKKbK3BjKZtWMGGZfJBYQWnWkRGmTfWnQq3ctR+dq4=
+			EfJZ/KhDXRbvYlAG5Z6SkpBWm6UsNyh1cEVXSYsSdeA=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClient.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			oRXGRE5NH6fVLBPpygeybQO+5/M2XUE5QsseBwwOCBg=
+			vU9DMaNj4AT6f6M4NY+qoGNOYEbTuXq6MbuddS+qxz8=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3ZFo3NXSgTC22i/DqyfTltci2c9b3CyreuwxWwcYv94=
+			mBy5oQXaqYOJ4z6xHLJkU5dpKeYR7nfX92X1HdM8pCo=
 			</data>
 		</dict>
 		<key>Headers/SCTContact.h</key>
