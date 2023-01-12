@@ -13,8 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(Attachment)
 @interface SCTAttachment : NSObject
 
-/// An any URL.
+/// The unique attachment id.
+@property (nonatomic, readonly) SCTAttachmentId id;
+
+/// The owner message id.
 @property (nonatomic, readonly) SCTMessageId messageId;
+
+/// The owner user id.
+@property (nonatomic, readonly) SCTUserId userId;
 
 /// An any URL.
 @property (nonatomic, readonly, nullable) NSString *url;

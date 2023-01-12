@@ -22,6 +22,7 @@
 @class SCTAttachment;
 @class SCTMessageMarker;
 @class SCTMessageListMarker;
+@class SCTAttachmentListQuery;
 @class SCTMessageListQuery;
 @class SCTReactionListQuery;
 @class SCTChannelListQuery;
@@ -44,6 +45,8 @@ NS_SWIFT_NAME(ChannelId)
 typedef UInt64 SCTChannelId NS_SWIFT_BRIDGED_TYPEDEF;
 NS_SWIFT_NAME(MessageId)
 typedef UInt64 SCTMessageId NS_SWIFT_BRIDGED_TYPEDEF;
+NS_SWIFT_NAME(AttachmentId)
+typedef UInt64 SCTAttachmentId NS_SWIFT_BRIDGED_TYPEDEF;
 
 typedef NS_ENUM(NSUInteger, SCTConnectionState) {
     SCTConnectionStateConnecting,
@@ -250,6 +253,8 @@ typedef void(^SCTMessageListQueryCompletion)(SCTMessageListQuery * _Nonnull, NSA
 NS_SWIFT_NAME(MessageListQueryCompletion);
 typedef void(^SCTMessageListQueryByTypeCompletion)(SCTMessageListQueryByType * _Nonnull, NSArray<SCTMessage *> * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(MessageListQueryByTypeCompletion);
+typedef void(^SCTAttachmentListQueryCompletion)(SCTAttachmentListQuery * _Nonnull, NSArray<SCTAttachment *> * _Nullable, NSArray <SCTUser *> * _Nullable ownerUsers, SCTError * _Nullable)
+NS_SWIFT_NAME(AttachmentListQueryCompletion);
 typedef void(^SCTMessageMarkerListQueryCompletion)(SCTMessageMarkerListQuery * _Nonnull, NSDictionary <NSString *, NSArray<SCTMessageMarker*> *> * _Nullable newLoadedMarkers, SCTError *_Nullable)
 NS_SWIFT_NAME(MessageMarkerListQueryCompletion);
 typedef void(^SCTChannelListQueryCompletion)(SCTChannelListQuery * _Nonnull, NSArray <SCTChannel *> * _Nullable newLoadedChannels, SCTError *_Nullable)

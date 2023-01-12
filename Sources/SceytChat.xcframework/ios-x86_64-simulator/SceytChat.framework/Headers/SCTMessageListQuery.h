@@ -16,7 +16,7 @@ NS_SWIFT_NAME(MessageListQuery)
 /// The channel id.
 @property (nonatomic, readonly) SCTChannelId channelId;
 
-/// Sets the number of channels per page.
+/// Sets the number of messages per page.
 @property (nonatomic) NSUInteger limit;
 
 /// Get messages reversed.
@@ -85,7 +85,7 @@ NS_SWIFT_NAME(MessageListQuery.Builder)
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 
-/// Create MessageListQuery builder for get messages off the channel.
+/// Create MessageListQuery builder for get messages of the channel.
 /// @param channelId The channel id to load messages.
 - (instancetype)initWithChannelId:(SCTChannelId)channelId;
 
