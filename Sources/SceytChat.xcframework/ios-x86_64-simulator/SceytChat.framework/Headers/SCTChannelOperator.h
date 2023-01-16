@@ -150,6 +150,12 @@ NS_SWIFT_NAME(addReaction(messageId:key:score:reason:enforceUnique:completion:))
 - (void)deleteReactionWithMessageId:(SCTMessageId)messageId key:(nonnull NSString *)key completion:(SCTReactionCompletion)completion
 NS_SWIFT_NAME(deleteReaction(messageId:key:completion:));
 
+/// Gets the messages with given ids.
+/// @param messageIds The message ids
+/// @param completion The completion handler to call after execution.
+- (void)getMessagesWithId:(NSArray<NSNumber *> *)messageIds completion:(SCTMessageListCompletion)completion
+NS_SWIFT_NAME(getMessages(ids:completion:));
+
 @end
 
 NS_ASSUME_NONNULL_END

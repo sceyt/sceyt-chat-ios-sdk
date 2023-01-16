@@ -206,13 +206,6 @@ NS_SWIFT_NAME(getTotalUnreadCount(completion:));
 - (void)getChannelWithId:(SCTChannelId)channelId completion:(nonnull SCTChannelCompletion)completion
 NS_SWIFT_NAME(getChannel(id:completion:));
 
-/// Gets the messages with given ids.
-/// @param messageIds The message ids
-/// @param channelId The channel id.
-/// @param completion The completion handler to call after execution.
-- (void)getMessagesWithIds:(NSArray<NSNumber *> *)messageIds channelId:(SCTChannelId)channelId completion:(SCTMessageListCompletion)completion
-NS_SWIFT_NAME(getMessages(ids:channelId:completion:));
-
 /// Registers the current device to receive remote notifications.
 /// @param deviceToken A globally unique token that identifies this device to APNs.
 /// @param completion The completion handler to call after execution.
