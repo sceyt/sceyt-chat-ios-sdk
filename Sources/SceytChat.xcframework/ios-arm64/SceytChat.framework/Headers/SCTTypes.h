@@ -251,6 +251,8 @@ typedef void(^SCTFileCompletion)(NSURL * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(FileCompletion);
 typedef void(^SCTMessageListQueryCompletion)(SCTMessageListQuery * _Nonnull, NSArray<SCTMessage *> * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(MessageListQueryCompletion);
+typedef void(^SCTMessageListCompletion)(NSArray<SCTMessage *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(MessageListCompletion);
 typedef void(^SCTMessageListQueryByTypeCompletion)(SCTMessageListQueryByType * _Nonnull, NSArray<SCTMessage *> * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(MessageListQueryByTypeCompletion);
 typedef void(^SCTAttachmentListQueryCompletion)(SCTAttachmentListQuery * _Nonnull, NSArray<SCTAttachment *> * _Nullable, NSArray <SCTUser *> * _Nullable ownerUsers, SCTError * _Nullable)
