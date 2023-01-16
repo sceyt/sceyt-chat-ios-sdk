@@ -22,6 +22,9 @@ NS_SWIFT_NAME(Attachment)
 /// The owner user id.
 @property (nonatomic, readonly) SCTUserId userId;
 
+/// The attachment created date.
+@property (nonatomic, readonly, nonnull) NSDate *createdAt;
+
 /// An any URL.
 @property (nonatomic, readonly, nullable) NSString *url;
 
