@@ -81,6 +81,11 @@ NS_SWIFT_NAME(channelDidUnblock(_:));
 - (void)channelDidClearHistory:(nonnull SCTChannel *)channel
 NS_SWIFT_NAME(channelDidClearHistory(_:));
 
+/// A callback when a delete all messages of the channel.
+/// @param channel The  channel from where deleted all messages.
+- (void)channelDidDeleteAllMessages:(nonnull SCTChannel *)channel
+NS_SWIFT_NAME(channelDidDeleteAllMessages(_:));
+
 /// A callback when a channel was marked as read from the another device of the current user.
 /// @param channel The marked channel.
 - (void)channelDidMarkAsRead:(nonnull SCTChannel *)channel

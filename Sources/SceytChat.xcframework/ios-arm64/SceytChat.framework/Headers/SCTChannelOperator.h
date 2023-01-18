@@ -34,6 +34,11 @@ NS_SWIFT_NAME(delete(completion:));
 - (void)clearHistoryWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(clearHistory(completion:));
 
+/// Delete all messages from channel only for all user.
+/// @param completion The handler block to execute.
+- (void)deleteAllMessagesWithCompletion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteAllMessages(completion:));
+
 /// Hide the channel. After hide the channel will not visible in current user channels list.
 /// @param completion The handler block to execute.
 - (void)hideWithCompletion:(nullable SCTCompletion)completion
