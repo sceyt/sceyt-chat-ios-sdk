@@ -31,7 +31,7 @@ NS_SWIFT_NAME(GroupChannel)
 @property (nonatomic, readonly, nullable) NSURL *avatarUrl;
 
 /// The current user role of the channel.
-@property (nonatomic, readonly, nullable) SCTRole *myRole;
+@property (nonatomic, readonly, nullable) NSString *role;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;

@@ -16,6 +16,12 @@ NS_SWIFT_NAME(Role)
 /// The role name.
 @property (nonatomic, readonly, nonnull) NSString *name;
 
+/// The role priority.
+@property (nonatomic, readonly) NSInteger priority;
+
+/// The role permissions.
+@property (nonatomic, readonly, nonnull) NSArray<NSString *> *permissions;
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 

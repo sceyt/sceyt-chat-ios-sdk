@@ -17,7 +17,7 @@ NS_SWIFT_NAME(Member)
 @interface SCTMember : SCTUser
 
 /// The member role.
-@property (nonatomic, readonly, nonnull) SCTRole *role;
+@property (nonatomic, readonly, nonnull) NSString *role;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
