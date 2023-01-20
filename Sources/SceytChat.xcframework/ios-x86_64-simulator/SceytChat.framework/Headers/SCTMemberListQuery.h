@@ -31,6 +31,9 @@ NS_SWIFT_NAME(MemberListQuery)
 /// The member list order type.
 @property (nonatomic, readonly) SCTQueryOrderType orderType;
 
+/// The member list by member role.
+@property (nonatomic, readonly, nullable) NSString* queryRole;
+
 /// The total channel count.
 @property (nonatomic, readonly) NSUInteger totalMemberCount;
 
@@ -80,9 +83,14 @@ NS_SWIFT_NAME(MemberListQuery.Builder)
 /// @param type The query order type.
 - (instancetype)orderType:(SCTQueryOrderType)type;
 
+/// Get members by role.
+/// @param queryRole The query role.
+- (instancetype)queryRole:(NSString *)queryRole;
+
 /// Built a MemberListQuery.
 - (SCTMemberListQuery *)build;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
