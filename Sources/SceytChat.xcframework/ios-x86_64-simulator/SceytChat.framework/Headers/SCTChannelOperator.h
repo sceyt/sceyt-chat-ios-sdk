@@ -29,15 +29,11 @@ NS_SWIFT_NAME(ChannelOperator)
 - (void)deleteWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(delete(completion:));
 
-/// Clear message history from channel only for current user.
+/// Delete all messages from the.
+/// @param forEveryone Delete messages for all users or current user.
 /// @param completion The handler block to execute.
-- (void)clearHistoryWithCompletion:(nullable SCTCompletion)completion
-NS_SWIFT_NAME(clearHistory(completion:));
-
-/// Delete all messages from channel only for all user.
-/// @param completion The handler block to execute.
-- (void)deleteAllMessagesWithCompletion:(nullable SCTCompletion)completion
-NS_SWIFT_NAME(deleteAllMessages(completion:));
+- (void)deleteAllMessages:(BOOL)forEveryone completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteAllMessages(forEveryone:completion:));
 
 /// Hide the channel. After hide the channel will not visible in current user channels list.
 /// @param completion The handler block to execute.

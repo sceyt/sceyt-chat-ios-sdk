@@ -76,15 +76,15 @@ NS_SWIFT_NAME(channelDidBlock(_:));
 - (void)channelDidUnblock:(nonnull SCTGroupChannel *)channel
 NS_SWIFT_NAME(channelDidUnblock(_:));
 
-/// A callback when a clear message history from channel from the another device of the current user Clear message history from channel only for current user.
-/// @param channel The  clear message history from the channel.
-- (void)channelDidClearHistory:(nonnull SCTChannel *)channel
-NS_SWIFT_NAME(channelDidClearHistory(_:));
+/// A callback when a delete all message from channel from the another device of the current user Delete all messages from channel only for current user.
+/// @param channel The  delete all messages from the channel.
+- (void)channelDidDeleteAllMessagesForMe:(nonnull SCTChannel *)channel
+NS_SWIFT_NAME(channelDidDeleteAllMessagesForMe(_:));
 
-/// A callback when a delete all messages of the channel.
+/// A callback when a delete all messages of the channel for all members of the channel.
 /// @param channel The  channel from where deleted all messages.
-- (void)channelDidDeleteAllMessages:(nonnull SCTChannel *)channel
-NS_SWIFT_NAME(channelDidDeleteAllMessages(_:));
+- (void)channelDidDeleteAllMessagesForEveryone:(nonnull SCTChannel *)channel
+NS_SWIFT_NAME(channelDidDeleteAllMessagesForEveryone(_:));
 
 /// A callback when a channel was marked as read from the another device of the current user.
 /// @param channel The marked channel.
