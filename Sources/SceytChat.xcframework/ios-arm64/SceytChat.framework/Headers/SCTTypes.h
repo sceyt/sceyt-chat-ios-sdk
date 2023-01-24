@@ -241,7 +241,7 @@ typedef void(^SCTReactionCompletion)(SCTReaction * _Nullable, SCTMessage * _Null
 NS_SWIFT_NAME(ReactionCompletion);
 typedef void(^SCTMessageMarkerListCompletion)(SCTMessageListMarker * _Nullable, SCTError *_Nullable)
 NS_SWIFT_NAME(MessageMarkerListCompletion);
-typedef void(^SCTChannelMembersCompletion)(NSArray<SCTMember*> * _Nullable, SCTError * _Nullable)
+typedef void(^SCTChannelMembersCompletion)(SCTChannel * _Nullable, NSArray<SCTMember*> * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ChannelMembersCompletion);
 typedef void(^SCTProgressCompletion)(double progress)
 NS_SWIFT_NAME(ProgressCompletion);
