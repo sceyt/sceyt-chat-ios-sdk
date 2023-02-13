@@ -50,9 +50,13 @@ NS_SWIFT_NAME(Channel)
 /// Shows channel mute expire date (nil for forever) if channel muted otherwise nil.
 @property (nonatomic, readonly, nullable) NSDate *muteExpireDate;
 
+/// The channel messages deletion date.
+@property (nonatomic, readonly, nullable) NSDate *messagesDeletionDate;
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

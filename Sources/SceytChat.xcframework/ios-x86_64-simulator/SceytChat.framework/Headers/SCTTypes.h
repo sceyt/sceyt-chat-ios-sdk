@@ -235,8 +235,6 @@ typedef void(^SCTGetUnreadCountCompletion)(NSUInteger totalUnreadChannelCount, N
 NS_SWIFT_NAME(GetUnreadCountCompletion);
 typedef void(^SCTMessageCompletion)(SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(MessageCompletion);
-typedef void(^SCTForwardMessageCompletion)(NSArray <NSNumber *> * _Nullable messageIds, NSArray <NSNumber *> * _Nullable channelIds, SCTError * _Nullable)
-NS_SWIFT_NAME(ForwardMessageCompletion);
 typedef void(^SCTReactionCompletion)(SCTReaction * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ReactionCompletion);
 typedef void(^SCTMessageMarkerListCompletion)(SCTMessageListMarker * _Nullable, SCTError *_Nullable)

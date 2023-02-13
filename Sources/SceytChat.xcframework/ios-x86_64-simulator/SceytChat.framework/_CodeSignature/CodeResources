@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/SCTChannel.h</key>
 		<data>
-		yZGWKYYO21GCVII8EbJrk3BIPVU=
+		GkBuAkZLuleM+Jr3lg9qp3RihtY=
 		</data>
 		<key>Headers/SCTChannelDelegate.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
-		slg5wRx6m4J4uzVuU9auz8p/tRM=
+		5JbtYBNjyUCbJvoH1M48qOQDZcw=
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
@@ -64,6 +64,10 @@
 		<data>
 		83Z2fZn59VnIwL0pmK4XnOgGG7M=
 		</data>
+		<key>Headers/SCTForwardingDetails.h</key>
+		<data>
+		hJNHMSF21DklQCuMi09oS5l0LMI=
+		</data>
 		<key>Headers/SCTGroupChannel.h</key>
 		<data>
 		+b6raWBTG2SYls9T/3cDpcRVI6g=
@@ -86,11 +90,7 @@
 		</data>
 		<key>Headers/SCTMessage.h</key>
 		<data>
-		lDnKFeELQQ0PM1QlkShBcR9F5m0=
-		</data>
-		<key>Headers/SCTMessageForwardInfo.h</key>
-		<data>
-		i5c9VJ0SrOov8fYdltPQnNGGWrI=
+		XjvwMBu4vY1kjYm2WB033w150ms=
 		</data>
 		<key>Headers/SCTMessageListQuery.h</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		WDzEBhjaUA8LWd1gGCoFYmuMhVs=
+		TuiXTEThI9HxAZ6EQDJRQ106YC8=
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
@@ -154,7 +154,7 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		FWQhrhHbPgjPf10g7vFS/uQlVac=
+		f5Hc6yBMP7zMgqp4MPbt7qt2VXs=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -210,7 +210,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			bzFWzwxvpieLH4C+6WjqkxAc8ToXHXMhQIN8ohf0abA=
+			0RKSoqF6q5OeRGIWkOiR0SFF0NG+dbpVxxQEoGfGyxg=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelDelegate.h</key>
@@ -231,7 +231,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DJAXB3D7oWs/csraM6/Q6K2+r5WtJeLoAVM+Eu2Y+q4=
+			vBhL13Ry4DgMcnUxQPXannRFUzAER/okBmENpcdju8o=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClient.h</key>
@@ -276,6 +276,13 @@
 			oSLq8fgOoZgB6ivb3KtR540IQQ3vG01iJ3Ts61fLT6s=
 			</data>
 		</dict>
+		<key>Headers/SCTForwardingDetails.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mxEIgfeB3XqkWnecxsLQ+4lX5hcpleWvjMuQ5YQ5U6o=
+			</data>
+		</dict>
 		<key>Headers/SCTGroupChannel.h</key>
 		<dict>
 			<key>hash2</key>
@@ -315,14 +322,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9ikk6kodo0IsguZsC/iMsITEhsWMIb9prhnVJG20CvI=
-			</data>
-		</dict>
-		<key>Headers/SCTMessageForwardInfo.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			W4plU4P7FwkqNu0JTpdtMpsmX0W0e+onqkGJCi26Cjw=
+			TFAA81jwthsKym8u1x2guCprYuE18mme7hgojBjWjts=
 			</data>
 		</dict>
 		<key>Headers/SCTMessageListQuery.h</key>
@@ -413,7 +413,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iZCJlMovuq34iyF76MwxRzCS7/xiVqtzJaJhdkoCOkM=
+			lpqcbeeXrcMFXeSG8GnvsH3GYxyGIenlEPUVMed4gfQ=
 			</data>
 		</dict>
 		<key>Headers/SCTUser.h</key>
@@ -434,7 +434,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			j47NLQvyh4OFSFBfdrdPlytDQCX0uqTvXEjsF5fbfkA=
+			zGqBTb7D5UTHI5BorK+1eUw0Dxud5oFne20zu3+BRQs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

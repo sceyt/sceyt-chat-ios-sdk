@@ -13,7 +13,7 @@
 @class SCTReactionScore;
 @class SCTMessageMarkerCount;
 @class SCTAttachment;
-@class SCTMessageForwardInfo;
+@class SCTForwardingDetails;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -68,9 +68,6 @@ NS_SWIFT_NAME(Message)
 /// The  list of reactions to the message left by the current user.
 @property (nonatomic, readonly, nullable) NSArray<SCTReaction *> *selfReactions;
 
-/// The latest reactions to the message created by any user. There can be 100 reactions at max.
-@property (nonatomic, readonly, nullable) NSArray<SCTReaction *> *lastReactions;
-
 /// The reaction keys and scores to the message created by any user.
 @property (nonatomic, readonly, nullable) NSArray<SCTReactionScore *> *reactionScores;
 
@@ -92,8 +89,7 @@ NS_SWIFT_NAME(Message)
 @property (nonatomic, readonly, nullable) SCTMessage *parent;
 
 /// The main message which forwarded
-@property (nonatomic, readonly, nullable) SCTMessageForwardInfo *forwardInfo;
-
+@property (nonatomic, readonly, nullable) SCTForwardingDetails *forwardingDetails;
 
 @property (nonatomic, readonly) BOOL repliedInThread;
 
@@ -158,6 +154,11 @@ NS_SWIFT_NAME(mentionUserIds(_:));
 /// @param id The parent message id.
 - (instancetype)parentMessageId:(SCTMessageId)id
 NS_SWIFT_NAME(parentMessageId(_:));
+
+/// Use id for forward message
+/// @param id The forwarding message id
+- (instancetype)forwardingMessageId:(SCTMessageId)id
+NS_SWIFT_NAME(forwardingMessageId(_:));
 
 /// Set reply in thread YES for replay in a parent message thread.
 /// @param replyInThread If YES will send message in parent message thread.

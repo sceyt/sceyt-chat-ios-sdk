@@ -105,10 +105,6 @@ NS_SWIFT_NAME(sendMessage(_:completion:));
 - (void)editMessage:(nonnull SCTMessage *)message completion:(nonnull SCTMessageCompletion)completion
 NS_SWIFT_NAME(editMessage(_:completion:));
 
-- (void)forwardMessagesWithIds:(nonnull NSArray<NSNumber*>*)messageIds toChannelIds:(nonnull NSArray<NSNumber*>*)channelIds completion:(nonnull SCTForwardMessageCompletion)completion
-NS_SWIFT_NAME(forwardMessages(ids:toChannelIds:completion:));
-
-
 /// Resend the failed message.
 /// @param failedMessage The message which will be resend.
 /// @param completion The handler block to execute.
