@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCTError;
+@class SCTChannelListRequestParams;
 
 NS_SWIFT_NAME(ChannelListQuery)
 @interface SCTChannelListQuery : NSObject
@@ -35,6 +36,10 @@ NS_SWIFT_NAME(ChannelListQuery)
 
 /// The channel list filter query type.
 @property (nonatomic, readonly) SCTChannelListFilterQueryType queryType;
+
+/// The request params
+/// @key  is `SCTChannelListParamKey`
+@property (nonatomic, readonly) NSDictionary<NSNumber *, NSNumber *> *paramKeys;
 
 /// The total channel count.
 @property (nonatomic, readonly) NSUInteger totalCount;
@@ -94,6 +99,10 @@ NS_SWIFT_NAME(ChannelListQuery.Builder)
 /// Set query filter type.
 /// @param type Filter channels by query type.
 - (instancetype)queryType:(SCTChannelListFilterQueryType)type;
+
+- (instancetype)requestParams:(SCTChannelListRequestParams*)params
+NS_SWIFT_NAME(requestParams(_:));
+
 
 /// Built a ChannelListQuery.
 - (SCTChannelListQuery *)build;

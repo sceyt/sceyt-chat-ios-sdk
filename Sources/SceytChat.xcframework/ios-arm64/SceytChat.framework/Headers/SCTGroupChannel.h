@@ -33,6 +33,9 @@ NS_SWIFT_NAME(GroupChannel)
 /// The current user role of the channel.
 @property (nonatomic, readonly, nullable) NSString *role;
 
+/// The channel owner
+@property (nonatomic, readonly, nullable) SCTMember *owner;
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 

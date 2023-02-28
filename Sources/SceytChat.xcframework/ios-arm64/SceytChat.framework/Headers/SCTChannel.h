@@ -29,6 +29,12 @@ NS_SWIFT_NAME(Channel)
 /// Number of unread messages of the channel.
 @property (nonatomic, readonly) NSUInteger unreadMessageCount;
 
+/// Number of unread current user mentions of the channel.
+@property (nonatomic, readonly) NSUInteger unreadMentionCount;
+
+/// Number of unread reactions of the channel.
+@property (nonatomic, readonly) NSUInteger unreadReactionCount;
+
 /// The last read message id for the current user.
 @property (nonatomic, readonly) SCTMessageId lastDisplayedMessageId;
 
@@ -52,6 +58,12 @@ NS_SWIFT_NAME(Channel)
 
 /// The channel messages deletion date.
 @property (nonatomic, readonly, nullable) NSDate *messagesDeletionDate;
+
+/// Requested last messages of the channel.
+@property (nonatomic, readonly, nullable) NSArray<SCTMessage*> *lastMessages;
+
+/// Requested last active members of the channel.
+@property (nonatomic, readonly, nullable) NSArray<SCTMember*> *lastActiveMembers;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;

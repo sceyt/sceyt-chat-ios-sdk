@@ -118,6 +118,7 @@ typedef NS_ENUM(NSInteger, SCTChannelListFilterQueryType) {
     SCTChannelListFilterQueryEqual
 }NS_SWIFT_NAME(ChannelListFilterQueryType);
 
+
 //The order type for `SCTUserListOrder`.
 typedef NS_ENUM(NSInteger, SCTUserListOrder) {
     SCTUserListOrderFirstName,
@@ -209,6 +210,7 @@ typedef NS_ENUM(NSInteger, SCTErrorCode) {
     SCTErrorChannelNotExists       = 40401,
     SCTErrorInactiveUser           = 40301,
     SCTErrorTooManyRequests        = 42900,
+    SCTErrorTooManyForwarded       = 42901,
     SCTErrorInternal               = 50001,
     SCTErrorServiceUnavailable     = 50300,
     SCTErrorSessionNotFound        = 50004,

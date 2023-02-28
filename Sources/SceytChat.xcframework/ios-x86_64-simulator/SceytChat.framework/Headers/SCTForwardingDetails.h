@@ -11,6 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(ForwardingDetails)
 @interface SCTForwardingDetails : NSObject
 
 /// The unique message id.
