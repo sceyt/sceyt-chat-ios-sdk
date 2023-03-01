@@ -34,15 +34,15 @@
 		</data>
 		<key>Headers/SCTChannelListQuery.h</key>
 		<data>
-		oQM/9Ou+itEs5zj+2fyszV+lxis=
-		</data>
-		<key>Headers/SCTChannelListRequestParams.h</key>
-		<data>
-		I9nnUVI3YUD0biTxIPRUmhr6Kvs=
+		zT7zWJkqnePRHkr6MVh/MQ4gk9U=
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
 		5JbtYBNjyUCbJvoH1M48qOQDZcw=
+		</data>
+		<key>Headers/SCTChannelQueryParam.h</key>
+		<data>
+		/2EPuvXAOQ66zTTi1W9lxjtCqu4=
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/SCTGroupChannel.h</key>
 		<data>
-		J/LtBa9nGRJ0OZQjQfqz0aRBufA=
+		+b6raWBTG2SYls9T/3cDpcRVI6g=
 		</data>
 		<key>Headers/SCTGroupChannelOperator.h</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		dg+B3fSPzufEJwWW+z5jxYPwy+8=
+		RmK0qy4uBE51KwWsDSIHqVJ5OIw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -228,14 +228,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			z0FtiSadC0kk8qdFWxIhlDRbgoyAsrUrpWkAHMGm3Ws=
-			</data>
-		</dict>
-		<key>Headers/SCTChannelListRequestParams.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			J2Oasv2gIdtVf2yT6UVEZRoIB/Xl7ltqPkM2P8CiDDI=
+			EfT9nM3Vpcs6qnp/b/5pS+wFQTIiJ1FdHKlBSBazXnQ=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelOperator.h</key>
@@ -243,6 +236,13 @@
 			<key>hash2</key>
 			<data>
 			vBhL13Ry4DgMcnUxQPXannRFUzAER/okBmENpcdju8o=
+			</data>
+		</dict>
+		<key>Headers/SCTChannelQueryParam.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			rBqUsF1twuPmxSvxousIKReHuQUWvXAHsfC+Ivmauw4=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClient.h</key>
@@ -298,7 +298,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			CKdUPwNRj4kdNTGxYY6ZMR066BAA4uxo71rOni8WLQg=
+			piYaXbfVPEvEJM4HDLHGdnismh3h3htn8uj+sN1WiU8=
 			</data>
 		</dict>
 		<key>Headers/SCTGroupChannelOperator.h</key>
@@ -445,7 +445,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			tx0JVsDxnqtMjCnlSnsX+XBMoEGENPlasf2WO2vIoJM=
+			gEfIqFUIDLYi8UMmVIfwnUcvifWDborXP+htk+e4l0s=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

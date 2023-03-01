@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SCTError;
-@class SCTChannelListRequestParams;
+@class SCTChannelQueryParam;
 
 NS_SWIFT_NAME(ChannelListQuery)
 @interface SCTChannelListQuery : NSObject
@@ -100,7 +100,7 @@ NS_SWIFT_NAME(ChannelListQuery.Builder)
 /// @param type Filter channels by query type.
 - (instancetype)queryType:(SCTChannelListFilterQueryType)type;
 
-- (instancetype)requestParams:(SCTChannelListRequestParams*)params
+- (instancetype)requestParams:(SCTChannelQueryParam*)params
 NS_SWIFT_NAME(requestParams(_:));
 
 

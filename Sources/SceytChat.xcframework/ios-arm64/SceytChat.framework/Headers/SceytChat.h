@@ -38,6 +38,7 @@ FOUNDATION_EXPORT const unsigned char SceytChat_iOSVersionString[];
 #import "SCTMessageListQuery.h"
 #import "SCTChannelListQuery.h"
 #import "SCTForwardingDetails.h"
+#import "SCTChannelQueryParam.h"
 #import "SCTChatClientDelegate.h"
 #import "SCTAttachmentListQuery.h"
 #import "SCTBlockedUserListQuery.h"
@@ -50,4 +51,3 @@ FOUNDATION_EXPORT const unsigned char SceytChat_iOSVersionString[];
 #import "SCTMessageMarkerListQuery.h"
 #import "SCTPrivateChannelOperator.h"
 #import "SCTBlockedChannelListQuery.h"
-#import "SCTChannelListRequestParams.h"
