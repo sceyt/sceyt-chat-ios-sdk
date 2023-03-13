@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(Reaction)
 @interface SCTReaction : NSObject
 
+/// The reaction id.
+@property (nonatomic, readonly) SCTReactionId id;
+
 /// The reaction key.
 @property (nonatomic, readonly, nonnull) NSString *key;
 
@@ -25,8 +28,8 @@ NS_SWIFT_NAME(Reaction)
 /// The reaction reason.
 @property (nonatomic, readonly, nullable) NSString *reason;
 
-/// The date the reaction was last updated.
-@property (nonatomic, readonly, nonnull) NSDate *updatedAt;
+/// The date the reaction was last created.
+@property (nonatomic, readonly, nonnull) NSDate *createdAt;
 
 /// The reaction owner.
 @property (nonatomic, readonly, nonnull) SCTUser *user;

@@ -47,6 +47,9 @@ NS_SWIFT_NAME(MessageId)
 typedef UInt64 SCTMessageId NS_SWIFT_BRIDGED_TYPEDEF;
 NS_SWIFT_NAME(AttachmentId)
 typedef UInt64 SCTAttachmentId NS_SWIFT_BRIDGED_TYPEDEF;
+NS_SWIFT_NAME(ReactionId)
+typedef UInt64 SCTReactionId NS_SWIFT_BRIDGED_TYPEDEF;
+
 
 typedef NS_ENUM(NSUInteger, SCTConnectionState) {
     SCTConnectionStateConnecting,
@@ -239,6 +242,8 @@ typedef void(^SCTMessageCompletion)(SCTMessage * _Nullable, SCTError * _Nullable
 NS_SWIFT_NAME(MessageCompletion);
 typedef void(^SCTReactionCompletion)(SCTReaction * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ReactionCompletion);
+typedef void(^SCTReactionListQueryCompletion)(SCTReactionListQuery * _Nonnull, NSArray <SCTReaction *> * _Nullable newLoadedReactions, SCTError *_Nullable)
+NS_SWIFT_NAME(ReactionListQueryCompletion);
 typedef void(^SCTMessageMarkerListCompletion)(SCTMessageListMarker * _Nullable, SCTError *_Nullable)
 NS_SWIFT_NAME(MessageMarkerListCompletion);
 typedef void(^SCTChannelMembersCompletion)(SCTChannel * _Nullable, NSArray<SCTMember*> * _Nullable, SCTError * _Nullable)
