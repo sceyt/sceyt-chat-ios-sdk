@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/SCTChannel.h</key>
 		<data>
-		8EhxVwCvi0cZG1WJqq5ZIpO7oVc=
+		swmA4ve6ZKGSVczrVQYvY4p8HNU=
 		</data>
 		<key>Headers/SCTChannelDelegate.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SCTChannelQueryParam.h</key>
 		<data>
-		/2EPuvXAOQ66zTTi1W9lxjtCqu4=
+		gP3koAtNfiSNCMezJ7PQRNZ/tII=
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Headers/SCTReaction.h</key>
 		<data>
-		8ngUCBt2yYuyDuQxfOFP7ZFTm34=
+		s0mJ5WQa+iDcSYWgLI+G8TBUPHs=
 		</data>
 		<key>Headers/SCTReactionListQuery.h</key>
 		<data>
@@ -218,7 +218,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			HQLMUExjQTtFPJFZxFI7kqXSWlAwCA3ThkEU8D/N46k=
+			3bnTVMCeLqhTtgsPjau1ErmrD2YPh34W29PjiTJ+VF8=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelDelegate.h</key>
@@ -246,7 +246,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rBqUsF1twuPmxSvxousIKReHuQUWvXAHsfC+Ivmauw4=
+			lbeUKo4ms8RvT4aofxwMOUIYbhF80hqFvIXX6x1ND0k=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClient.h</key>
@@ -407,7 +407,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dT/Ct49Jxg/Nb09gaUOVQpwyZjKrc2vVmIOuk8R7U2A=
+			sVr/VkZ2MerfrFApzlBi/n7nUiZniDy+MP7ppSJm01s=
 			</data>
 		</dict>
 		<key>Headers/SCTReactionListQuery.h</key>

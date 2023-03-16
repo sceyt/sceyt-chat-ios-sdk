@@ -19,6 +19,9 @@ NS_SWIFT_NAME(Reaction)
 /// The reaction id.
 @property (nonatomic, readonly) SCTReactionId id;
 
+/// The owner message id.
+@property (nonatomic, readonly) SCTMessageId messageId;
+
 /// The reaction key.
 @property (nonatomic, readonly, nonnull) NSString *key;
 

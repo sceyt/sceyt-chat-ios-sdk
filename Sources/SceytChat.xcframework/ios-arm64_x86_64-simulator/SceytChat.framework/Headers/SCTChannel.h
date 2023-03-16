@@ -65,6 +65,9 @@ NS_SWIFT_NAME(Channel)
 /// Requested last active members of the channel.
 @property (nonatomic, readonly, nullable) NSArray<SCTMember*> *lastActiveMembers;
 
+/// The current user last messages reactions
+@property (nonatomic, readonly, nullable) NSArray<SCTReaction*> *userMessageReactions;
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 

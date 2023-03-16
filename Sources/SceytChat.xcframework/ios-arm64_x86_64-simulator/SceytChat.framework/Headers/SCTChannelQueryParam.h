@@ -15,6 +15,7 @@ NS_SWIFT_NAME(ChannelQueryParam)
 
 @property(nonatomic) NSUInteger messageCount;
 @property(nonatomic) NSUInteger memberCount;
+@property(nonatomic) NSUInteger userMessageReactionCount;
 
 @property(nonatomic) BOOL includeLastMessage;
 
