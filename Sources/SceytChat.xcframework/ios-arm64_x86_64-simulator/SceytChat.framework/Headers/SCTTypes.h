@@ -36,6 +36,7 @@
 @class SCTMessageListQueryByType;
 @class SCTContactDiscovery;
 @class SCTContact;
+@class SCTUserSettings;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -220,6 +221,23 @@ typedef NS_ENUM(NSInteger, SCTErrorCode) {
     
 }NS_SWIFT_NAME(ErrorCode);
 
+typedef NS_ENUM(NSInteger, SCTPrivacyValue) {
+    SCTPrivacyValueDefault,
+    SCTPrivacyValueAnybody,
+    SCTPrivacyValueNobody,
+    SCTPrivacyValueContacts,
+}NS_SWIFT_NAME(PrivacyValue);
+
+typedef NS_ENUM(NSInteger, SCTPrivacyKey) {
+    SCTPrivacyKeyLastActiveAt,
+    SCTPrivacyKeyPresenceState,
+    SCTPrivacyKeyPresenceStatus,
+    SCTPrivacyKeyProfilePhoto,
+    SCTPrivacyKeyAddToChannels,
+    SCTPrivacyKeyForwardMessages,
+    SCTPrivacyKeyReadReceipts,
+}NS_SWIFT_NAME(PrivacyKey);
+
 typedef void(^SCTCompletion)(SCTError * _Nullable)
 NS_SWIFT_NAME(Completion);
 typedef void(^SCTUserProfileCompletion)(SCTUser * _Nullable, SCTError * _Nullable)
@@ -282,5 +300,8 @@ typedef void(^SCTContactsDiscoveryCompletion)(NSArray <SCTContactDiscovery *> * 
 NS_SWIFT_NAME(ContactsDiscoveryCompletion);
 typedef void(^SCTContactsCompletion)(NSArray <SCTContact *> * _Nullable contacts, SCTError *_Nullable)
 NS_SWIFT_NAME(ContactsCompletion);
+typedef void(^SCTUserSettingsCompletion)(SCTUserSettings * _Nullable settings, SCTError *_Nullable)
+NS_SWIFT_NAME(UserSettingsCallback);
 
 #endif /* SCTTypes_h */
+
