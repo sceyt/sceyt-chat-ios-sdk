@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		QXj39ZzlnUkN9gS7+pZW5UPIeTk=
+		I7AasjHWY7j2jfkCEpiDVzj/GL0=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
@@ -112,9 +112,17 @@
 		<data>
 		dHj80v4499OsRFelrzaN+vO5UPc=
 		</data>
+		<key>Headers/SCTMute.h</key>
+		<data>
+		uat3smTS+apcxh84cECgbFCMQ+8=
+		</data>
 		<key>Headers/SCTPresence.h</key>
 		<data>
-		K9mi55oiHtFcsxM4gG9QY6UOOc4=
+		mNKAP5e+hPeaSZ/8Ln/s+uGHdRs=
+		</data>
+		<key>Headers/SCTPrivacySettings.h</key>
+		<data>
+		c5eCoTr47TCLebjkF8zhmkxA2Bs=
 		</data>
 		<key>Headers/SCTPrivateChannel.h</key>
 		<data>
@@ -150,7 +158,7 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		zDob4alzEx47TYI3fQzCJYtqhM4=
+		dbZl7BpE/vT2CeExemM5zLb3R84=
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
@@ -160,13 +168,17 @@
 		<data>
 		aPi9CA3ixDIWTTbPmsdoB8GbBMI=
 		</data>
+		<key>Headers/SCTUserSettings.h</key>
+		<data>
+		hm0PDRy/GSld8BQlVYWA79CAsHQ=
+		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		sPAoGaSQFtEHkDAj34UcyrCVt70=
+		BPlGXjEyKntYF3WEXtpI3olub94=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		JsUeshGNauHDCfk+Es5oZcOORCc=
+		WE7/a0Qm17+v/H99IZbC8Gjij6s=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -253,7 +265,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vU9DMaNj4AT6f6M4NY+qoGNOYEbTuXq6MbuddS+qxz8=
+			maYv48S1Ur4FKEA+JPffWAr8AsWpulOZvkzbrRGCh3A=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
@@ -368,11 +380,25 @@
 			Weo63XxpHXJ95FU7pTbAKsfzoIJ4c7OlwuMci11YSZI=
 			</data>
 		</dict>
+		<key>Headers/SCTMute.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			s2LjbszBB3Gp1Vm2ChhNDmLPbvLD1QKNNdNR8dnobI4=
+			</data>
+		</dict>
 		<key>Headers/SCTPresence.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			HnuSiQzHkIYoD4sxPKUYhSBb193fOt0AMKeLIdt14tI=
+			RZgrk/Jc2oVx3fiPBF1qmNhAXCGYPIgbZuTPH8Lpvc4=
+			</data>
+		</dict>
+		<key>Headers/SCTPrivacySettings.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			O09xrbnmoe6my+qB8NpmxTEk1VYLQ5i63A/4Vj2/nlw=
 			</data>
 		</dict>
 		<key>Headers/SCTPrivateChannel.h</key>
@@ -435,7 +461,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YCJdnqtn0RzXNz56vg9GI8kjzfeASDIABnv8/PAQCVg=
+			NjmL2qiZLismeiVyEkPTmYowpcpXZI3VwoIJAuxfH6Q=
 			</data>
 		</dict>
 		<key>Headers/SCTUser.h</key>
@@ -452,11 +478,18 @@
 			/LLeul+yue5qz94LeajHgoNERNpNrQFw4/Shten7k3A=
 			</data>
 		</dict>
+		<key>Headers/SCTUserSettings.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			hJfPB2jD9D66/5bdl6RUraKRlPjfvEc32oMQPiZ/etk=
+			</data>
+		</dict>
 		<key>Headers/SceytChat.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			V9DES4IxswqrXKAAvFpZ0+fNDL09Xc6d/CCI25mux+w=
+			PkVwFFzDr7qo38Lgexy1I3gCFdt5KBlA3FfFX4fvnww=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SCTUser;
 @class SCTSettings;
+@class SCTUserSettings;
 @class SCTPresence;
 @class SCTContact;
 @class SCTContactDiscovery;
@@ -164,6 +165,9 @@ NS_SWIFT_NAME(setProfile(firstName:lastName:avatarUrl:metadata:completion:));
 /// @param completion The completion handler to call after execution.
 - (void)setPresenceState:(SCTPresenceState)state status:(nullable NSString *)status completion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(setPresence(state:status:completion:));
+
+- (void)updateUserSettings:(SCTUserSettings*)userSettings completion:(nullable SCTCompletion)completion;
+- (void)getUserSettings:(nonnull SCTUserSettingsCompletion)completion;
 
 /// Gets users with given user ids.
 /// @param ids The user ids to get.

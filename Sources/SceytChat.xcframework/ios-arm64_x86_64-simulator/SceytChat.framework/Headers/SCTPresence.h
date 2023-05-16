@@ -30,4 +30,17 @@ NS_SWIFT_NAME(PresenceMessage)
 @property (nonatomic, readonly, nonnull) SCTPresence *presence;
 @end
 
+NS_SWIFT_NAME(Presence.Builder)
+@interface SCTPresenceBuilder: NSObject
+
+- (instancetype)init;
+
+- (instancetype)state:(SCTPresenceState)state;
+- (instancetype)status:(NSString *)status;
+
+/// Create Presence
+- (SCTPresence *)build;
+
+@end
+
 NS_ASSUME_NONNULL_END
