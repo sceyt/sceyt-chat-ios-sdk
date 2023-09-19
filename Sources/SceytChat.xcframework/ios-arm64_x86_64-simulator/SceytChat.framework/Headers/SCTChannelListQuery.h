@@ -25,8 +25,8 @@ NS_SWIFT_NAME(ChannelListQuery)
 /// The offset of channel list query.
 @property (nonatomic, readonly) NSUInteger offset;
 
-/// The channel list by query type.
-@property (nonatomic, readonly) SCTChannelQueryType type;
+/// The channel list by query types.
+@property (nonatomic, readonly) NSArray<NSString*> *types;
 
 /// The channel list by order.
 @property (nonatomic, readonly) SCTChannelListOrder order;
@@ -34,8 +34,8 @@ NS_SWIFT_NAME(ChannelListQuery)
 /// The channel list by filter key.
 @property (nonatomic, readonly) SCTChannelListFilterKey filterKey;
 
-/// The channel list filter query type.
-@property (nonatomic, readonly) SCTChannelListFilterQueryType queryType;
+/// The channel list search query operator.
+@property (nonatomic, readonly) SCTSearchQueryOperator searchOperator;
 
 /// The request params
 /// @key  is `SCTChannelListParamKey`
@@ -85,8 +85,8 @@ NS_SWIFT_NAME(ChannelListQuery.Builder)
 - (instancetype)offset:(NSUInteger)offset;
 
 /// Filter the channels by type.
-/// @param type The query type.
-- (instancetype)type:(SCTChannelQueryType)type;
+/// @param types The query types.
+- (instancetype)types:(NSArray<NSString*> *)types;
 
 /// Get channels by order.
 /// @param order The query order.
@@ -96,9 +96,9 @@ NS_SWIFT_NAME(ChannelListQuery.Builder)
 /// @param key The query filter key.
 - (instancetype)filterKey:(SCTChannelListFilterKey)key;
 
-/// Set query filter type.
-/// @param type Filter channels by query type.
-- (instancetype)queryType:(SCTChannelListFilterQueryType)type;
+/// Filter channels by search operator.
+/// @param searchOperator The query search operator.
+- (instancetype)searchOperator:(SCTSearchQueryOperator)searchOperator;
 
 - (instancetype)requestParams:(SCTChannelQueryParam*)params
 NS_SWIFT_NAME(requestParams(_:));

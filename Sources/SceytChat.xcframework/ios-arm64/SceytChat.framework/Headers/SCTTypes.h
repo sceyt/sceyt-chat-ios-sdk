@@ -12,15 +12,12 @@
 @class SCTMessage;
 @class SCTReaction;
 @class SCTChannel;
-@class SCTPublicChannel;
-@class SCTPrivateChannel;
-@class SCTDirectChannel;
 @class SCTUser;
 @class SCTRole;
 @class SCTMember;
 @class SCTError;
 @class SCTAttachment;
-@class SCTMessageMarker;
+@class SCTMarker;
 @class SCTMessageListMarker;
 @class SCTAttachmentListQuery;
 @class SCTMessageListQuery;
@@ -68,11 +65,25 @@ typedef NS_ENUM(NSInteger, SCTPresenceState) {
     SCTPresenceStateDND,
 }NS_SWIFT_NAME(PresenceState);
 
-typedef NS_ENUM(NSInteger, SCTUserActivityState) {
-    SCTUserActivityStateActive,
-    SCTUserActivityStateInactive,
-    SCTUserActivityStateDeleted,
-}NS_SWIFT_NAME(UserActivityState);
+typedef NS_ENUM(NSInteger, SCTUserState) {
+    SCTUserStateActive,
+    SCTUserStateInactive,
+    SCTUserStateDeleted,
+}NS_SWIFT_NAME(UserState);
+
+//The search operator types.
+typedef NS_ENUM(NSInteger, SCTSearchQueryOperator) {
+    SCTSearchQueryOperatorNone,
+    SCTSearchQueryOperatorContains,
+    SCTSearchQueryOperatorBegins,
+    SCTSearchQueryOperatorEQ,
+    SCTSearchQueryOperatorLT,
+    SCTSearchQueryOperatorLTE,
+    SCTSearchQueryOperatorGT,
+    SCTSearchQueryOperatorGTE,
+    SCTSearchQueryOperatorIn,
+    SCTSearchQueryOperatorBetween,
+}NS_SWIFT_NAME(SearchQueryOperator);
 
 typedef NS_ENUM(NSInteger, SCTMessageQueryDirection) {
     SCTMessageQueryDirectionNext,
@@ -85,18 +96,6 @@ typedef NS_ENUM(NSInteger, SCTQueryOrderType) {
     SCTQueryOrderAscending,
     SCTQueryOrderDescending
 }NS_SWIFT_NAME(QueryOrderType);
-
-//The type for `SCTChannelListQuery`.
-typedef NS_ENUM(NSInteger, SCTChannelQueryType) {
-    //public and private channels
-    SCTChannelQueryTypeAll,
-    //only privates
-    SCTChannelQueryTypePrivate,
-    //only publics
-    SCTChannelQueryTypePublic,
-    //only one to one channels
-    SCTChannelQueryTypeDirect
-}NS_SWIFT_NAME(ChannelQueryType);
 
 //The order type for `SCTChannelListQuery`.
 typedef NS_ENUM(NSInteger, SCTChannelListOrder) {
@@ -113,15 +112,6 @@ typedef NS_ENUM(NSInteger, SCTChannelListFilterKey) {
     SCTChannelListFilterLabel,
     SCTChannelListFilterMember
 }NS_SWIFT_NAME(ChannelListFilterKey);
-
-//The filter type for `SCTChannelListQuery`.
-typedef NS_ENUM(NSInteger, SCTChannelListFilterQueryType) {
-    SCTChannelListFilterQueryNone,
-    SCTChannelListFilterQueryContains,
-    SCTChannelListFilterQueryBeginsWith,
-    SCTChannelListFilterQueryEqual
-}NS_SWIFT_NAME(ChannelListFilterQueryType);
-
 
 //The order type for `SCTUserListOrder`.
 typedef NS_ENUM(NSInteger, SCTUserListOrder) {
@@ -159,7 +149,7 @@ typedef NS_ENUM(NSInteger, SCTMessageDeliveryStatus) {
 }NS_SWIFT_NAME(MessageDeliveryStatus);
 
 typedef NS_ENUM(NSInteger, SCTMessageState) {
-    SCTMessageStateNone,
+    SCTMessageStateUnmodified,
     SCTMessageStateEdited,
     SCTMessageStateDeleted,
 }NS_SWIFT_NAME(MessageState);
@@ -172,54 +162,6 @@ typedef NS_ENUM(NSInteger, SCTLogLevel) {
     SCTLogLevelInfo,
     SCTLogLevelVerbose
 }NS_SWIFT_NAME(LogLevel);
-
-typedef NS_ENUM(NSInteger, SCTErrorCode) {
-    SCTErrorNone                   = 0,
-    SCTErrorUnknown                = 10000,
-    SCTErrorInvalidInitialization  = 10001,
-    SCTErrorRequestTimeout         = 10002,
-    SCTErrorConnectionRequired     = 10003,
-    SCTErrorNetworkConnection      = 10004,
-    SCTErrorAlreadyConnected       = 10005,
-    SCTErrorAlreadyConnecting      = 10006,
-    SCTErrorCanNotOpenFile         = 10007,
-    SCTErrorQueryInProgress        = 10008,
-    SCTErrorCodeInvalidPushToken   = 10009,
-    
-    SCTErrorBadRequest             = 40000,
-    SCTErrorTooLargeMessage        = 40001,
-    SCTErrorTooManyAttempts        = 40002,
-    SCTErrorBadParam               = 40003,
-    SCTErrorBadChannelType         = 40004,
-    SCTErrorBadUsernameInToken     = 40005,
-    SCTErrorChannelAlreadyExists   = 40006,
-    SCTErrorMemberExist            = 40007,
-    SCTErrorMemberNotExist         = 40008,
-    SCTErrorMemberLimitExceeded    = 40009,
-    SCTErrorInvalidMessageType     = 40010,
-    SCTErrorInvalidAttachmentType  = 40011,
-    SCTErrorUndefinedRole          = 40012,
-    SCTErrorTooLargeMetadata       = 40013,
-    SCTErrorBlockedChannel         = 40014,
-    SCTErrorUserNotExist           = 40015,
-    SCTErrorInvalidToken           = 40101,
-    SCTErrorExpiredToken           = 40102,
-    SCTErrorTokenNotActive         = 40103,
-    SCTErrorUnauthorized           = 40104,
-    SCTErrorNotAllowed             = 40105,
-    SCTErrorAccountSuspended       = 40106,
-    SCTErrorInvalidClientId        = 40107,
-    SCTErrorDuplicateClientId      = 40108,
-    SCTErrorItemNotFound           = 40400,
-    SCTErrorChannelNotExists       = 40401,
-    SCTErrorInactiveUser           = 40301,
-    SCTErrorTooManyRequests        = 42900,
-    SCTErrorTooManyForwarded       = 42901,
-    SCTErrorInternal               = 50001,
-    SCTErrorServiceUnavailable     = 50300,
-    SCTErrorSessionNotFound        = 50004,
-    
-}NS_SWIFT_NAME(ErrorCode);
 
 typedef NS_ENUM(NSInteger, SCTPrivacyValue) {
     SCTPrivacyValueDefault,
@@ -244,12 +186,6 @@ typedef void(^SCTUserProfileCompletion)(SCTUser * _Nullable, SCTError * _Nullabl
 NS_SWIFT_NAME(UserProfileCompletion);
 typedef void(^SCTChannelCompletion)(SCTChannel * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ChannelCompletion);
-typedef void(^SCTPublicChannelCompletion)(SCTPublicChannel * _Nullable, SCTError * _Nullable)
-NS_SWIFT_NAME(PublicChannelCompletion);
-typedef void(^SCTPrivateChannelCompletion)(SCTPrivateChannel * _Nullable, SCTError * _Nullable)
-NS_SWIFT_NAME(PrivateChannelCompletion);
-typedef void(^SCTDirectChannelCompletion)(SCTDirectChannel * _Nullable, SCTError * _Nullable)
-NS_SWIFT_NAME(DirectChannelCompletion);
 typedef void(^SCTGetUsersCompletion)(NSArray <SCTUser *> * _Nullable, SCTError *_Nullable)
 NS_SWIFT_NAME(GetUsersCompletion);
 typedef void(^SCTGetRolesCompletion)(NSArray <SCTRole *> * _Nullable, SCTError * _Nullable)
@@ -280,7 +216,7 @@ typedef void(^SCTMessageListQueryByTypeCompletion)(SCTMessageListQueryByType * _
 NS_SWIFT_NAME(MessageListQueryByTypeCompletion);
 typedef void(^SCTAttachmentListQueryCompletion)(SCTAttachmentListQuery * _Nonnull, NSArray<SCTAttachment *> * _Nullable, NSArray <SCTUser *> * _Nullable ownerUsers, SCTError * _Nullable)
 NS_SWIFT_NAME(AttachmentListQueryCompletion);
-typedef void(^SCTMessageMarkerListQueryCompletion)(SCTMessageMarkerListQuery * _Nonnull, NSDictionary <NSString *, NSArray<SCTMessageMarker*> *> * _Nullable newLoadedMarkers, SCTError *_Nullable)
+typedef void(^SCTMessageMarkerListQueryCompletion)(SCTMessageMarkerListQuery * _Nonnull, NSDictionary <NSString *, NSArray<SCTMarker*> *> * _Nullable newLoadedMarkers, SCTError *_Nullable)
 NS_SWIFT_NAME(MessageMarkerListQueryCompletion);
 typedef void(^SCTChannelListQueryCompletion)(SCTChannelListQuery * _Nonnull, NSArray <SCTChannel *> * _Nullable newLoadedChannels, SCTError *_Nullable)
 NS_SWIFT_NAME(ChannelListQueryCompletion);

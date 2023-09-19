@@ -15,8 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTChannel;
 @class SCTMessage;
 @class SCTReaction;
-@class SCTGroupChannel;
-@class SCTPublicChannel;
 @class SCTReactionEvent;
 @class SCTMessageListMarker;
 
@@ -68,12 +66,12 @@ NS_SWIFT_NAME(channelDidUnmute(_:));
 
 /// A callback when a channel was blocked from the another device of the current user.
 /// @param channel The blocked channel.
-- (void)channelDidBlock:(nonnull SCTGroupChannel *)channel
+- (void)channelDidBlock:(nonnull SCTChannel *)channel
 NS_SWIFT_NAME(channelDidBlock(_:));
 
 /// A callback when a channel was unblocked from the another device of the current user.
 /// @param channel The unblocked channel.
-- (void)channelDidUnblock:(nonnull SCTGroupChannel *)channel
+- (void)channelDidUnblock:(nonnull SCTChannel *)channel
 NS_SWIFT_NAME(channelDidUnblock(_:));
 
 /// A callback when a delete all message from channel from the another device of the current user Delete all messages from channel only for current user.
@@ -100,49 +98,49 @@ NS_SWIFT_NAME(channelDidMarkAsUnread(_:));
 /// @param channel The updated channel.
 /// @param newOwner The channel new owner.
 /// @param oldOwner The channel previous owner.
-- (void)channel:(nonnull SCTGroupChannel *)channel ownerDidChange:(nonnull SCTMember *)newOwner oldOwner:(nonnull SCTMember *)oldOwner
+- (void)channel:(nonnull SCTChannel *)channel ownerDidChange:(nonnull SCTMember *)newOwner oldOwner:(nonnull SCTMember *)oldOwner
 NS_SWIFT_NAME(channel(_:didChange:oldOwner:));
 
 /// A callback when  member joined to a channel.
 /// @param channel The channel.
 /// @param member The new joined channel.
-- (void)channel:(nonnull SCTPublicChannel *)channel memberDidJoin:(nonnull SCTMember *)member
+- (void)channel:(nonnull SCTChannel *)channel memberDidJoin:(nonnull SCTMember *)member
 NS_SWIFT_NAME(channel(_:didJoin:));
 
 /// A callback when  members added to a channel from operator.
 /// @param channel The channel.
 /// @param members The added members.
-- (void)channel:(nonnull SCTGroupChannel *)channel membersDidAdd:(nonnull NSArray<SCTMember *> *)members
+- (void)channel:(nonnull SCTChannel *)channel membersDidAdd:(nonnull NSArray<SCTMember *> *)members
 NS_SWIFT_NAME(channel(_:didAdd:));
 
 /// A callback when  member live from the channel.
 /// @param channel The channel.
 /// @param member The lived member.
-- (void)channel:(nonnull SCTGroupChannel *)channel memberDidLeave:(nonnull SCTMember *)member
+- (void)channel:(nonnull SCTChannel *)channel memberDidLeave:(nonnull SCTMember *)member
 NS_SWIFT_NAME(channel(_:didLeave:));
 
 /// A callback when  members kicked from a channel by operator.
 /// @param channel The channel.
 /// @param members The kicked members.
-- (void)channel:(nonnull SCTGroupChannel *)channel membersDidKick:(nonnull NSArray<SCTMember *> *)members
+- (void)channel:(nonnull SCTChannel *)channel membersDidKick:(nonnull NSArray<SCTMember *> *)members
 NS_SWIFT_NAME(channel(_:didKick:));
 
 /// A callback when  members role changed by operator.
 /// @param channel The channel.
 /// @param members The members with new roles.
-- (void)channel:(nonnull SCTGroupChannel *)channel membersRoleDidChange:(nonnull NSArray<SCTMember *> *)members
+- (void)channel:(nonnull SCTChannel *)channel membersRoleDidChange:(nonnull NSArray<SCTMember *> *)members
 NS_SWIFT_NAME(channel(_:didChangeRole:));
 
 /// A callback when  members blocked from the another device of the current user.
 /// @param channel The channel.
 /// @param members The blocked members.
-- (void)channel:(nonnull SCTGroupChannel *)channel membersDidBlock:(nonnull NSArray<SCTMember *> *)members
+- (void)channel:(nonnull SCTChannel *)channel membersDidBlock:(nonnull NSArray<SCTMember *> *)members
 NS_SWIFT_NAME(channel(_:didBlock:));
 
 /// A callback when  members unblocked from the another device of the current user.
 /// @param channel The channel.
 /// @param members The unblocked members.
-- (void)channel:(nonnull SCTGroupChannel *)channel membersDidUnblock:(nonnull NSArray<SCTMember *> *)members
+- (void)channel:(nonnull SCTChannel *)channel membersDidUnblock:(nonnull NSArray<SCTMember *> *)members
 NS_SWIFT_NAME(channel(_:didUnblock:));
 
 /// A callback when a message is received.

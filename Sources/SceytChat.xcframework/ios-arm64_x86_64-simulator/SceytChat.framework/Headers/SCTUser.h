@@ -25,7 +25,7 @@ NS_SWIFT_NAME(User)
 @property (nonatomic, readonly, nullable) NSString *lastName;
 
 /// The user profile avatar url.
-@property (nonatomic, readonly, nullable) NSURL *avatarUrl;
+@property (nonatomic, readonly, nullable) NSString *avatarUrl;
 
 /// The user metadata.
 @property (nonatomic, readonly, nullable) NSString *metadata;
@@ -36,8 +36,8 @@ NS_SWIFT_NAME(User)
 /// The user presence status.
 @property (nonatomic, readonly) SCTPresence *presence;
 
-/// The user activity status.
-@property (nonatomic, readonly) SCTUserActivityState activityState;
+/// The user state.
+@property (nonatomic, readonly) SCTUserState state;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;

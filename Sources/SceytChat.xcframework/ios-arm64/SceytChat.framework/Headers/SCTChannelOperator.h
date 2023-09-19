@@ -24,16 +24,28 @@ NS_SWIFT_NAME(ChannelOperator)
 /// @param channelId The operating channel id
 - (instancetype)initWithChannelId:(SCTChannelId)channelId;
 
+/// Update the public channel.
+/// @param uri The Uniform Resource Identifier of the channel.
+/// @param subject The subject of  channel.
+/// @param metadata The metadata of channel.
+/// @param avatarUrl The avatar URL of channel.
+/// @param completion The handler block to execute.
+- (void)updateWithUri:(nonnull NSString *)uri
+              subject:(nonnull NSString *)subject
+             metadata:(nullable NSString *)metadata
+            avatarUrl:(nullable NSString *)avatarUrl
+           completion:(nonnull SCTChannelCompletion)completion
+NS_SWIFT_NAME(update(uri:subject:metadata:avatarUrl:completion:));
+
 /// Deletes the channel. The user has to be an owner or should have a permission.
 /// @param completion The handler block to execute.
 - (void)deleteWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(delete(completion:));
 
-/// Delete all messages from the.
-/// @param forEveryone Delete messages for all users or current user.
+/// Leave the  channel. The channel will be disappeared from the current user channel list.
 /// @param completion The handler block to execute.
-- (void)deleteAllMessages:(BOOL)forEveryone completion:(nullable SCTCompletion)completion
-NS_SWIFT_NAME(deleteAllMessages(forEveryone:completion:));
+- (void)leaveWithCompletion:(nonnull SCTCompletion)completion
+NS_SWIFT_NAME(leave(completion:));
 
 /// Hide the channel. After hide the channel will not visible in current user channels list.
 /// @param completion The handler block to execute.
@@ -44,6 +56,19 @@ NS_SWIFT_NAME(hide(completion:));
 /// @param completion The handler block to execute.
 - (void)unhideWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(unhide(completion:));
+
+/// Block the  channel. After block no one can add the current user to the channel.
+/// @param completion The handler block to execute.
+/// @note The current user will live from the channel after block.
+- (void)blockWithCompletion:(nonnull SCTCompletion)completion
+NS_SWIFT_NAME(block(completion:));
+
+/// Unblock the channel.
+/// @param completion The handler block to execute.
+/// @note After unblock the current user not joining to the channel automatically.
+/// For SCTPublicChannel the current user shell join otherwise the operator user shell add the current user.
+- (void)unblockWithCompletion:(nonnull SCTCompletion)completion
+NS_SWIFT_NAME(unblock(completion:));
 
 /// Mark channel as read for current user.
 /// @param completion The handler block to execute.
@@ -125,6 +150,19 @@ NS_SWIFT_NAME(deleteMessage(id:forMe:completion:));
 - (void)deleteMessage:(nonnull SCTMessage *)message forMe:(BOOL)forMe completion:(nonnull SCTMessageCompletion)completion
 NS_SWIFT_NAME(deleteMessage(_:forMe:completion:));
 
+
+/// Delete all messages from the.
+/// @param forEveryone Delete messages for all users or current user.
+/// @param completion The handler block to execute.
+- (void)deleteAllMessages:(BOOL)forEveryone completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteAllMessages(forEveryone:completion:));
+
+/// Gets the messages with given ids.
+/// @param messageIds The message ids
+/// @param completion The completion handler to call after execution.
+- (void)getMessagesWithId:(NSArray<NSNumber *> *)messageIds completion:(SCTMessageListCompletion)completion
+NS_SWIFT_NAME(getMessages(ids:completion:));
+
 /// Add reaction to the message.
 /// @param messageId  Id of the message to which the reaction will be added.
 /// @param key The reaction key: any short string or emoji.
@@ -147,11 +185,57 @@ NS_SWIFT_NAME(addReaction(messageId:key:score:reason:enforceUnique:completion:))
 - (void)deleteReactionWithMessageId:(SCTMessageId)messageId key:(nonnull NSString *)key completion:(SCTReactionCompletion)completion
 NS_SWIFT_NAME(deleteReaction(messageId:key:completion:));
 
-/// Gets the messages with given ids.
-/// @param messageIds The message ids
-/// @param completion The completion handler to call after execution.
-- (void)getMessagesWithId:(NSArray<NSNumber *> *)messageIds completion:(SCTMessageListCompletion)completion
-NS_SWIFT_NAME(getMessages(ids:completion:));
+/// Change the channel owner.
+/// @param userId the new owner user id.
+/// @param completion The handler block to execute.
+/// @note Only owner can set new owner.
+- (void)changeOwnerWithNewOwnerId:(SCTUserId)userId completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(changeOwner(newOwnerId:completion:));
+
+/// Change the channel members role.
+/// @param members the new roles.
+/// @param completion The handler block to execute.
+/// @note The current user should hav a respectively  permission.
+- (void)changeMembersRole:(NSArray<SCTMember *> *)members completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(changeMembersRole(_:completion:));
+
+/// Add members to the channel.
+/// @param members the user id and role to be added.
+/// @param completion The handler block to execute.
+/// @note The current user should hav a respectively  permission.
+- (void)addMembers:(NSArray<SCTMember *> *)members completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(add(members:completion:));
+
+/// Add members to the channel.
+/// @param members the user id and role to be added.
+/// @param accessPriorHistory Defaults to YES. the added members can see messages from the current state.
+/// @param completion The handler block to execute.
+/// @note The current user should hav a respectively  permission.
+- (void)addMembers:(NSArray<SCTMember *> *)members accessPriorHistory:(BOOL)accessPriorHistory completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(add(members:accessPriorHistory:completion:));
+
+/// Kick members from the channel.
+/// @param ids the user ids to be kicked.
+/// @param completion The handler block to execute.
+- (void)kickMembersWithMemberIds:(NSArray<SCTUserId> *)ids completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(kickMembers(ids:completion:));
+
+/// Block members for do not receive notifications from theirs.
+/// @param ids the user ids to be blocked.
+/// @param completion The handler block to execute.
+- (void)blockMembersWithMemberIds:(NSArray<SCTUserId> *)ids completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(blockMembers(ids:completion:));
+
+/// Unblock members.
+/// @param ids the user ids to be unblocked.
+/// @param completion The handler block to execute.
+- (void)unblockMembersWithMemberIds:(NSArray<SCTUserId> *)ids completion:(nonnull SCTChannelMembersCompletion)completion
+NS_SWIFT_NAME(unblockMembers(ids:completion:));
+
+/// Join the public channel.
+/// @param completion The handler block to execute.
+- (void)joinWithCompletion:(nonnull SCTChannelCompletion)completion
+NS_SWIFT_NAME(join(completion:));
 
 @end
 
