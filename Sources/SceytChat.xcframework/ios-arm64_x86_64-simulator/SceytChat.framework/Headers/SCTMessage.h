@@ -10,10 +10,11 @@
 
 @class SCTUser;
 @class SCTReaction;
-@class SCTReactionScore;
-@class SCTMessageMarkerCount;
+@class SCTReactionTotal;
+@class SCTMarkerTotal;
 @class SCTAttachment;
 @class SCTForwardingDetails;
+@class SCTMessageBodyAttribute;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,11 +30,26 @@ NS_SWIFT_NAME(Message)
 /// The unique Channel id.
 @property (nonatomic, readonly) SCTChannelId channelId;
 
-/// The message body.
-@property (nonatomic, readonly, nonnull) NSString *body;
-
 /// The message custom body.
 @property (nonatomic, readonly, nonnull) NSString *type;
+
+/// The message update type.
+@property (nonatomic, readonly) SCTMessageState state;
+
+/// The message current status.
+@property (nonatomic, readonly) SCTMessageDeliveryStatus deliveryStatus;
+
+/// The transient message. If  the value is `YES` the message will no store in the server
+@property (nonatomic, readonly) BOOL transient;
+
+/// The silent message. If the value is `YES` the server will not send a push notification
+@property (nonatomic, readonly) BOOL silent;
+
+/// Show the message is incoming or outgoing.
+@property (nonatomic, readonly) BOOL incoming;
+
+/// The message body.
+@property (nonatomic, readonly, nonnull) NSString *body;
 
 /// The message custom metadata.
 @property (nonatomic, readonly, nullable) NSString *metadata;
@@ -44,41 +60,29 @@ NS_SWIFT_NAME(Message)
 /// The message updated date.
 @property (nonatomic, readonly, nullable) NSDate *updatedAt;
 
-/// Show the message is incoming or outgoing.
-@property (nonatomic, readonly) BOOL incoming;
+/// The message updated date.
+@property (nonatomic, readonly, nullable) NSDate *autoDeleteDate;
 
-/// The transient message. If  the value is `YES` the message will no store in the server
-@property (nonatomic, readonly) BOOL transient;
-
-/// The silent message. If the value is `YES` the server will not send a push notification
-@property (nonatomic, readonly) BOOL silent;
-
-/// The message owner.
+/// The message sender.
 @property (nonatomic, readonly, nonnull) SCTUser *user;
-
-/// The message update type.
-@property (nonatomic, readonly) SCTMessageState state;
-
-/// The message current status.
-@property (nonatomic, readonly) SCTMessageDeliveryStatus deliveryStatus;
 
 /// The message attachments.
 @property (nonatomic, readonly, nullable) NSArray<SCTAttachment*> *attachments;
 
 /// The  list of reactions to the message left by the current user.
-@property (nonatomic, readonly, nullable) NSArray<SCTReaction *> *selfReactions;
+@property (nonatomic, readonly, nullable) NSArray<SCTReaction *> *userReactions;
 
 /// The reaction keys and scores to the message created by any user.
-@property (nonatomic, readonly, nullable) NSArray<SCTReactionScore *> *reactionScores;
+@property (nonatomic, readonly, nullable) NSArray<SCTReactionTotal *> *reactionTotals;
 
 /// The list of users who was mentioned together with the message.
 @property (nonatomic, readonly, nullable) NSArray <SCTUser *> *mentionedUsers;
 
 /// The marker names and count to the message marked by any user.
-@property (nonatomic, readonly, nullable) NSArray <SCTMessageMarkerCount *> *markerCount;
+@property (nonatomic, readonly, nullable) NSArray <SCTMarkerTotal *> *markerTotals;
 
 /// The  list of marker names to the message left by the current user.
-@property (nonatomic, readonly, nullable) NSArray<NSString *> *selfMarkerNames;
+@property (nonatomic, readonly, nullable) NSArray<SCTMarker *> *userMarkers;
 
 /// Represents target user ids to mention when success to send the message.
 /// This value is valid only when the message is a pending or failed message.
@@ -86,10 +90,13 @@ NS_SWIFT_NAME(Message)
 @property (nonatomic, readonly, nullable) NSArray<SCTUserId> *requestedMentionUserIds;
 
 /// The parent message of replied message
-@property (nonatomic, readonly, nullable) SCTMessage *parent;
+@property (nonatomic, readonly, nullable) SCTMessage *parentMessage;
 
 /// The main message which forwarded
 @property (nonatomic, readonly, nullable) SCTForwardingDetails *forwardingDetails;
+
+/// The message body attributes.
+@property (nonatomic, readonly, nullable) NSArray<SCTMessageBodyAttribute*> *bodyAttributes;
 
 @property (nonatomic, readonly) BOOL repliedInThread;
 
@@ -149,6 +156,11 @@ NS_SWIFT_NAME(mentionUserIds(_:));
 /// @param mentionUsers The users to mention.
 - (instancetype)mentionUsers:(nonnull NSArray<SCTUser *> *)mentionUsers
 NS_SWIFT_NAME(mentionUserIds(_:));
+
+/// User body attributes to format message body.
+/// @param bodyAttributes The message body attributes.
+- (instancetype)bodyAttributes:(nonnull NSArray<SCTMessageBodyAttribute *> *)bodyAttributes
+NS_SWIFT_NAME(bodyAttributes(_:));
 
 /// Use id for reply the message.
 /// @param id The parent message id.

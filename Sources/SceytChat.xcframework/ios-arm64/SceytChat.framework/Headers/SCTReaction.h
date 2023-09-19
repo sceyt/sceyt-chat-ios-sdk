@@ -42,14 +42,17 @@ NS_SWIFT_NAME(Reaction)
 
 @end
 
-NS_SWIFT_NAME(ReactionScore)
-@interface SCTReactionScore : NSObject
+NS_SWIFT_NAME(ReactionTotal)
+@interface SCTReactionTotal : NSObject
 
 /// The reaction key.
 @property (nonatomic, readonly, nonnull) NSString *key;
 
 /// The total scores of the reaction.
 @property (nonatomic, readonly) NSUInteger score;
+
+/// The total count of the reaction.
+@property (nonatomic, readonly) NSUInteger count;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;

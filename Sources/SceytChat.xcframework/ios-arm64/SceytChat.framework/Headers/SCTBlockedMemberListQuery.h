@@ -49,8 +49,8 @@ NS_SWIFT_NAME(BlockedMemberListQuery.Builder)
 - (instancetype)init NS_UNAVAILABLE;
 
 /// Create BlockedMemberListQuery builder.
-/// @param channelId The group channel (`SCTPrivateChannel` or `SCTPublicChannel`) id for get blocked members of the channel.
-- (instancetype)initWithGroupChannelId:(SCTChannelId)channelId;
+/// @param channelId The channel  id for get blocked members of the channel.
+- (instancetype)initWithChannelId:(SCTChannelId)channelId;
 
 /// Sets the number of members per page.
 /// @param limit The query limit per request.

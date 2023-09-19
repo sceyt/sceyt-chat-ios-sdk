@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTPresence;
 @class SCTContact;
 @class SCTContactDiscovery;
+@class SCTChannelQueryParam;
 @protocol SCTChannelDelegate;
 @protocol SCTChatClientDelegate;
 
@@ -156,7 +157,7 @@ NS_SWIFT_NAME(update(token:completion:));
 /// @param lastName The last name.
 /// @param avatarUrl The avatar url.
 /// @param completion The completion handler to call after execution.
-- (void)setUserProfileWithFirstName:(nullable NSString *)firstName lastName:(nullable NSString *)lastName avatarUrl:(nullable NSURL *)avatarUrl metadata:(nullable NSString *)metadata completion:(SCTUserProfileCompletion)completion
+- (void)setUserProfileWithFirstName:(nullable NSString *)firstName lastName:(nullable NSString *)lastName avatarUrl:(nullable NSString *)avatarUrl metadata:(nullable NSString *)metadata completion:(SCTUserProfileCompletion)completion
 NS_SWIFT_NAME(setProfile(firstName:lastName:avatarUrl:metadata:completion:));
 
 /// Sets the current user presence.
@@ -206,9 +207,10 @@ NS_SWIFT_NAME(getTotalUnreadCount(completion:));
 
 /// Gets the channel with given id.
 /// @param channelId The channel id.
+/// @param param The channel request param.
 /// @param completion The completion handler to call after execution.
-- (void)getChannelWithId:(SCTChannelId)channelId completion:(nonnull SCTChannelCompletion)completion
-NS_SWIFT_NAME(getChannel(id:completion:));
+- (void)getChannelWithId:(SCTChannelId)channelId param:(nonnull SCTChannelQueryParam*)param completion:(nonnull SCTChannelCompletion)completion
+NS_SWIFT_NAME(getChannel(id:param:completion:));
 
 /// Registers the current device to receive remote notifications.
 /// @param deviceToken A globally unique token that identifies this device to APNs.
@@ -298,6 +300,8 @@ NS_SWIFT_NAME(getAllContacts(completion:));
 NS_SWIFT_NAME(deleteContacts(ids:completion:));
 - (void)deleteAllContactsWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(deleteAllContacts(completion:));
+
++ (void)setLogFilePath:(NSString *)path;
 
 @end
 

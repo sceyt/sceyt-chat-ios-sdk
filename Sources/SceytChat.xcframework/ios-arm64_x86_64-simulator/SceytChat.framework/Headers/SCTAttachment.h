@@ -16,6 +16,9 @@ NS_SWIFT_NAME(Attachment)
 /// The unique attachment id.
 @property (nonatomic, readonly) SCTAttachmentId id;
 
+/// Temporary id for checking ACK.
+@property (nonatomic, readonly) NSInteger tid;
+
 /// The owner message id.
 @property (nonatomic, readonly) SCTMessageId messageId;
 
@@ -41,7 +44,7 @@ NS_SWIFT_NAME(Attachment)
 @property (nonatomic, readonly, nullable) NSString *metadata;
 
 /// The  file size.
-@property (nonatomic, readonly) NSUInteger fileSize;
+@property (nonatomic, readonly) NSUInteger size;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
@@ -81,8 +84,8 @@ NS_SWIFT_NAME(Attachment.Builder)
 - (instancetype)metadata:(nonnull NSString *)metadata;
 
 /// Set remote uploaded file size
-/// @param fileSize The attachment fileSize
-- (instancetype)fileSize:(NSUInteger)fileSize;
+/// @param size The attachment size
+- (instancetype)size:(NSUInteger)size;
 
 /// Built an Attachment.
 - (SCTAttachment *)build;
