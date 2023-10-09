@@ -61,7 +61,7 @@ NS_SWIFT_NAME(Message)
 @property (nonatomic, readonly, nullable) NSDate *updatedAt;
 
 /// The message updated date.
-@property (nonatomic, readonly, nullable) NSDate *autoDeleteDate;
+@property (nonatomic, readonly, nullable) NSDate *autoDeleteAt;
 
 /// The message sender.
 @property (nonatomic, readonly, nonnull) SCTUser *user;

@@ -112,11 +112,15 @@ NS_SWIFT_NAME(markMessages(markerName:ids:completion:));
 
 /// Send start typing message.
 - (void)startTyping
-NS_SWIFT_NAME(startTyping());
+NS_SWIFT_NAME(startTyping()) __attribute((deprecated("use sendEvent:event.")));
 
 /// Send stop typing message.
 - (void)stopTyping
-NS_SWIFT_NAME(stopTyping());
+NS_SWIFT_NAME(stopTyping()) __attribute((deprecated("use sendEvent:event.")));
+
+/// Send stop typing message.
+- (void)sendEvent:(nonnull NSString*)event
+NS_SWIFT_NAME(sendEvent(_:));
 
 /// Send a message.
 /// @param message The message which will be send.
@@ -159,9 +163,16 @@ NS_SWIFT_NAME(deleteAllMessages(forEveryone:completion:));
 
 /// Gets the messages with given ids.
 /// @param messageIds The message ids
-/// @param completion The completion handler to call after execution.
+/// @param completion The handler block to execute.
 - (void)getMessagesWithId:(NSArray<NSNumber *> *)messageIds completion:(SCTMessageListCompletion)completion
 NS_SWIFT_NAME(getMessages(ids:completion:));
+
+
+/// Set message retention period
+/// @param timeInterval after the period the messages will be deleted
+/// @param completion The handler block to execute.
+- (void)setMessageRetentionPeriod:(NSTimeInterval)timeInterval completion:(SCTChannelCompletion)completion
+NS_SWIFT_NAME(setMessageRetentionPeriod(timeInterval:completion:));
 
 /// Add reaction to the message.
 /// @param messageId  Id of the message to which the reaction will be added.

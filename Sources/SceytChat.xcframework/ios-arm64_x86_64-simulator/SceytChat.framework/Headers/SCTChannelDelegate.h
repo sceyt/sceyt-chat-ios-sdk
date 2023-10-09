@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTChannel;
 @class SCTMessage;
 @class SCTReaction;
+@class SCTChannelEvent;
 @class SCTReactionEvent;
 @class SCTMessageListMarker;
 
@@ -189,7 +190,14 @@ NS_SWIFT_NAME(channel(_:user:message:didDelete:));
 /// @param channel The channel where the user starts typing.
 /// @param member The user who typing now.
 - (void)channel:(nonnull SCTChannel *)channel memberDidStartTyping:(nonnull SCTMember *)member
-NS_SWIFT_NAME(channel(_:didStartTyping:));
+NS_SWIFT_NAME(channel(_:didStartTyping:)) __attribute((deprecated("use channel:didReceiveChannelEvent.")));;
+
+/// A callback when a user send an event.
+/// @param channel The channel where the user sends an event.
+/// @param channelEvent The event
+- (void)channel:(nonnull SCTChannel *)channel didReceiveChannelEvent:(nonnull SCTChannelEvent *)channelEvent
+NS_SWIFT_NAME(channel(_:didReceive:));
+
 
 /// A callback when a user stops typing.
 /// @param channel The channel where the user stops typing.
