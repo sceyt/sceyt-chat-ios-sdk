@@ -34,6 +34,7 @@
 @class SCTContactDiscovery;
 @class SCTContact;
 @class SCTUserSettings;
+@class SCTSignal;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -109,7 +110,6 @@ typedef NS_ENUM(NSInteger, SCTChannelListOrder) {
 typedef NS_ENUM(NSInteger, SCTChannelListFilterKey) {
     SCTChannelListFilterSubject,
     SCTChannelListFilterURI,
-    SCTChannelListFilterLabel,
     SCTChannelListFilterMember
 }NS_SWIFT_NAME(ChannelListFilterKey);
 
@@ -152,6 +152,7 @@ typedef NS_ENUM(NSInteger, SCTMessageState) {
     SCTMessageStateUnmodified,
     SCTMessageStateEdited,
     SCTMessageStateDeleted,
+    SCTMessageStateModerated,
 }NS_SWIFT_NAME(MessageState);
 
 typedef NS_ENUM(NSInteger, SCTLogLevel) {
@@ -179,6 +180,13 @@ typedef NS_ENUM(NSInteger, SCTPrivacyKey) {
     SCTPrivacyKeyForwardMessages,
     SCTPrivacyKeyReadReceipts,
 }NS_SWIFT_NAME(PrivacyKey);
+
+typedef NS_ENUM(NSInteger, SCTSignalType) {
+    SCTSignalTypeP2PCall,
+    SCTSignalTypeChannelCall,
+    SCTSignalTypeCustomGroupCall,
+}NS_SWIFT_NAME(SignalType);
+
 
 typedef void(^SCTCompletion)(SCTError * _Nullable)
 NS_SWIFT_NAME(Completion);
@@ -238,6 +246,8 @@ typedef void(^SCTContactsCompletion)(NSArray <SCTContact *> * _Nullable contacts
 NS_SWIFT_NAME(ContactsCompletion);
 typedef void(^SCTUserSettingsCompletion)(SCTUserSettings * _Nullable settings, SCTError *_Nullable)
 NS_SWIFT_NAME(UserSettingsCallback);
+typedef void(^SCTSignalCompletion)(SCTSignal * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(SignalCompletion);
 
 #endif /* SCTTypes_h */
 

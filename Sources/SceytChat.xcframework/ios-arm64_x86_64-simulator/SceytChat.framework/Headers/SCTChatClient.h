@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTUserSettings;
 @class SCTPresence;
 @class SCTContact;
+@class SCTSignal;
 @class SCTContactDiscovery;
 @class SCTChannelQueryParam;
 @protocol SCTChannelDelegate;
@@ -300,6 +301,10 @@ NS_SWIFT_NAME(getAllContacts(completion:));
 NS_SWIFT_NAME(deleteContacts(ids:completion:));
 - (void)deleteAllContactsWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(deleteAllContacts(completion:));
+
+
+- (void)sendSignal:(nonnull SCTSignal *)signal completion:(nonnull SCTSignalCompletion)completion
+NS_SWIFT_NAME(sendSignal(_:completion:));
 
 + (void)setLogFilePath:(NSString *)path;
 

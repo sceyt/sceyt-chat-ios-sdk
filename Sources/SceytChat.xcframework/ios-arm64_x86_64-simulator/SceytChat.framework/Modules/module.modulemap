@@ -1,6 +1,6 @@
 framework module SceytChat {
   umbrella header "SceytChat.h"
-
   export *
+
   module * { export * }
 }
