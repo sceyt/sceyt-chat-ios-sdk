@@ -13,14 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 NS_SWIFT_NAME(MessageMarkerListQuery)
 @interface SCTMessageMarkerListQuery : NSObject
 
-/// The channel id.
-@property (nonatomic, readonly) SCTChannelId channelId;
-
 /// The message id.
 @property (nonatomic, readonly) SCTMessageId messageId;
 
-/// The marker names.
-@property (nonatomic, readonly) NSArray<NSString*>* markerNames;
+/// The marker name.
+@property (nonatomic, readonly) NSString * markerName;
 
 /// Sets the number of markers per page.
 @property (nonatomic) NSUInteger limit;
@@ -48,18 +45,13 @@ NS_SWIFT_NAME(MessageMarkerListQuery.Builder)
 - (instancetype)init NS_UNAVAILABLE;
 
 /// Create MessageMarkerListQuery builder.
-/// @param channelId The channel id
 /// @param messageId The message id of the channel
-/// @param markerNames The requested marker
-- (instancetype)initWithChannelId:(SCTChannelId)channelId messageId:(SCTMessageId)messageId markerNames:(NSArray<NSString*>*)markerNames;
+/// @param markerName The requested marker
+- (instancetype)initWithMessageId:(SCTMessageId)messageId markerName:(NSString *)markerName;
 
 /// Sets the number of markers per page.
 /// @param limit The query limit per request.
 - (instancetype)limit:(NSUInteger)limit;
-
-/// The offset of markers list query.
-/// @param startAt The first query date.
-- (instancetype)startAt:(NSDate *)startAt;
 
 /// Built a MessageMarkerListQuery.
 - (SCTMessageMarkerListQuery *)build;
