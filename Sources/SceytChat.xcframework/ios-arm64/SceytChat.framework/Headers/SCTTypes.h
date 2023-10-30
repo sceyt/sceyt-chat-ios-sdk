@@ -224,7 +224,7 @@ typedef void(^SCTMessageListQueryByTypeCompletion)(SCTMessageListQueryByType * _
 NS_SWIFT_NAME(MessageListQueryByTypeCompletion);
 typedef void(^SCTAttachmentListQueryCompletion)(SCTAttachmentListQuery * _Nonnull, NSArray<SCTAttachment *> * _Nullable, NSArray <SCTUser *> * _Nullable ownerUsers, SCTError * _Nullable)
 NS_SWIFT_NAME(AttachmentListQueryCompletion);
-typedef void(^SCTMessageMarkerListQueryCompletion)(SCTMessageMarkerListQuery * _Nonnull, NSDictionary <NSString *, NSArray<SCTMarker*> *> * _Nullable newLoadedMarkers, SCTError *_Nullable)
+typedef void(^SCTMessageMarkerListQueryCompletion)(SCTMessageMarkerListQuery * _Nonnull, NSArray<SCTMarker *> * _Nullable newLoadedMarkers, SCTError *_Nullable)
 NS_SWIFT_NAME(MessageMarkerListQueryCompletion);
 typedef void(^SCTChannelListQueryCompletion)(SCTChannelListQuery * _Nonnull, NSArray <SCTChannel *> * _Nullable newLoadedChannels, SCTError *_Nullable)
 NS_SWIFT_NAME(ChannelListQueryCompletion);
