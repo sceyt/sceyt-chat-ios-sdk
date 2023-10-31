@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/sceyt/sceyt-chat-ios-sdk.git", :tag => "v#{s.version}" }
   s.requires_arc = true
   s.platform = :ios, "10.0"
-  s.vendored_frameworks = 'SceytChat.xcframework'
+  s.vendored_frameworks = 'Sources/SceytChat.xcframework'
   s.ios.frameworks = ["Foundation", "SystemConfiguration"]
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
