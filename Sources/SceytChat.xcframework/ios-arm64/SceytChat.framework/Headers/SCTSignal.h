@@ -60,8 +60,10 @@ NS_SWIFT_NAME(Signal.Participant)
 @property (nonatomic, readonly, nullable) NSString *data;
 @property (nonatomic, readonly) BOOL presenter;
 @property (nonatomic, readonly) BOOL videoEnabled;
+@property (nonatomic, readonly) BOOL muted;
+@property (nonatomic, readonly) BOOL onHold;
 
-- (instancetype)initWithId:(nonnull NSString *)id videoEnabled:(BOOL)videoEnabled data:(nullable NSString *)data presenter:(BOOL)presenter;
+- (instancetype)initWithId:(nonnull NSString *)id videoEnabled:(BOOL)videoEnabled data:(nullable NSString *)data presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 

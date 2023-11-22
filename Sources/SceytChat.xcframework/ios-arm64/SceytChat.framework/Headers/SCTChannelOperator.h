@@ -70,6 +70,16 @@ NS_SWIFT_NAME(block(completion:));
 - (void)unblockWithCompletion:(nonnull SCTCompletion)completion
 NS_SWIFT_NAME(unblock(completion:));
 
+/// Pin the channel.
+/// @param completion The handler block to execute.
+- (void)pinWithCompletion:(nonnull SCTChannelCompletion)completion
+NS_SWIFT_NAME(pin(completion:));
+
+/// Unpin the Channel
+/// @param completion The handler block to execute.
+- (void)unpinWithCompletion:(nonnull SCTChannelCompletion)completion
+NS_SWIFT_NAME(unpin(completion:));
+
 /// Mark channel as read for current user.
 /// @param completion The handler block to execute.
 - (void)markAsReadWithCompletion:(nullable SCTChannelCompletion)completion
