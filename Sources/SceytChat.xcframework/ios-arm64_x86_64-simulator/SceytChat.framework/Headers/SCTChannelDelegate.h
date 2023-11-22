@@ -55,7 +55,7 @@ NS_SWIFT_NAME(channelDidHide(_:));
 - (void)channelDidUnhide:(nonnull SCTChannel *)channel
 NS_SWIFT_NAME(channelDidUnhide(_:));
 
-// A callback when a channel was muted from the another device of the current user.
+/// A callback when a channel was muted from the another device of the current user.
 /// @param channel The muted channel.
 - (void)channelDidMute:(nonnull SCTChannel *)channel
 NS_SWIFT_NAME(channelDidMute(_:));
@@ -64,6 +64,16 @@ NS_SWIFT_NAME(channelDidMute(_:));
 /// @param channel The unmuted channel.
 - (void)channelDidUnmute:(nonnull SCTChannel *)channel
 NS_SWIFT_NAME(channelDidUnmute(_:));
+
+/// A callback when a channel was pinned from the another device of the current user.
+/// @param channel The pinned channel.
+- (void)channelDidPin:(nonnull SCTChannel *)channel
+NS_SWIFT_NAME(channelDidPin(_:));
+
+/// A callback when a channel was unpinned from the another device of the current user.
+/// @param channel The unpinned channel.
+- (void)channelDidUnpin:(nonnull SCTChannel *)channel
+NS_SWIFT_NAME(channelDidUnpin(_:));
 
 /// A callback when a channel was blocked from the another device of the current user.
 /// @param channel The blocked channel.
