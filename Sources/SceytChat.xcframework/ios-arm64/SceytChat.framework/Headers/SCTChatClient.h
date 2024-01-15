@@ -281,6 +281,11 @@ NS_SWIFT_NAME(reportUser(id:messageIds:report:description:completion:));
 + (nonnull SCTMessage *)sendMessage:(nonnull SCTMessage *)message toUser:(SCTUserId)userId completion:(nonnull SCTMessageCompletion)completion
 NS_SWIFT_NAME(sendMessage(_:to:completion:));
 
+/// Fetches the details of the web content at the specified URL.
+/// @param link The URL of the web content to retrieve details for.
+/// @param completion The handler block to execute.
+- (void)loadLinkDetails:(NSURL *)link completion:(nonnull SCTLinkDetailsCompletion)completion
+NS_SWIFT_NAME(loadLinkDetails(for:completion:));
 
 - (void)addContactDiscoveries:(NSArray<SCTContactDiscovery*>*)contactDiscoveries completion:(nullable SCTContactsDiscoveryCompletion)completion
 NS_SWIFT_NAME(addContactDiscoveries(_:completion:));
