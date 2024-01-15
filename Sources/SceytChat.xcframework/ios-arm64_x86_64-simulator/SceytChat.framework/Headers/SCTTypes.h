@@ -35,6 +35,7 @@
 @class SCTContact;
 @class SCTUserSettings;
 @class SCTSignal;
+@class SCTLinkDetails;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -248,6 +249,8 @@ typedef void(^SCTUserSettingsCompletion)(SCTUserSettings * _Nullable settings, S
 NS_SWIFT_NAME(UserSettingsCallback);
 typedef void(^SCTSignalCompletion)(SCTSignal * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(SignalCompletion);
+typedef void(^SCTLinkDetailsCompletion)(SCTLinkDetails * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(LinkDetailsCompletion);
 
 #endif /* SCTTypes_h */
 

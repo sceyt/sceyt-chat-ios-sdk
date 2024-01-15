@@ -200,7 +200,7 @@ NS_SWIFT_NAME(channel(_:user:message:didDelete:));
 /// @param channel The channel where the user starts typing.
 /// @param member The user who typing now.
 - (void)channel:(nonnull SCTChannel *)channel memberDidStartTyping:(nonnull SCTMember *)member
-NS_SWIFT_NAME(channel(_:didStartTyping:)) __attribute((deprecated("use channel:didReceiveChannelEvent.")));;
+NS_SWIFT_NAME(channel(_:didStartTyping:)) __attribute((deprecated("use channel:didReceiveChannelEvent.")));
 
 /// A callback when a user send an event.
 /// @param channel The channel where the user sends an event.
@@ -213,7 +213,7 @@ NS_SWIFT_NAME(channel(_:didReceive:));
 /// @param channel The channel where the user stops typing.
 /// @param member The user who stoped typing.
 - (void)channel:(nonnull SCTChannel *)channel memberDidStopTyping:(nonnull SCTMember *)member
-NS_SWIFT_NAME(channel(_:didStopTyping:));
+NS_SWIFT_NAME(channel(_:didStopTyping:)) __attribute((deprecated("use channel:didReceiveChannelEvent.")));
 
 @end
 

@@ -21,6 +21,7 @@ NS_SWIFT_NAME(Signal)
 @property (nonatomic, readonly, nonnull) NSString *sessionId;
 @property (nonatomic, readonly) SCTSignalType type;
 @property (nonatomic, readonly, nonnull) NSString *roomId;
+@property (nonatomic, readonly, nonnull) NSString *roomOwner;
 
 @property (nonatomic, readonly, nonnull) NSString *signal;
 @property (nonatomic, readonly) NSInteger code;
@@ -35,6 +36,8 @@ NS_SWIFT_NAME(Signal)
 @property (nonatomic, readonly) BOOL presenter;
 
 @property (nonatomic, readonly, nullable) NSArray<SCTSignalParticipant*> *participants;
+@property (nonatomic, readonly, nullable) NSArray<SCTSignalParticipant*> *invitedParticipants;
+
 @property (nonatomic, readonly, nonnull) NSString *data;
 @property (nonatomic, readonly) BOOL videoEnabled;
 
@@ -58,6 +61,7 @@ NS_SWIFT_NAME(Signal.Participant)
 @interface SCTSignalParticipant : NSObject
 @property (nonatomic, readonly, nonnull) NSString *id;
 @property (nonatomic, readonly, nullable) NSString *data;
+@property (nonatomic, readonly) BOOL owner;
 @property (nonatomic, readonly) BOOL presenter;
 @property (nonatomic, readonly) BOOL videoEnabled;
 @property (nonatomic, readonly) BOOL muted;
