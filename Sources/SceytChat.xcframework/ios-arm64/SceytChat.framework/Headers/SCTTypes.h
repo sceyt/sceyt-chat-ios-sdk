@@ -36,6 +36,8 @@
 @class SCTUserSettings;
 @class SCTSignal;
 @class SCTLinkDetails;
+@class SCTPrivacyException;
+@class SCTPrivacyExceptionListQuery;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -92,6 +94,12 @@ typedef NS_ENUM(NSInteger, SCTMessageQueryDirection) {
     SCTMessageQueryDirectionPrevious,
     SCTMessageQueryDirectionNear,
 }NS_SWIFT_NAME(MessageQueryDirection);
+
+typedef NS_ENUM(NSInteger, SCTMessageQuerySearchKey) {
+    SCTMessageQuerySearchKeyBody,
+    SCTMessageQuerySearchKeyType,
+    SCTMessageQuerySearchKeyAttachmentType,
+}NS_SWIFT_NAME(MessageQuerySearchKey);
 
 typedef NS_ENUM(NSInteger, SCTQueryOrderType) {
     SCTQueryOrderChronological,
@@ -165,12 +173,12 @@ typedef NS_ENUM(NSInteger, SCTLogLevel) {
     SCTLogLevelVerbose
 }NS_SWIFT_NAME(LogLevel);
 
-typedef NS_ENUM(NSInteger, SCTPrivacyValue) {
-    SCTPrivacyValueDefault,
-    SCTPrivacyValueAnybody,
-    SCTPrivacyValueNobody,
-    SCTPrivacyValueContacts,
-}NS_SWIFT_NAME(PrivacyValue);
+typedef NS_ENUM(NSInteger, SCTPrivacyAccess) {
+    SCTPrivacyAccessDefault,
+    SCTPrivacyAccessAnybody,
+    SCTPrivacyAccessNobody,
+    SCTPrivacyAccessContacts,
+}NS_SWIFT_NAME(PrivacyAccess);
 
 typedef NS_ENUM(NSInteger, SCTPrivacyKey) {
     SCTPrivacyKeyLastActiveAt,
@@ -180,7 +188,13 @@ typedef NS_ENUM(NSInteger, SCTPrivacyKey) {
     SCTPrivacyKeyAddToChannels,
     SCTPrivacyKeyForwardMessages,
     SCTPrivacyKeyReadReceipts,
+    SCTPrivacyKeyCall,
 }NS_SWIFT_NAME(PrivacyKey);
+
+typedef NS_ENUM(NSInteger, SCTPrivacyType) {
+    SCTPrivacyTypeInclusion,
+    SCTPrivacyTypeExclusion,
+}NS_SWIFT_NAME(PrivacyType);
 
 typedef NS_ENUM(NSInteger, SCTSignalType) {
     SCTSignalTypeP2PCall,
@@ -241,6 +255,13 @@ typedef void(^SCTBlockedUserListQueryCompletion)(SCTBlockedUserListQuery * _Nonn
 NS_SWIFT_NAME(BlockedUserListQueryCompletion);
 typedef void(^SCTBlockedMemberListQueryCompletion)(SCTBlockedMemberListQuery * _Nonnull, NSArray <SCTMember *> * _Nullable newLoadedMembers, SCTError *_Nullable)
 NS_SWIFT_NAME(BlockedMemberListQueryCompletion);
+typedef void(^SCTPrivacyExceptionListCompletion)(SCTPrivacyExceptionListQuery * _Nonnull, NSArray<SCTPrivacyException *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PrivacyExceptionListCompletion);
+typedef void(^SCTPrivacyExceptionUserListCompletion)(SCTPrivacyExceptionListQuery * _Nonnull, NSArray<SCTUserId> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PrivacyExceptionUserListCompletion);
+typedef void(^SCTPrivacyExceptionUpdateUserListCompletion)(SCTPrivacyExceptionListQuery * _Nonnull, NSArray<SCTUserId> * _Nullable added, NSArray<SCTUserId> * _Nullable removed, SCTError * _Nullable)
+NS_SWIFT_NAME(PrivacyExceptionUpdateUserListCompletion);
+
 typedef void(^SCTContactsDiscoveryCompletion)(NSArray <SCTContactDiscovery *> * _Nullable discoveries, NSArray <SCTContact *> * _Nullable contacts, SCTError *_Nullable)
 NS_SWIFT_NAME(ContactsDiscoveryCompletion);
 typedef void(^SCTContactsCompletion)(NSArray <SCTContact *> * _Nullable contacts, SCTError *_Nullable)

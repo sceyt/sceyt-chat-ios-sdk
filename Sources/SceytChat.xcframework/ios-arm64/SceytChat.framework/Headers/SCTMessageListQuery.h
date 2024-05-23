@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "SCTTypes.h"
 
+@class SCTMessageListQuerySearchField;
+
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(MessageListQuery)
@@ -97,6 +99,10 @@ NS_SWIFT_NAME(MessageListQuery.Builder)
 /// @param limit The query limit per request.
 - (instancetype)limit:(NSUInteger)limit;
 
+/// Search messages by fields. Needs to call `loadNext:`
+/// @param fields list of search fields.
+- (instancetype)searchFields:(NSArray <SCTMessageListQuerySearchField*> *)fields;
+
 /// Reverse the got messages.
 /// @param reverse If YES, the latest message is the index 0.
 - (instancetype)reversed:(BOOL)reverse;
@@ -104,6 +110,15 @@ NS_SWIFT_NAME(MessageListQuery.Builder)
 /// Built a MessageListQuery.
 - (SCTMessageListQuery *)build;
 
+@end
+
+NS_SWIFT_NAME(MessageListQuery.SearchField)
+@interface SCTMessageListQuerySearchField : NSObject
+@property (nonatomic) SCTMessageQuerySearchKey key;
+@property (nonatomic) SCTSearchQueryOperator searchOperator;
+@property (nonatomic) NSString *searchWord;
+
+- (instancetype)initWithKey:(SCTMessageQuerySearchKey)key searchOperator:(SCTSearchQueryOperator)searchOperator searchWord:(NSString *)searchWord;
 @end
 
 NS_ASSUME_NONNULL_END

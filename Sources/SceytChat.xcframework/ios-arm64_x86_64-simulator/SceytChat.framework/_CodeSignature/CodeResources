@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/SCTChannelEvent.h</key>
 		<data>
-		gBAOEAOUcHQhI/kPv/SELV4XPlk=
+		gAAojFcjTyQr0I+PjbDKeIaFUgA=
 		</data>
 		<key>Headers/SCTChannelListQuery.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		LRYfdllv2BDMJ7CKV/ftJwiAtss=
+		FUMTFhqvbUebzaBmDAb/MaLBR6Y=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Headers/SCTError.h</key>
 		<data>
-		J3CzMY7zCH6z9eCWbeYpw8/+xek=
+		5dG0f2O3XA7KUyCb8BuEfxrYkUU=
 		</data>
 		<key>Headers/SCTForwardingDetails.h</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>Headers/SCTLinkDetails.h</key>
 		<data>
-		dRHWxvwpcmYXP/No2zEQb8JNE8U=
+		attHF3DFEo1Vo0lUM678UUQ2zwM=
 		</data>
 		<key>Headers/SCTMarker.h</key>
 		<data>
@@ -94,15 +94,11 @@
 		</data>
 		<key>Headers/SCTMessageBodyAttribute.h</key>
 		<data>
-		kw/PrGj/n9EcRgQOdn8KoeZRBpg=
+		aaIdK3ccPhcHPgFczhXbo9r/eBk=
 		</data>
 		<key>Headers/SCTMessageListQuery.h</key>
 		<data>
-		YLEWsVB5rdPzroWbJOhtPqzAi+U=
-		</data>
-		<key>Headers/SCTMessageListQueryByType.h</key>
-		<data>
-		NSHPaIEW8FX6nbv9I5JYR+XWhHk=
+		KU0uwN+bjq/Sv+FwQcQU8RwCsww=
 		</data>
 		<key>Headers/SCTMessageMarkerListQuery.h</key>
 		<data>
@@ -110,15 +106,23 @@
 		</data>
 		<key>Headers/SCTMute.h</key>
 		<data>
-		uat3smTS+apcxh84cECgbFCMQ+8=
+		V3tjRRbvfXcwbg6K6ihbjUusBnM=
 		</data>
 		<key>Headers/SCTPresence.h</key>
 		<data>
 		mNKAP5e+hPeaSZ/8Ln/s+uGHdRs=
 		</data>
+		<key>Headers/SCTPrivacyException.h</key>
+		<data>
+		oJxi0UhMOqalrak9Tcq6/lTEEHs=
+		</data>
+		<key>Headers/SCTPrivacyExceptionListQuery.h</key>
+		<data>
+		hg+BXy4nSfgg8nKyDGw3kgbhD6I=
+		</data>
 		<key>Headers/SCTPrivacySettings.h</key>
 		<data>
-		c5eCoTr47TCLebjkF8zhmkxA2Bs=
+		2TJth4OYt22euHpjus7pELFU+Xs=
 		</data>
 		<key>Headers/SCTReaction.h</key>
 		<data>
@@ -138,11 +142,11 @@
 		</data>
 		<key>Headers/SCTSignal.h</key>
 		<data>
-		q+2FIhwKCcZhr1vK4MxCIeEsgPo=
+		fWmVgIjs+UGoMuZO9+4gDGEVQyU=
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		LfG1EQ6gC+QIm/N9TQwknV7nzk8=
+		YoPIILNeS8fZ+2sTGSCeOIXTb9o=
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
@@ -154,15 +158,15 @@
 		</data>
 		<key>Headers/SCTUserSettings.h</key>
 		<data>
-		hm0PDRy/GSld8BQlVYWA79CAsHQ=
+		l6cRoQawAVfwW79gXW+LA2tP7H0=
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		knw+jwz9G/smZTHQwSdCmpH7hOM=
+		nY6/YvC4VffLsnDLG6SRPBXCeIM=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		XjY34QUFH/G++ny+eqrmGDwN4mA=
+		FMY6JEbdu1xwszZanFpTBCW0XFQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -232,7 +236,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sOy6+meodF5z9269DvTRG1ItqCTYKfrjUFK4Xa+4N+o=
+			yz6FpuhcWabb7Y/YPAVKUWuz0j9/TagZ2d88mDXTl2s=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelListQuery.h</key>
@@ -260,7 +264,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Chqx8KDP0Y4qnomzVnAI8IEUi5gRZoiTIWNL7LrOH8w=
+			ENzI0lJycRVsYwEDHJ6ZVz6+sg79UBSS18mucT6KBkE=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
@@ -281,7 +285,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TJxqsuvJPhLjBfbgUALWRULE8IVrIiDeFRLpsvpj8YQ=
+			8GaS15ogasJUuS7ag1WYpIcs0aa6x26uXjFkOXLlrXw=
 			</data>
 		</dict>
 		<key>Headers/SCTForwardingDetails.h</key>
@@ -302,7 +306,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/VVhOYEwm15kdshJyd5ES1uZxsiVbua/58CiykwuCX0=
+			LaoxQhFFhVH5Gk0+3wnKWkVNxOQm+C83FbAX0VFB2oA=
 			</data>
 		</dict>
 		<key>Headers/SCTMarker.h</key>
@@ -337,21 +341,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			u6GnbfHHpaFGegvSJgWjWnUNbZVSsDz4yHFsL72Sy/g=
+			OVU4curC8rQsLN3NYkkEqehWDMQR7+6iVI12GEulMQg=
 			</data>
 		</dict>
 		<key>Headers/SCTMessageListQuery.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			5XTG9qDzX6nFZE9sKCg9e3HpjANFL/TZzghesLXdJns=
-			</data>
-		</dict>
-		<key>Headers/SCTMessageListQueryByType.h</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			fiCzK3Qs8WUzQJWcjCG7jPmL/IjM/Wtarbu60Q/9GSA=
+			cCNTTY2MF83J01F71wwv3RcWSpqDrKrmAe/lQdG8qiI=
 			</data>
 		</dict>
 		<key>Headers/SCTMessageMarkerListQuery.h</key>
@@ -365,7 +362,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			s2LjbszBB3Gp1Vm2ChhNDmLPbvLD1QKNNdNR8dnobI4=
+			O5hAePIZb3vKU8gYmKnhEfOhSBLThmdynQ0tN26GTug=
 			</data>
 		</dict>
 		<key>Headers/SCTPresence.h</key>
@@ -375,11 +372,25 @@
 			RZgrk/Jc2oVx3fiPBF1qmNhAXCGYPIgbZuTPH8Lpvc4=
 			</data>
 		</dict>
+		<key>Headers/SCTPrivacyException.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			d3v/CDPujf6b4enAWzfNbgC4Kna+PzicPBEhljVHM5c=
+			</data>
+		</dict>
+		<key>Headers/SCTPrivacyExceptionListQuery.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2U4Cmdv4aFKMwxfHsKxs+sBom/3QYqfY1rIhMt9iDNc=
+			</data>
+		</dict>
 		<key>Headers/SCTPrivacySettings.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			O09xrbnmoe6my+qB8NpmxTEk1VYLQ5i63A/4Vj2/nlw=
+			KNMk8K8VHzzXYcxUcEWJrSa/mswlOK+yWojaAk8pJTM=
 			</data>
 		</dict>
 		<key>Headers/SCTReaction.h</key>
@@ -414,14 +425,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6xEVY2JLDSrj9oqU0lCH8I2qTxZm/D9og7Zf7UFa8GU=
+			LkvNA9rOdImqFnhpTaJ1Y7w8RknxfiVGURGfC9egkSU=
 			</data>
 		</dict>
 		<key>Headers/SCTTypes.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+x8tPBL7YKEYALmVRkWwJBFuKO1lCIrgvcRzyDMjLBc=
+			l0Zg29E3g8HB453mkD843Zz2tK0SLf/+6Isn05gDlTQ=
 			</data>
 		</dict>
 		<key>Headers/SCTUser.h</key>
@@ -442,14 +453,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hJfPB2jD9D66/5bdl6RUraKRlPjfvEc32oMQPiZ/etk=
+			MP1OBqh2N15hwPdU55PyMn9PZkzIf+DPSmASbgrZ+W0=
 			</data>
 		</dict>
 		<key>Headers/SceytChat.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			qoJNc1LNUe5gO5JYGw5X4WG7h2XX/INdZzo4IgUB4Mg=
+			Jj13MXvBS8sQCcKUWAfsBQ8VAIRQ6gk0ksmtW8wYsew=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -168,8 +168,16 @@ NS_SWIFT_NAME(setProfile(firstName:lastName:avatarUrl:metadata:completion:));
 - (void)setPresenceState:(SCTPresenceState)state status:(nullable NSString *)status completion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(setPresence(state:status:completion:));
 
-- (void)updateUserSettings:(SCTUserSettings*)userSettings completion:(nullable SCTCompletion)completion;
-- (void)getUserSettings:(nonnull SCTUserSettingsCompletion)completion;
+/// Updates the settings for the current user.
+/// @param userSettings The current user's settings object containing the updated values that need to be applied.
+/// @param completion The completion handler to call after execution.
+- (void)updateUserSettings:(SCTUserSettings*)userSettings completion:(nullable SCTUserSettingsCompletion)completion
+NS_SWIFT_NAME(update(userSettings:completion:));
+
+/// Retrieves the settings for the current user.
+/// @param completion The completion handler to call after execution.
+- (void)getUserSettings:(nonnull SCTUserSettingsCompletion)completion
+NS_SWIFT_NAME(getUserSettings(_:));
 
 /// Gets users with given user ids.
 /// @param ids The user ids to get.

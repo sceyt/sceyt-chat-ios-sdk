@@ -2,7 +2,6 @@
 //  SCTMessageBodyAttribute.h
 //  SceytChat
 //
-//  Created by Hovsep Keropyan on 13.09.23.
 //  Copyright © 2023 Sceyt LLC. All rights reserved.
 //
 
