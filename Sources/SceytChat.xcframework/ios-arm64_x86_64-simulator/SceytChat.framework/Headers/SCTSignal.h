@@ -2,7 +2,6 @@
 //  SCTSignal.h
 //  SceytChat
 //
-//  Created by Hovsep Keropyan on 23.09.23.
 //  Copyright © 2023 Sceyt LLC. All rights reserved.
 //
 
@@ -66,8 +65,10 @@ NS_SWIFT_NAME(Signal.Participant)
 @property (nonatomic, readonly) BOOL videoEnabled;
 @property (nonatomic, readonly) BOOL muted;
 @property (nonatomic, readonly) BOOL onHold;
+@property (nonatomic, readonly) BOOL screenSharing;
 
-- (instancetype)initWithId:(nonnull NSString *)id videoEnabled:(BOOL)videoEnabled data:(nullable NSString *)data presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold;
+
+- (instancetype)initWithId:(nonnull NSString *)id videoEnabled:(BOOL)videoEnabled data:(nullable NSString *)data presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold screenSharing:(BOOL)screenSharing;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 
