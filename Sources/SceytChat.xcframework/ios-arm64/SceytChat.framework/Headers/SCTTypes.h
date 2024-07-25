@@ -69,6 +69,12 @@ typedef NS_ENUM(NSInteger, SCTPresenceState) {
     SCTPresenceStateDND,
 }NS_SWIFT_NAME(PresenceState);
 
+typedef NS_ENUM(NSUInteger, SCTDeleteMessageType) {
+    SCTDeleteMessageTypeDeleteHard,
+    SCTDeleteMessageTypeDeleteForEveryone,
+    SCTDeleteMessageTypeDeleteForMe
+}NS_SWIFT_NAME(DeleteMessageType);
+
 typedef NS_ENUM(NSInteger, SCTUserState) {
     SCTUserStateActive,
     SCTUserStateInactive,

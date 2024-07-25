@@ -152,17 +152,17 @@ NS_SWIFT_NAME(resendMessage(_:completion:));
 
 /// Delete the message.
 /// @param messageId The message id which will be deleted.
-/// @param forMe If set to YES, only the message for the current user will be deleted.
+/// @param deleteType The type of deleting message.
 /// @param completion The handler block to execute.
-- (void)deleteMessageWithId:(SCTMessageId)messageId forMe:(BOOL)forMe completion:(SCTMessageCompletion)completion
-NS_SWIFT_NAME(deleteMessage(id:forMe:completion:));
+- (void)deleteMessageWithId:(SCTMessageId)messageId type:(SCTDeleteMessageType)deleteType completion:(SCTMessageCompletion)completion
+NS_SWIFT_NAME(deleteMessage(id:type:completion:));
 
 /// Delete the message.
 /// @param message The message which will be deleted.
-/// @param forMe If set to YES, only the message for the current user will be deleted.
+/// @param deleteType The type of deleting message.
 /// @param completion The handler block to execute.
-- (void)deleteMessage:(nonnull SCTMessage *)message forMe:(BOOL)forMe completion:(nonnull SCTMessageCompletion)completion
-NS_SWIFT_NAME(deleteMessage(_:forMe:completion:));
+- (void)deleteMessage:(nonnull SCTMessage *)message type:(SCTDeleteMessageType)deleteType completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(deleteMessage(_:type:completion:));
 
 
 /// Delete all messages from the.

@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
-		OBRq7mEubcT5Z/Z92G95IgqGeFE=
+		ooAwLti+rSO/UeU458yGY+RJfIQ=
 		</data>
 		<key>Headers/SCTChannelQueryParam.h</key>
 		<data>
@@ -146,7 +146,7 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		YoPIILNeS8fZ+2sTGSCeOIXTb9o=
+		rTlj5EOgcf1WWgLsg1PhQ3k/uQA=
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
@@ -166,7 +166,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FMY6JEbdu1xwszZanFpTBCW0XFQ=
+		F6CA9VcUv06LMcNL7RLEoIg/Wek=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -250,7 +250,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fzFaYgg8vJGp3dcLxSNCDoN8en0S0EleZp1FyYi6sU0=
+			H5HEQyJAjckqT6MplC7Sc7PzV6coSlj5tdkNtm1RG5U=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelQueryParam.h</key>
@@ -432,7 +432,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			l0Zg29E3g8HB453mkD843Zz2tK0SLf/+6Isn05gDlTQ=
+			r4areJLfRchqcR8Q4C20qd5go28wAuSBIOd8AnO/RzA=
 			</data>
 		</dict>
 		<key>Headers/SCTUser.h</key>
