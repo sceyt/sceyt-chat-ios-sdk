@@ -27,8 +27,8 @@ NS_SWIFT_NAME(User)
 /// The user profile avatar url.
 @property (nonatomic, readonly, nullable) NSString *avatarUrl;
 
-/// The user metadata.
-@property (nonatomic, readonly, nullable) NSString *metadata;
+/// The user username.
+@property (nonatomic, readonly, nullable) NSString *username;
 
 /// Shows is the user blocked by the application current user.
 @property (nonatomic, readonly) BOOL blocked;
@@ -38,6 +38,9 @@ NS_SWIFT_NAME(User)
 
 /// The user state.
 @property (nonatomic, readonly) SCTUserState state;
+
+/// The user metadata as a dictionary.
+@property (nonatomic, readonly, nullable) NSDictionary<NSString *, NSString *> *metadataMap;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;

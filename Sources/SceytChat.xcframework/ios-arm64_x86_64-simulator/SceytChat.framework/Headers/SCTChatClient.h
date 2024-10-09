@@ -157,9 +157,17 @@ NS_SWIFT_NAME(update(token:completion:));
 /// @param firstName The first name.
 /// @param lastName The last name.
 /// @param avatarUrl The avatar url.
+/// @param metadata The metadata.
+/// @param metadataMap A dictionary containing the metadata key-value pairs.
+/// @param username The username.
 /// @param completion The completion handler to call after execution.
-- (void)setUserProfileWithFirstName:(nullable NSString *)firstName lastName:(nullable NSString *)lastName avatarUrl:(nullable NSString *)avatarUrl metadata:(nullable NSString *)metadata completion:(SCTUserProfileCompletion)completion
-NS_SWIFT_NAME(setProfile(firstName:lastName:avatarUrl:metadata:completion:));
+- (void)setUserProfileWithFirstName:(nullable NSString *)firstName
+                           lastName:(nullable NSString *)lastName
+                          avatarUrl:(nullable NSString *)avatarUrl
+                        metadataMap:(nullable NSDictionary<NSString *, NSString *> *)metadataMap
+                           username:(nullable NSString *)username
+                         completion:(SCTUserProfileCompletion)completion
+NS_SWIFT_NAME(setProfile(firstName:lastName:avatarUrl:metadataMap:username:completion:));
 
 /// Sets the current user presence.
 /// @param state The presence state.
@@ -318,7 +326,6 @@ NS_SWIFT_NAME(deleteContacts(ids:completion:));
 
 - (void)deleteAllContactsWithCompletion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(deleteAllContacts(completion:));
-
 
 - (void)sendSignal:(nonnull SCTSignal *)signal completion:(nonnull SCTSignalCompletion)completion
 NS_SWIFT_NAME(sendSignal(_:completion:));

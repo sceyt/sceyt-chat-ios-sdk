@@ -28,13 +28,16 @@ NS_SWIFT_NAME(UserListQuery)
 /// Filter users by type.
 @property (nonatomic, readonly) SCTUserListFilterType filterType;
 
+/// The meta filter keys used to filter users by metadata keys.
+@property (nonatomic, readonly, nullable) NSArray<NSString *> *metaFilterKeys;
+
 /// Shows if there is a next page.
 @property (nonatomic, readonly) BOOL hasNext;
 
 /// Shows if the query is loading.
 @property (atomic, readonly) BOOL loading;
 
-/// init is unavailable. Use `SCTUserListQueryBuilder` instead.
+/// `init` is unavailable. Use `SCTUserListQueryBuilder` instead.
 - (instancetype)init NS_UNAVAILABLE;
 
 /// Get users.
@@ -47,7 +50,7 @@ NS_SWIFT_NAME(loadNext(_:));
 NS_SWIFT_NAME(UserListQuery.Builder)
 @interface SCTUserListQueryBuilder : NSObject
 
-/// Create UserListQuery builder.
+/// Create a `UserListQuery` builder.
 - (instancetype)init;
 
 /// Filter users by query text.
@@ -70,7 +73,11 @@ NS_SWIFT_NAME(UserListQuery.Builder)
 /// @param type Filter users by query type.
 - (instancetype)filterType:(SCTUserListFilterType)type;
 
-/// Built a UserListQuery.
+/// Set meta filter keys.
+/// @param keys The array of metadata keys to filter users.
+- (instancetype)metaFilterKeys:(NSArray<NSString *> *)keys;
+
+/// Build a `UserListQuery`.
 - (SCTUserListQuery *)build;
 
 @end
