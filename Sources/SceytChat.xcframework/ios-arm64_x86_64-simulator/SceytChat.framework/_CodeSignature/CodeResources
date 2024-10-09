@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		FUMTFhqvbUebzaBmDAb/MaLBR6Y=
+		IR5821DRo1kJEm6yKu+ghixgWH0=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
@@ -150,11 +150,11 @@
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
-		2PvV0AwsPpPrAI/feTo6y1MfQEE=
+		vIfoUFjR3lz4kDMSNbaEfBGNcm8=
 		</data>
 		<key>Headers/SCTUserListQuery.h</key>
 		<data>
-		aPi9CA3ixDIWTTbPmsdoB8GbBMI=
+		a8fKCFC09tNFW/v1zcEcaG5g7y8=
 		</data>
 		<key>Headers/SCTUserSettings.h</key>
 		<data>
@@ -166,7 +166,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		F6CA9VcUv06LMcNL7RLEoIg/Wek=
+		/LShHHJldF79jzZ9UIPambt/NQo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -264,7 +264,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ENzI0lJycRVsYwEDHJ6ZVz6+sg79UBSS18mucT6KBkE=
+			Wmp4lO2OW/trccjdMyT1UT2idrmKuKYM2VEJ9jXlyx8=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
@@ -439,14 +439,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z85KMiGQ6uQSXUE+UjS2a6vOmgXPql/Hc26sdszYITo=
+			auyECemCFCQONIDWCY4iiVf65aSaRU6y55NSU7YfheU=
 			</data>
 		</dict>
 		<key>Headers/SCTUserListQuery.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/LLeul+yue5qz94LeajHgoNERNpNrQFw4/Shten7k3A=
+			0TtFhBiUMU9p+JkWWCBNyEgXrmOvVZ3M5g2gC0gqdXo=
 			</data>
 		</dict>
 		<key>Headers/SCTUserSettings.h</key>
