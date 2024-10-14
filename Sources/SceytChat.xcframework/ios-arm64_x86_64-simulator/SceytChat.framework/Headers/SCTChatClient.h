@@ -187,6 +187,12 @@ NS_SWIFT_NAME(update(userSettings:completion:));
 - (void)getUserSettings:(nonnull SCTUserSettingsCompletion)completion
 NS_SWIFT_NAME(getUserSettings(_:));
 
+/// Gets users with given usernames.
+/// @param usernames The user usernames to get.
+/// @param completion The completion handler to call after execution.
+- (void)getUsersByUsernames:(NSArray<NSString *> *)usernames completion:(nonnull SCTGetUsersCompletion)completion
+NS_SWIFT_NAME(getUsers(byUsernames:completion:));
+
 /// Gets users with given user ids.
 /// @param ids The user ids to get.
 /// @param completion The completion handler to call after execution.
