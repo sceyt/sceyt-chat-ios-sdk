@@ -175,10 +175,10 @@ NS_SWIFT_NAME(channel(_:user:didEdit:));
 NS_SWIFT_NAME(channel(_:user:didDelete:));
 
 /// A callback when updating a channel messages marker
-/// @param channelId The channel id
+/// @param channel The channel where the marker is received.
 /// @param marker the marker object
-- (void)channel:(SCTChannelId)channelId didReceiveMessageListMarker:(SCTMessageListMarker *)marker
-NS_SWIFT_NAME(channel(channelId:didReceive:));
+- (void)channel:(nonnull SCTChannel *)channel didReceiveMessageListMarker:(SCTMessageListMarker *)marker
+NS_SWIFT_NAME(channel(_:didReceive:));
 
 /// A callback when a reaction is received.
 /// @param channel The channel where the message reactions are added.
