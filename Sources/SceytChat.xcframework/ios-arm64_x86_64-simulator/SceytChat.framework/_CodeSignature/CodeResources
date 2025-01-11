@@ -104,6 +104,10 @@
 		<data>
 		V9H07DtPpoWpChHk6BlvTujfdws=
 		</data>
+		<key>Headers/SCTMetaFilter.h</key>
+		<data>
+		wG3SLDuQKUZDH61t24x/JyNWa9g=
+		</data>
 		<key>Headers/SCTMute.h</key>
 		<data>
 		V3tjRRbvfXcwbg6K6ihbjUusBnM=
@@ -146,7 +150,7 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		rTlj5EOgcf1WWgLsg1PhQ3k/uQA=
+		oEDoNN+IzN32IxKYsLcZ9mZPAQw=
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
@@ -154,7 +158,7 @@
 		</data>
 		<key>Headers/SCTUserListQuery.h</key>
 		<data>
-		a8fKCFC09tNFW/v1zcEcaG5g7y8=
+		XkT5mR5d8EoR1e1nLTHxdx0Emhw=
 		</data>
 		<key>Headers/SCTUserSettings.h</key>
 		<data>
@@ -162,11 +166,11 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		nY6/YvC4VffLsnDLG6SRPBXCeIM=
+		9LyBevqhhGwWQGm46ECia2adetQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		hkb4aeRcRCHb/LF9ykNtwAanBqU=
+		A2NebLaxyRLmJzblR6jBEwJVJ9g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -358,6 +362,13 @@
 			KsRxb+o+0aJW/kHy8EHrsj7ytECr/XTZHIaNfA+/QQw=
 			</data>
 		</dict>
+		<key>Headers/SCTMetaFilter.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			zXPvyvryTwhNdYmEaf+MeVAXGeNcSlYhmPdtGOVat6o=
+			</data>
+		</dict>
 		<key>Headers/SCTMute.h</key>
 		<dict>
 			<key>hash2</key>
@@ -432,7 +443,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			r4areJLfRchqcR8Q4C20qd5go28wAuSBIOd8AnO/RzA=
+			D+MDM6prfG4eXtPXFp2M0nV/vUt+1FM4dIpRr4NaTIA=
 			</data>
 		</dict>
 		<key>Headers/SCTUser.h</key>
@@ -446,7 +457,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0TtFhBiUMU9p+JkWWCBNyEgXrmOvVZ3M5g2gC0gqdXo=
+			Rzl4QBPZi1L+kiOTj4wV4mANk6f0ivMve9BeS3OgFtU=
 			</data>
 		</dict>
 		<key>Headers/SCTUserSettings.h</key>
@@ -460,7 +471,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Jj13MXvBS8sQCcKUWAfsBQ8VAIRQ6gk0ksmtW8wYsew=
+			ATmgrxZDMUXCfnRAhAwKlqclf3MQ7+ftBdVD1YyDl4w=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

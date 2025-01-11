@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "SCTTypes.h"
 
+
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(UserListQuery)
@@ -29,7 +30,7 @@ NS_SWIFT_NAME(UserListQuery)
 @property (nonatomic, readonly) SCTUserListFilterType filterType;
 
 /// The meta filter keys used to filter users by metadata keys.
-@property (nonatomic, readonly, nullable) NSArray<NSString *> *metaFilterKeys;
+@property (nonatomic, readonly, nullable) SCTMetaFilter *metaFilter;
 
 /// Shows if there is a next page.
 @property (nonatomic, readonly) BOOL hasNext;
@@ -73,9 +74,9 @@ NS_SWIFT_NAME(UserListQuery.Builder)
 /// @param type Filter users by query type.
 - (instancetype)filterType:(SCTUserListFilterType)type;
 
-/// Set meta filter keys.
-/// @param keys The array of metadata keys to filter users.
-- (instancetype)metaFilterKeys:(NSArray<NSString *> *)keys;
+/// Set meta filter.
+/// @param metaFilter The array of metadata keys to filter users.
+- (instancetype)metaFilter:(SCTMetaFilter *)metaFilter;
 
 /// Build a `UserListQuery`.
 - (SCTUserListQuery *)build;

@@ -38,6 +38,7 @@
 @class SCTLinkDetails;
 @class SCTPrivacyException;
 @class SCTPrivacyExceptionListQuery;
+@class SCTMetaFilter;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -123,9 +124,11 @@ typedef NS_ENUM(NSInteger, SCTChannelListOrder) {
 
 //The filter type for `SCTChannelListQuery`.
 typedef NS_ENUM(NSInteger, SCTChannelListFilterKey) {
+    SCTChannelListFilterNone,
     SCTChannelListFilterSubject,
     SCTChannelListFilterURI,
-    SCTChannelListFilterMember
+    SCTChannelListFilterLabel,
+    SCTChannelListFilterUser
 }NS_SWIFT_NAME(ChannelListFilterKey);
 
 //The order type for `SCTUserListOrder`.
