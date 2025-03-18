@@ -12,29 +12,28 @@
 @class SCTTurnServer;
 @class SCTSignalError;
 @class SCTSignalParticipant;
+@class SCTSignalCall;
 
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(Signal)
 @interface SCTSignal : NSObject
 
-@property (nonatomic, readonly) SCTMessageId id;
 @property (nonatomic, readonly, nonnull) NSString *sessionId;
 @property (nonatomic, readonly) SCTMediaFlow mediaFlow;
 @property (nonatomic, readonly, nonnull) NSString *callId;
-
 @property (nonatomic, readonly) SCTSignalEvent event;
-@property (nonatomic, readonly) NSInteger timestamp;
 
 @property (nonatomic, readonly, nonnull) NSString *from;
 @property (nonatomic, readonly, nonnull) NSString *to;
 @property (nonatomic, readonly, nonnull) NSString *sdp;
 @property (nonatomic, readonly, nullable) SCTSignalIce *ice;
 @property (nonatomic, readonly, nullable) SCTSignalError *error;
+@property (nonatomic, readonly) NSDictionary<NSString*, NSString*>* metadata;
 
 @property (nonatomic, readonly, nullable) NSArray<SCTSignalParticipant*> *participants;
 @property (nonatomic, readonly, nonnull) NSArray<SCTTurnServer*> *turnServers;
-@property (nonatomic, readonly, nonnull) NSDictionary<NSString *, NSString *> *metadata;
+@property (nonatomic, readonly, nullable) NSArray<SCTSignalCall*> *calls;
 
 @end
 
@@ -74,10 +73,26 @@ NS_SWIFT_NAME(Signal.TurnServer)
 @property (nonatomic, readonly, nonnull) NSString *url;
 @property (nonatomic, readonly, nonnull) NSString *username;
 @property (nonatomic, readonly, nonnull) NSString *password;
-
 - (instancetype)initWithUrl:(NSString *)url
                    username:(NSString *)username
                    password:(NSString *)password;
+@end
+
+NS_SWIFT_NAME(Signal.Call)
+@interface SCTSignalCall : NSObject
+@property (nonatomic, readonly) NSString *callId;
+@property (nonatomic, readonly) NSString *sessionId;
+@property (nonatomic, readonly) SCTMediaFlow mediaFlow;
+@property (nonatomic, readonly) NSString *createdBy;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
+@property (nonatomic, readonly) NSArray<SCTSignalParticipant *> *participants;
+
+- (instancetype)initWithId:(NSString *)callId
+                sessionId:(NSString *)sessionId
+                mediaFlow:(SCTMediaFlow)mediaFlow
+                createdBy:(NSString *)createdBy
+                metadata:(NSDictionary<NSString *, NSString *> *)metadata
+                participants:(NSArray<SCTSignalParticipant *> *)participants;
 @end
 
 NS_SWIFT_NAME(Signal.Builder)
@@ -90,8 +105,6 @@ NS_SWIFT_NAME(Signal.Builder)
 - (instancetype)mediaFlow:(SCTMediaFlow)mediaFlow;
 - (instancetype)event:(SCTSignalEvent)event;
 - (instancetype)sessionId:(nonnull NSString *)sessionId;
-- (instancetype)error:(SCTSignalError*)error;
-- (instancetype)timestamp:(NSInteger)timestamp;
 
 - (instancetype)from:(nonnull NSString *)from;
 - (instancetype)to:(nonnull NSString *)to;
@@ -99,6 +112,7 @@ NS_SWIFT_NAME(Signal.Builder)
 - (instancetype)ice:(nonnull SCTSignalIce *)ice;
 - (instancetype)participants:(nonnull NSArray<SCTSignalParticipant*> *)participants;
 - (instancetype)metadata:(nonnull NSDictionary<NSString *, NSString *> *)metadata;
+- (instancetype)calls:(nonnull NSArray<SCTSignalCall*> *)calls;
 - (instancetype)turnServers:(nonnull NSArray<SCTTurnServer *> *)turnServers;
 
 /// Create Signal

@@ -40,6 +40,7 @@
 @class SCTPrivacyExceptionListQuery;
 @class SCTMetaFilter;
 @class SCTTurnServer;
+@class SCTSignalCall;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -228,7 +229,6 @@ typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventClose,
     SCTSignalEventIce,
     SCTSignalEventGetCall,
-    SCTSignalEventCallStarted,
     SCTSignalEventSwitchMediaFlow,
     SCTSignalEventNoAnswer,
     SCTSignalEventMediaConnected,
@@ -240,7 +240,7 @@ typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventVideoOff,
     SCTSignalEventScreenShareOn,
     SCTSignalEventScreenShareOff,
-}NS_SWIFT_NAME(SignalEvent);
+}NS_SWIFT_NAME(Signal.Event);
 
 typedef NS_ENUM(NSUInteger, SCTParticipantState) {
     SCTParticipantStateIdle,
