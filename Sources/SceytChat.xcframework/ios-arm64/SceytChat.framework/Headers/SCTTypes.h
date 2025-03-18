@@ -39,6 +39,7 @@
 @class SCTPrivacyException;
 @class SCTPrivacyExceptionListQuery;
 @class SCTMetaFilter;
+@class SCTTurnServer;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -205,12 +206,51 @@ typedef NS_ENUM(NSInteger, SCTPrivacyType) {
     SCTPrivacyTypeExclusion,
 }NS_SWIFT_NAME(PrivacyType);
 
-typedef NS_ENUM(NSInteger, SCTSignalType) {
-    SCTSignalTypeP2PCall,
-    SCTSignalTypeChannelCall,
-    SCTSignalTypeCustomGroupCall,
-}NS_SWIFT_NAME(SignalType);
+typedef NS_ENUM(NSInteger, SCTMediaFlow) {
+    p2p,
+    sfu,
+}NS_SWIFT_NAME(MediaFlow);
 
+typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
+    SCTSignalEventJoin,
+    SCTSignalEventLeave,
+    SCTSignalEventOffer,
+    SCTSignalEventAnswer,
+    SCTSignalEventConnect,
+    SCTSignalEventError,
+    SCTSignalEventKick,
+    SCTSignalEventSuccess,
+    SCTSignalEventInvite,
+    SCTSignalEventDecline,
+    SCTSignalEventRinging,
+    SCTSignalEventInfo,
+    SCTSignalEventUpdate,
+    SCTSignalEventClose,
+    SCTSignalEventIce,
+    SCTSignalEventGetCall,
+    SCTSignalEventCallStarted,
+    SCTSignalEventSwitchMediaFlow,
+    SCTSignalEventNoAnswer,
+    SCTSignalEventMediaConnected,
+    SCTSignalEventMute,
+    SCTSignalEventUnMute,
+    SCTSignalEventHold,
+    SCTSignalEventUnHold,
+    SCTSignalEventVideoOn,
+    SCTSignalEventVideoOff,
+    SCTSignalEventScreenShareOn,
+    SCTSignalEventScreenShareOff,
+}NS_SWIFT_NAME(SignalEvent);
+
+typedef NS_ENUM(NSUInteger, SCTParticipantState) {
+    SCTParticipantStateIdle,
+    SCTParticipantStateRinging,
+    SCTParticipantStateJoined,
+    SCTParticipantStateLeft,
+    SCTParticipantStateDeclined,
+    SCTParticipantStateKicked,
+    SCTParticipantStateNoAnswer,
+}NS_SWIFT_NAME(ParticipantState);
 
 typedef void(^SCTCompletion)(SCTError * _Nullable)
 NS_SWIFT_NAME(Completion);
