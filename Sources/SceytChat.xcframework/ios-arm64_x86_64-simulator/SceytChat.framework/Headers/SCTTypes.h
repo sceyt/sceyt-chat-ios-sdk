@@ -252,6 +252,14 @@ typedef NS_ENUM(NSUInteger, SCTParticipantState) {
     SCTParticipantStateNoAnswer,
 }NS_SWIFT_NAME(ParticipantState);
 
+typedef NS_ENUM(NSUInteger, SCTParticipantConnectionState) {
+    SCTParticipantConnectionStateIdle,
+    SCTParticipantConnectionStateConnecting,
+    SCTParticipantConnectionStateConnected,
+    SCTParticipantConnectionStateReconnecting,
+    SCTParticipantConnectionStateDisconnected,
+}NS_SWIFT_NAME(ParticipantMediaConnectionState);
+
 typedef void(^SCTCompletion)(SCTError * _Nullable)
 NS_SWIFT_NAME(Completion);
 typedef void(^SCTUserProfileCompletion)(SCTUser * _Nullable, SCTError * _Nullable)

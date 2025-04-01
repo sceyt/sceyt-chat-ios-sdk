@@ -50,14 +50,16 @@ NS_SWIFT_NAME(Signal.Ice)
 NS_SWIFT_NAME(Signal.Participant)
 @interface SCTSignalParticipant : NSObject
 @property (nonatomic, readonly, nonnull) NSString *id;
+@property (nonatomic, readonly, nonnull) NSString *clientId;
 @property (nonatomic, readonly) BOOL presenter;
 @property (nonatomic, readonly) BOOL videoEnabled;
 @property (nonatomic, readonly) BOOL muted;
 @property (nonatomic, readonly) BOOL onHold;
 @property (nonatomic, readonly) BOOL screenSharing;
 @property (nonatomic, readonly) SCTParticipantState state;
+@property (nonatomic, readonly) SCTParticipantConnectionState connectionState;
 
-- (instancetype)initWithId:(nonnull NSString *)id videoEnabled:(BOOL)videoEnabled presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold screenSharing:(BOOL)screenSharing state: (SCTParticipantState)state;
+- (instancetype)initWithId:(nonnull NSString *)id clientId:(nonnull NSString *)clientId videoEnabled:(BOOL)videoEnabled presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold screenSharing:(BOOL)screenSharing state: (SCTParticipantState)state connectionState:(SCTParticipantConnectionState)connectionState;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 
