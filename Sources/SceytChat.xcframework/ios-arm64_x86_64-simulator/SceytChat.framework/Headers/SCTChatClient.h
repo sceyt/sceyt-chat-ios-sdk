@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTSignal;
 @class SCTContactDiscovery;
 @class SCTChannelQueryParam;
+@class SCTPushSubscription;
 @protocol SCTChannelDelegate;
 @protocol SCTChatClientDelegate;
 
@@ -33,6 +34,9 @@ NS_SWIFT_NAME(shared);
 
 /// The current user settings. Updated after successful `SCTChatClient` connect.
 @property (nonatomic, readonly, nonnull) SCTSettings *settings;
+
+/// The current push subscriptions for the user.
+@property (nonatomic, readonly, nonnull) NSArray<SCTPushSubscription *> *currentPushSubscriptions;
 
 /// The application id.
 @property (nonatomic, readonly, nullable) NSString *appId;
