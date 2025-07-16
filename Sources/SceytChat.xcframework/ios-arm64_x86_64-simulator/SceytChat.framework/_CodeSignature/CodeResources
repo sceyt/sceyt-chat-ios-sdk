@@ -128,6 +128,10 @@
 		<data>
 		2TJth4OYt22euHpjus7pELFU+Xs=
 		</data>
+		<key>Headers/SCTPushSubscription.h</key>
+		<data>
+		jlW4ku5KhkPQbKZL3zAlNARioso=
+		</data>
 		<key>Headers/SCTReaction.h</key>
 		<data>
 		S0qCN8sC2DWN2B/VgetMmpYuU8Y=
@@ -402,6 +406,13 @@
 			<key>hash2</key>
 			<data>
 			KNMk8K8VHzzXYcxUcEWJrSa/mswlOK+yWojaAk8pJTM=
+			</data>
+		</dict>
+		<key>Headers/SCTPushSubscription.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			s+o51OChv55UL6epHPG3TolIgLD3QSFicLQrmWCYklc=
 			</data>
 		</dict>
 		<key>Headers/SCTReaction.h</key>
