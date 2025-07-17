@@ -21,6 +21,11 @@ NS_SWIFT_NAME(PushSubscription)
 /// The VoIP token for push notifications.
 @property (nonatomic, readonly, nullable) NSString *voipToken;
 
+/// The OS type..
+@property (nonatomic, readonly, nullable) NSString *osType;
+
+@property (nonatomic, readonly, nullable) NSString *service;
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 
