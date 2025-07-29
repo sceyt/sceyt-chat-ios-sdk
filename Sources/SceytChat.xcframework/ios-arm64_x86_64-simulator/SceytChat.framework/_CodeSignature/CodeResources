@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/SCTChannelDelegate.h</key>
 		<data>
-		keHxZ42oVHz4jvQab8or3FviwLE=
+		uQ7ex5QVxq3o8c2fsCBm9936rgM=
 		</data>
 		<key>Headers/SCTChannelEvent.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		i5cXyv9ZbCvAXns1odqMC+a4lVg=
+		+QARUDZ0+uSMq9aBNLuKfXQzLMQ=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
@@ -154,7 +154,11 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		2BX9wAtkNGDMbCnhPt+1AGEG+/Q=
+		VTkNaYKC/3O+w1xvsiN5phx01XI=
+		</data>
+		<key>Headers/SCTUnreadMentionsListQuery.h</key>
+		<data>
+		CtyXbMmdoJhNaVgZkXc4PfP8df8=
 		</data>
 		<key>Headers/SCTUser.h</key>
 		<data>
@@ -170,7 +174,7 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		isDg0KBVIbXSNY0RajMz+J6feTY=
+		aG1nBlyVzkKJmkQVkWOgwazpTJY=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -237,7 +241,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JJWzF8ib5Tvei0XWhRAq76HKS6w+yRzVCFmPLbbYq8o=
+			nOsQH3RmGYVhTNJMxM+S1ZT7dnqGNeh5mZP/ZVYO8Ys=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelEvent.h</key>
@@ -272,7 +276,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4edfhy6yPAXquDf4AdLoVnV6p0LLMgwsZ0DDdFe0kVc=
+			GkdFk6MNkC+++Nv5n/nBLHkPvTD/4j/66XTvYvJVxOA=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
@@ -454,7 +458,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+canGd6nn6VqO4qKwU9al2KpUqIweffMTfMOlI6X1SU=
+			OnYcjf1tQ7iWdsycv6WbYouI4uaBUdkypknyyMVxcDc=
+			</data>
+		</dict>
+		<key>Headers/SCTUnreadMentionsListQuery.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LWBzySFZy0CItz3D2DC/Kb59IFaNDhoea+CFcFXGS64=
 			</data>
 		</dict>
 		<key>Headers/SCTUser.h</key>
@@ -482,7 +493,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cZVuvX2JNZS83F/25EK00mamUycR6/tqg4gRGLBEGBw=
+			vKMubEwz64XSrLEGU5GmZ3oO2O3d0CddMJp1XrCw2w0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
