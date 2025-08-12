@@ -13,6 +13,7 @@
 @class SCTSignalError;
 @class SCTSignalParticipant;
 @class SCTSignalCall;
+@class SCTSessionData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +27,6 @@ NS_SWIFT_NAME(Signal)
 
 @property (nonatomic, readonly, nonnull) NSString *from;
 @property (nonatomic, readonly, nonnull) NSString *to;
-@property (nonatomic, readonly, nonnull) NSString *sdp;
 @property (nonatomic, readonly, nullable) SCTSignalIce *ice;
 @property (nonatomic, readonly, nullable) SCTSignalError *error;
 @property (nonatomic, readonly) NSDictionary<NSString*, NSString*>* metadata;
@@ -34,6 +34,7 @@ NS_SWIFT_NAME(Signal)
 @property (nonatomic, readonly, nullable) NSArray<SCTSignalParticipant*> *participants;
 @property (nonatomic, readonly, nonnull) NSArray<SCTTurnServer*> *turnServers;
 @property (nonatomic, readonly, nullable) NSArray<SCTSignalCall*> *calls;
+@property (nonatomic, readonly, nullable) SCTSessionData *sessionData;
 
 @end
 
@@ -97,6 +98,25 @@ NS_SWIFT_NAME(Signal.Call)
                 participants:(NSArray<SCTSignalParticipant *> *)participants;
 @end
 
+NS_SWIFT_NAME(Signal.SessionData)
+@interface SCTSessionData : NSObject
+@property (nonatomic, readonly, nonnull) NSString *id;
+@property (nonatomic, readonly, nonnull) NSString *version;
+@property (nonatomic, readonly, nonnull) NSString *sdp;
+
+- (instancetype)initWithId:(NSString *)id
+                   version:(NSString *)version
+                       sdp:(NSString *)sdp;
+@end
+
+NS_SWIFT_NAME(Singal.SessionData)
+@interface SCTSessionDataBuilder : NSObject
+- (instancetype)initWithId: (NSString *)id;
+- (instancetype)version:(nonnull NSString *)version;
+- (instancetype)sdp:(nonnull NSString *)sdp;
+- (SCTSessionDataBuilder *) build;
+@end
+
 NS_SWIFT_NAME(Signal.Builder)
 @interface SCTSignalBuilder: NSObject
 
@@ -110,12 +130,12 @@ NS_SWIFT_NAME(Signal.Builder)
 
 - (instancetype)from:(nonnull NSString *)from;
 - (instancetype)to:(nonnull NSString *)to;
-- (instancetype)sdp:(nonnull NSString *)sdp;
 - (instancetype)ice:(nonnull SCTSignalIce *)ice;
 - (instancetype)participants:(nonnull NSArray<SCTSignalParticipant*> *)participants;
 - (instancetype)metadata:(nonnull NSDictionary<NSString *, NSString *> *)metadata;
 - (instancetype)calls:(nonnull NSArray<SCTSignalCall*> *)calls;
 - (instancetype)turnServers:(nonnull NSArray<SCTTurnServer *> *)turnServers;
+- (instancetype)sessionData:(nonnull SCTSessionData *)sessionData;
 
 /// Create Signal
 - (SCTSignal *)build;

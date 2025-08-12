@@ -161,7 +161,6 @@ NS_SWIFT_NAME(update(token:completion:));
 /// @param firstName The first name.
 /// @param lastName The last name.
 /// @param avatarUrl The avatar url.
-/// @param metadata The metadata.
 /// @param metadataMap A dictionary containing the metadata key-value pairs.
 /// @param username The username.
 /// @param completion The completion handler to call after execution.

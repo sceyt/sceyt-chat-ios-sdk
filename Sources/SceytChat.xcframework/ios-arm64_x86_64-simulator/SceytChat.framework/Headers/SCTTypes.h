@@ -38,6 +38,7 @@
 @class SCTLinkDetails;
 @class SCTPrivacyException;
 @class SCTPrivacyExceptionListQuery;
+@class SCTUnreadMentionsListQuery;
 @class SCTMetaFilter;
 @class SCTTurnServer;
 @class SCTSignalCall;
@@ -329,6 +330,10 @@ typedef void(^SCTSignalCompletion)(SCTSignal * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(SignalCompletion);
 typedef void(^SCTLinkDetailsCompletion)(SCTLinkDetails * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(LinkDetailsCompletion);
+
+@class SCTUnreadMentionsListQuery;
+typedef void(^SCTUnreadMentionsListQueryCompletion)(SCTUnreadMentionsListQuery * _Nonnull, NSArray<NSNumber *> * _Nullable messageIds, SCTError * _Nullable)
+NS_SWIFT_NAME(UnreadMentionsListQueryCompletion);
 
 #endif /* SCTTypes_h */
 
