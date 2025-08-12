@@ -109,19 +109,12 @@ NS_SWIFT_NAME(Signal.SessionData)
                        sdp:(NSString *)sdp;
 @end
 
-NS_SWIFT_NAME(Signal.SessionData.Builder)
-@interface SCTSessionDataBuilder: NSObject
-
-/// init is unavailable.
-- (instancetype)init NS_UNAVAILABLE;
-
-- (instancetype)initWithId:(NSString *)id;
-- (instancetype)version:(NSString *)version;
-- (instancetype)sdp:(NSString *)sdp;
-
-/// Create SessionData
-- (SCTSessionData *)build;
-
+NS_SWIFT_NAME(Singal.SessionData)
+@interface SCTSessionDataBuilder : NSObject
+- (instancetype)initWithId: (NSString *)id;
+- (instancetype)version:(nonnull NSString *)version;
+- (instancetype)sdp:(nonnull NSString *)sdp;
+- (SCTSessionDataBuilder *) build;
 @end
 
 NS_SWIFT_NAME(Signal.Builder)
