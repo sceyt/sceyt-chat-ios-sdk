@@ -104,6 +104,8 @@ NS_SWIFT_NAME(Message)
 
 @property (nonatomic, readonly) NSInteger displayCount;
 
+@property (nonatomic, readonly) BOOL disableMentionsCount;
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -191,6 +193,11 @@ NS_SWIFT_NAME(silent(_:));
 /// @param displayCount Default value is 1
 - (instancetype)displayCount:(NSInteger)displayCount
 NS_SWIFT_NAME(displayCount(_:));
+
+/// Disable mentions count for the message.
+/// @param disableMentionsCount If YES, mentions will not be counted
+- (instancetype)disableMentionsCount:(BOOL)disableMentionsCount
+NS_SWIFT_NAME(disableMentionsCount(_:));
 
 /// Built a message.
 - (SCTMessage *)build
