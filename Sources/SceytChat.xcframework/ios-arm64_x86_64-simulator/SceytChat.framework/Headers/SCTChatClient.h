@@ -339,6 +339,12 @@ NS_SWIFT_NAME(deleteAllContacts(completion:));
 - (void)sendSignal:(nonnull SCTSignal *)signal completion:(nonnull SCTSignalCompletion)completion
 NS_SWIFT_NAME(sendSignal(_:completion:));
 
+/// Deletes recent calls by session identifiers.
+/// @param sessionIds The session identifiers to delete from recent calls.
+/// @param completion The completion handler to call after execution.
+- (void)deleteRecentCallsWithSessionIds:(nonnull NSArray<NSNumber*> *)sessionIds completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteRecentCalls(sessionIds:completion:));
+
 + (void)setLogFilePath:(NSString *)path;
 
 @end

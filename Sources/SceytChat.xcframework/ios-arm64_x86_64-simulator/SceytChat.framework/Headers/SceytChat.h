@@ -55,3 +55,6 @@ FOUNDATION_EXPORT const unsigned char SceytChat_iOSVersionString[];
 #import "SCTPrivacyExceptionListQuery.h"
 #import "SCTMetaFilter.h"
 #import "SCTUnreadMentionsListQuery.h"
+#import "SCTCDRListQuery.h"
+#import "SCTCallDetailRecord.h"
+#import "SCTCDRParticipant.h"

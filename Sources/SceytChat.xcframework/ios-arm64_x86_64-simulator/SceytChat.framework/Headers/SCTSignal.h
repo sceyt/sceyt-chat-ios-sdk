@@ -57,10 +57,11 @@ NS_SWIFT_NAME(Signal.Participant)
 @property (nonatomic, readonly) BOOL muted;
 @property (nonatomic, readonly) BOOL onHold;
 @property (nonatomic, readonly) BOOL screenSharing;
+@property (nonatomic, readonly) BOOL isCallSilenced;
 @property (nonatomic, readonly) SCTParticipantState state;
 @property (nonatomic, readonly) SCTParticipantConnectionState connectionState;
 
-- (instancetype)initWithId:(nonnull NSString *)id clientId:(nonnull NSString *)clientId videoEnabled:(BOOL)videoEnabled presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold screenSharing:(BOOL)screenSharing state: (SCTParticipantState)state connectionState:(SCTParticipantConnectionState)connectionState;
+- (instancetype)initWithId:(nonnull NSString *)id clientId:(nonnull NSString *)clientId videoEnabled:(BOOL)videoEnabled presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold screenSharing:(BOOL)screenSharing isCallSilenced:(BOOL)isCallSilenced state: (SCTParticipantState)state connectionState:(SCTParticipantConnectionState)connectionState;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 

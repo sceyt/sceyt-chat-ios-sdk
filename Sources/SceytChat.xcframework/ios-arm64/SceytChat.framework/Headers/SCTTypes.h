@@ -42,6 +42,9 @@
 @class SCTMetaFilter;
 @class SCTTurnServer;
 @class SCTSignalCall;
+@class SCTCallDetailRecord;
+@class SCTCDRParticipant;
+@class SCTCDRListQuery;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -201,6 +204,7 @@ typedef NS_ENUM(NSInteger, SCTPrivacyKey) {
     SCTPrivacyKeyForwardMessages,
     SCTPrivacyKeyReadReceipts,
     SCTPrivacyKeyCall,
+    SCTPrivacyKeyCallWithRing,
 }NS_SWIFT_NAME(PrivacyKey);
 
 typedef NS_ENUM(NSInteger, SCTPrivacyType) {
@@ -212,6 +216,11 @@ typedef NS_ENUM(NSInteger, SCTMediaFlow) {
     p2p,
     sfu,
 }NS_SWIFT_NAME(MediaFlow);
+
+typedef NS_ENUM(NSInteger, CDRCallState) {
+    CDRCallStateOngoing,
+    CDRCallStateClosed,
+}NS_SWIFT_NAME(CallState);
 
 typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventJoin,
@@ -334,6 +343,9 @@ NS_SWIFT_NAME(LinkDetailsCompletion);
 @class SCTUnreadMentionsListQuery;
 typedef void(^SCTUnreadMentionsListQueryCompletion)(SCTUnreadMentionsListQuery * _Nonnull, NSArray<NSNumber *> * _Nullable messageIds, SCTError * _Nullable)
 NS_SWIFT_NAME(UnreadMentionsListQueryCompletion);
+
+typedef void(^SCTCDRListQueryCompletion)(SCTCDRListQuery * _Nonnull, NSArray<SCTCallDetailRecord *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(CDRListQueryCompletion);
 
 #endif /* SCTTypes_h */
 
