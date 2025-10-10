@@ -345,6 +345,87 @@ NS_SWIFT_NAME(sendSignal(_:completion:));
 - (void)deleteRecentCallsWithSessionIds:(nonnull NSArray<NSNumber*> *)sessionIds completion:(nullable SCTCompletion)completion
 NS_SWIFT_NAME(deleteRecentCalls(sessionIds:completion:));
 
+
+//MARK: - Channel Invite Key Operations
+
+/// Creates a new channel invite key.
+/// @param channelId The channel id to create invite key for.
+/// @param maxUses Maximum number of uses for the invite key.
+/// @param expiresAt Expiration timestamp for the invite key.
+/// @param accessPriorHistory Whether the invite key allows access to prior history.
+/// @param completion The completion handler to call after execution.
+- (void)createChannelInviteKeyForChannelId:(nonnull NSString *)channelId
+                                   maxUses:(NSInteger)maxUses
+                                 expiresAt:(NSTimeInterval)expiresAt
+                        accessPriorHistory:(BOOL)accessPriorHistory
+                                completion:(nullable SCTChannelInviteKeyCompletion)completion
+NS_SWIFT_NAME(createChannelInviteKey(channelId:maxUses:expiresAt:accessPriorHistory:completion:));
+
+/// Updates an existing channel invite key.
+/// @param channelId The channel id.
+/// @param key The invite key to update.
+/// @param maxUses Maximum number of uses for the invite key.
+/// @param expiresAt Expiration timestamp for the invite key.
+/// @param accessPriorHistory Whether the invite key allows access to prior history.
+/// @param completion The completion handler to call after execution.
+- (void)updateChannelInviteKeyForChannelId:(nonnull NSString *)channelId
+                                       key:(nonnull NSString *)key
+                                   maxUses:(NSInteger)maxUses
+                                 expiresAt:(NSTimeInterval)expiresAt
+                        accessPriorHistory:(BOOL)accessPriorHistory
+                                completion:(nullable SCTChannelInviteKeyCompletion)completion
+NS_SWIFT_NAME(updateChannelInviteKey(channelId:key:maxUses:expiresAt:accessPriorHistory:completion:));
+
+/// Gets a specific channel invite key.
+/// @param channelId The channel id.
+/// @param key The invite key to get.
+/// @param completion The completion handler to call after execution.
+- (void)getChannelInviteKeyForChannelId:(nonnull NSString *)channelId
+                                    key:(nonnull NSString *)key
+                             completion:(nullable SCTChannelInviteKeyCompletion)completion
+NS_SWIFT_NAME(getChannelInviteKey(channelId:key:completion:));
+
+/// Gets all channel invite keys for a channel.
+/// @param channelId The channel id.
+/// @param completion The completion handler to call after execution.
+- (void)getChannelInviteKeysForChannelId:(nonnull NSString *)channelId
+                              completion:(nullable SCTChannelInviteKeysCompletion)completion
+NS_SWIFT_NAME(getChannelInviteKeys(channelId:completion:));
+
+/// Regenerates a channel invite key.
+/// @param channelId The channel id.
+/// @param key The invite key to regenerate.
+/// @param completion The completion handler to call after execution.
+- (void)regenerateChannelInviteKeyForChannelId:(nonnull NSString *)channelId
+                                           key:(nonnull NSString *)key
+                                    completion:(nullable SCTChannelInviteKeyCompletion)completion
+NS_SWIFT_NAME(regenerateChannelInviteKey(channelId:key:completion:));
+
+/// Revokes channel invite keys.
+/// @param channelId The channel id.
+/// @param keys Array of invite keys to revoke.
+/// @param completion The completion handler to call after execution.
+- (void)revokeChannelInviteKeysForChannelId:(nonnull NSString *)channelId
+                                       keys:(nonnull NSArray<NSString *> *)keys
+                                 completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(revokeChannelInviteKeys(channelId:keys:completion:));
+
+/// Deletes revoked channel invite keys.
+/// @param channelId The channel id.
+/// @param keys Array of revoked invite keys to delete.
+/// @param completion The completion handler to call after execution.
+- (void)deleteRevokedChannelInviteKeysForChannelId:(nonnull NSString *)channelId
+                                              keys:(nonnull NSArray<NSString *> *)keys
+                                        completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(deleteRevokedChannelInviteKeys(channelId:keys:completion:));
+
+/// Gets all revoked channel invite keys for a channel.
+/// @param channelId The channel id.
+/// @param completion The completion handler to call after execution.
+- (void)getRevokedChannelInviteKeysForChannelId:(nonnull NSString *)channelId
+                                     completion:(nullable SCTChannelInviteKeysCompletion)completion
+NS_SWIFT_NAME(getRevokedChannelInviteKeys(channelId:completion:));
+
 + (void)setLogFilePath:(NSString *)path;
 
 @end
