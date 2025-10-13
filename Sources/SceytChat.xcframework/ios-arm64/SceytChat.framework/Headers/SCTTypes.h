@@ -447,6 +447,7 @@ typedef NS_ENUM(NSInteger, SCTChannelInviteKeyRequestEvent) {
 @property (nonatomic, assign) BOOL revoked;
 @property (nonatomic, assign) uint64_t revokedAt;
 @property (nonatomic, assign) BOOL accessPriorHistory;
+@property (nonatomic, assign) BOOL isPrimary;
 @end
 
 @interface SCTChannelInviteKeyResponse : NSObject
