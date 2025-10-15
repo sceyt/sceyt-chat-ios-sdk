@@ -246,9 +246,10 @@ NS_SWIFT_NAME(joinChannel(inviteKey:completion:));
 
 /// Gets a channel using an invite key.
 /// @param inviteKey The invite key to get the channel.
+/// @param param The channel request param.
 /// @param completion The completion handler to call after execution.
-- (void)getChannelByInviteKey:(nonnull NSString *)inviteKey completion:(nonnull SCTChannelCompletion)completion
-NS_SWIFT_NAME(getChannel(inviteKey:completion:));
+- (void)getChannelByInviteKey:(nonnull NSString *)inviteKey param:(nonnull SCTChannelQueryParam*)param completion:(nonnull SCTChannelCompletion)completion
+NS_SWIFT_NAME(getChannel(inviteKey:param:completion:));
 
 /// Registers the current device to receive remote notifications.
 /// @param deviceToken A globally unique token that identifies this device to APNs.
