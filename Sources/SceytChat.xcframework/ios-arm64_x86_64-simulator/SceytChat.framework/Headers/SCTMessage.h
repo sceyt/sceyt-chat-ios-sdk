@@ -15,6 +15,7 @@
 @class SCTAttachment;
 @class SCTForwardingDetails;
 @class SCTMessageBodyAttribute;
+@class SCTPollDetails;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -97,6 +98,9 @@ NS_SWIFT_NAME(Message)
 
 /// The message body attributes.
 @property (nonatomic, readonly, nullable) NSArray<SCTMessageBodyAttribute*> *bodyAttributes;
+
+/// The poll details if the message contains a poll.
+@property (nonatomic, readonly, nullable) SCTPollDetails *poll;
 
 @property (nonatomic, readonly) BOOL repliedInThread;
 

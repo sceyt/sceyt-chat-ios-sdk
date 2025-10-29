@@ -206,6 +206,48 @@ NS_SWIFT_NAME(addReaction(messageId:key:score:reason:enforceUnique:completion:))
 - (void)deleteReactionWithMessageId:(SCTMessageId)messageId key:(nonnull NSString *)key completion:(SCTReactionCompletion)completion
 NS_SWIFT_NAME(deleteReaction(messageId:key:completion:));
 
+//MARK: - Poll Operations
+
+/// Add a vote to a poll.
+/// @param messageId Id of the message containing the poll.
+/// @param pollId The poll identifier.
+/// @param optionIds Array of option identifiers to vote for.
+/// @param completion The handler block to execute.
+- (void)addPollVoteWithMessageId:(SCTMessageId)messageId
+                          pollId:(nonnull NSString *)pollId
+                       optionIds:(nonnull NSArray<NSString *> *)optionIds
+                      completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(addPollVote(messageId:pollId:optionIds:completion:));
+
+/// Delete a vote from a poll.
+/// @param messageId Id of the message containing the poll.
+/// @param pollId The poll identifier.
+/// @param optionIds Array of option identifiers to remove votes from.
+/// @param completion The handler block to execute.
+- (void)deletePollVoteWithMessageId:(SCTMessageId)messageId
+                             pollId:(nonnull NSString *)pollId
+                          optionIds:(nonnull NSArray<NSString *> *)optionIds
+                         completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(deletePollVote(messageId:pollId:optionIds:completion:));
+
+/// Retract all votes from a poll.
+/// @param messageId Id of the message containing the poll.
+/// @param pollId The poll identifier.
+/// @param completion The handler block to execute.
+- (void)retractPollVoteWithMessageId:(SCTMessageId)messageId
+                              pollId:(nonnull NSString *)pollId
+                          completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(retractPollVote(messageId:pollId:completion:));
+
+/// Close a poll.
+/// @param messageId Id of the message containing the poll.
+/// @param pollId The poll identifier.
+/// @param completion The handler block to execute.
+- (void)closePollWithMessageId:(SCTMessageId)messageId
+                        pollId:(nonnull NSString *)pollId
+                    completion:(nonnull SCTMessageCompletion)completion
+NS_SWIFT_NAME(closePoll(messageId:pollId:completion:));
+
 /// Change the channel owner.
 /// @param userId the new owner user id.
 /// @param completion The handler block to execute.

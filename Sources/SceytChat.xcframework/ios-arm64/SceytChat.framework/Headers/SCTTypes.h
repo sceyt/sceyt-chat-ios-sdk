@@ -56,6 +56,10 @@
 @class SCTCallDetailRecord;
 @class SCTCDRParticipant;
 @class SCTCDRListQuery;
+@class SCTPollOption;
+@class SCTPollVote;
+@class SCTPollDetails;
+@class SCTPollVotesListQuery;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -357,6 +361,10 @@ NS_SWIFT_NAME(UnreadMentionsListQueryCompletion);
 
 typedef void(^SCTCDRListQueryCompletion)(SCTCDRListQuery * _Nonnull, NSArray<SCTCallDetailRecord *> * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(CDRListQueryCompletion);
+
+//MARK: - Poll Completion Handlers
+typedef void(^SCTPollVotesListQueryCompletion)(SCTPollVotesListQuery * _Nonnull, NSArray<SCTPollVote *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PollVotesListQueryCompletion);
 
 //MARK: - Channel Invite Key Completion Handlers
 typedef void(^SCTChannelInviteKeyCompletion)(SCTChannelInviteKey * _Nullable inviteKey, SCTError * _Nullable)

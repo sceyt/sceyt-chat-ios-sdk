@@ -54,7 +54,7 @@
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
-		ooAwLti+rSO/UeU458yGY+RJfIQ=
+		9oMM9ZE2ilCXFf6YCDSmyyCXY1Q=
 		</data>
 		<key>Headers/SCTChannelQueryParam.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/SCTMessage.h</key>
 		<data>
-		6ofGU9dZ0iS2y4s+mTAFhBBEHKU=
+		yK9dDS7edeOk8uACZCaTZotcN7A=
 		</data>
 		<key>Headers/SCTMessageBodyAttribute.h</key>
 		<data>
@@ -123,6 +123,26 @@
 		<key>Headers/SCTMute.h</key>
 		<data>
 		V3tjRRbvfXcwbg6K6ihbjUusBnM=
+		</data>
+		<key>Headers/SCTPollDetails+Internal.h</key>
+		<data>
+		KpiPgELxt1XoYmNSB8ubq/Ojf8U=
+		</data>
+		<key>Headers/SCTPollOption+Internal.h</key>
+		<data>
+		TJx7lNzJS5uNANP/kYUrgU+p76E=
+		</data>
+		<key>Headers/SCTPollOption.h</key>
+		<data>
+		6JtkjpfIBEXpAHAavlUlTJxtMPg=
+		</data>
+		<key>Headers/SCTPollVote+Internal.h</key>
+		<data>
+		udQtP9iuIl0ErtVc9FxwZmv1M7g=
+		</data>
+		<key>Headers/SCTPollVote.h</key>
+		<data>
+		+BZRgwE9cnJxEPYz0yp3UTXNK5E=
 		</data>
 		<key>Headers/SCTPresence.h</key>
 		<data>
@@ -166,7 +186,7 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		nS0+XLZJap2QM+2Y2t+VmDyuafY=
+		v1mQP+jry8FJqBRZl+z3md4h/qU=
 		</data>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
 		<data>
@@ -190,7 +210,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		/LdfH0r13aqvdwiwEQOGYrLUUAw=
+		Ccdpa+JM8wYMlyi+ZY5ttNY6ZFs=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -295,7 +315,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			H5HEQyJAjckqT6MplC7Sc7PzV6coSlj5tdkNtm1RG5U=
+			n//WhzZ+KGFqM7wsIyFJdw+3E4k3TNGZnnAYPxTUtwU=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelQueryParam.h</key>
@@ -379,7 +399,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qtj3D9m/q2E6t8zLPmXl5xb00vXnQ4pQmQzU9usUb/U=
+			T4Cx87ecX10O3r2gNcpWYlxxcVWB/LSanxZw7la5LKs=
 			</data>
 		</dict>
 		<key>Headers/SCTMessageBodyAttribute.h</key>
@@ -415,6 +435,41 @@
 			<key>hash2</key>
 			<data>
 			O5hAePIZb3vKU8gYmKnhEfOhSBLThmdynQ0tN26GTug=
+			</data>
+		</dict>
+		<key>Headers/SCTPollDetails+Internal.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			usUx1Ahs1KxLr9/W5TqEQlQrH4XrC8IOYhm0kQTowUM=
+			</data>
+		</dict>
+		<key>Headers/SCTPollOption+Internal.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UHG/wJ9Ls6aK/rtMVK61xw+DPYN4uNdltpsKRZ74c5Y=
+			</data>
+		</dict>
+		<key>Headers/SCTPollOption.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			vKbMLQ9w86XJqf/NV8LpFkozzaR3VMoJMqU+aYORQGM=
+			</data>
+		</dict>
+		<key>Headers/SCTPollVote+Internal.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JvWYllwBZaNXK82zVBDcvGnt8zg/Ks1v3pfaj/I0yJ8=
+			</data>
+		</dict>
+		<key>Headers/SCTPollVote.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			u2nviFWGbei4sN0/JfQTvWh39H3gF33Z7INCU1SjRnk=
 			</data>
 		</dict>
 		<key>Headers/SCTPresence.h</key>
@@ -491,7 +546,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EHrQ/pz0qv8029DPWqpDSu/1b4ZHh8dnxInhAoFhwJM=
+			LTVcz/7E/yWh0ejLOj7bPhSfOB9gnSaaRufQABxXObQ=
 			</data>
 		</dict>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
