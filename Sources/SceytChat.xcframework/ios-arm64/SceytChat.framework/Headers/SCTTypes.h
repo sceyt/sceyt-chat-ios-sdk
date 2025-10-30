@@ -57,8 +57,10 @@
 @class SCTCDRParticipant;
 @class SCTCDRListQuery;
 @class SCTPollOption;
+@class SCTPollOptionBuilder;
 @class SCTPollVote;
 @class SCTPollDetails;
+@class SCTPollBuilder;
 @class SCTPollVotesListQuery;
 
 NS_SWIFT_NAME(UserId)

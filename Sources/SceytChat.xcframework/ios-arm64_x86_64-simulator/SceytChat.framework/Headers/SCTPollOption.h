@@ -18,6 +18,13 @@ NS_SWIFT_NAME(PollOption)
 /// The poll option name/text.
 @property (nonatomic, readonly, nonnull) NSString *name;
 
+/// Initialize a poll option with id and name.
+/// @param id The option identifier.
+/// @param name The option display text.
+- (instancetype)initWithId:(nonnull NSString *)id
+                      name:(nonnull NSString *)name
+NS_SWIFT_NAME(init(id:name:));
+
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
 

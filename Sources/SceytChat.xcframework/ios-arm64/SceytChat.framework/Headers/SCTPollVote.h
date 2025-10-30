@@ -12,12 +12,6 @@
 NS_SWIFT_NAME(PollVote)
 @interface SCTPollVote : NSObject
 
-/// The unique poll vote identifier.
-@property (nonatomic, readonly, nonnull) NSString *id;
-
-/// The poll identifier.
-@property (nonatomic, readonly, nonnull) NSString *pollId;
-
 /// The selected option identifier.
 @property (nonatomic, readonly, nonnull) NSString *optionId;
 

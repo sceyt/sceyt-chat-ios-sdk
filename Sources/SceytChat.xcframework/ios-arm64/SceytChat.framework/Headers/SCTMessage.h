@@ -203,6 +203,11 @@ NS_SWIFT_NAME(displayCount(_:));
 - (instancetype)disableMentionsCount:(BOOL)disableMentionsCount
 NS_SWIFT_NAME(disableMentionsCount(_:));
 
+/// Add poll to the message.
+/// @param poll The poll details.
+- (instancetype)poll:(nonnull SCTPollDetails *)poll
+NS_SWIFT_NAME(poll(_:));
+
 /// Built a message.
 - (SCTMessage *)build
 NS_SWIFT_NAME(build());
