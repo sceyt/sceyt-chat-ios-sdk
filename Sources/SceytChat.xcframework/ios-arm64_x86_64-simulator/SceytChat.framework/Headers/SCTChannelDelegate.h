@@ -196,6 +196,34 @@ NS_SWIFT_NAME(channel(_:user:message:didAdd:));
 - (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user message:(nonnull SCTMessage *)message reactionDidDelete:(nonnull SCTReaction *)reaction
 NS_SWIFT_NAME(channel(_:user:message:didDelete:));
 
+/// A callback when a poll vote is added.
+/// @param channel The channel where the poll vote is added.
+/// @param user The user who added the vote.
+/// @param message The message containing the poll with updated vote information.
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didAddVote:(nonnull SCTMessage *)message
+NS_SWIFT_NAME(channel(_:user:didAddVote:));
+
+/// A callback when a poll vote is deleted.
+/// @param channel The channel where the poll vote is deleted.
+/// @param user The user who deleted the vote.
+/// @param message The message containing the poll with updated vote information.
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didDeleteVote:(nonnull SCTMessage *)message
+NS_SWIFT_NAME(channel(_:user:didDeleteVote:));
+
+/// A callback when a poll vote is retracted.
+/// @param channel The channel where the poll vote is retracted.
+/// @param user The user who retracted the vote.
+/// @param message The message containing the poll with updated vote information.
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didRetractVote:(nonnull SCTMessage *)message
+NS_SWIFT_NAME(channel(_:user:didRetractVote:));
+
+/// A callback when a poll is closed.
+/// @param channel The channel where the poll is closed.
+/// @param user The user who closed the poll.
+/// @param message The message containing the closed poll.
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didClosePoll:(nonnull SCTMessage *)message
+NS_SWIFT_NAME(channel(_:user:didClosePoll:));
+
 /// A callback when a user send an event.
 /// @param channel The channel where the user sends an event.
 /// @param channelEvent The event
