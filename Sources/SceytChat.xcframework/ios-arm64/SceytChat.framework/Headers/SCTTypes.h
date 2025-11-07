@@ -58,6 +58,7 @@
 @class SCTCDRListQuery;
 @class SCTPollOption;
 @class SCTPollOptionBuilder;
+@class SCTPollBuilder;
 @class SCTPollVote;
 @class SCTPollDetails;
 @class SCTPollBuilder;

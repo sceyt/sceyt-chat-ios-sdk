@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @endcode
  */
 
-NS_SWIFT_NAME(Poll.Builder)
+NS_SWIFT_NAME(PollDetails.Builder)
 @interface SCTPollBuilder : NSObject
 
 /// Create poll builder.
