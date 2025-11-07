@@ -47,6 +47,11 @@ NS_SWIFT_NAME(Poll.Builder)
 /// Create poll builder.
 - (instancetype)init;
 
+/// Set the poll identifier (optional, will be auto-generated if not set).
+/// @param pollId The poll identifier. Must not be empty if provided.
+- (instancetype)id:(nonnull NSString *)pollId
+NS_SWIFT_NAME(pollId(_:));
+
 /// Set the poll name/question.
 /// @param name The poll question text.
 - (instancetype)name:(nonnull NSString *)name

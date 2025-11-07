@@ -22,6 +22,9 @@ NS_SWIFT_NAME(PollVotesListQuery)
 /// Shows if the query is loading.
 @property (atomic, readonly) BOOL loading;
 
+/// The message id.
+@property (nonatomic, readonly) SCTMessageId messageID;
+
 /// init is unavailable. Use `SCTPollVotesListQueryBuilder` instead.
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -39,6 +42,7 @@ NS_SWIFT_NAME(PollVotesListQuery.Builder)
 - (instancetype)initWithPollId:(NSString *)pollId;
 - (instancetype)limit:(NSUInteger)limit;
 - (instancetype)optionId:(NSString *)optionId;
+- (instancetype)messageID:(SCTMessageId)messageID;
 - (SCTPollVotesListQuery *)build;
 
 @end

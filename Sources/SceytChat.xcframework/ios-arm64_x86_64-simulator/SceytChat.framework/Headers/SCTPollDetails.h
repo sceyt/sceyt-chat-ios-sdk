@@ -57,24 +57,7 @@ NS_SWIFT_NAME(PollDetails)
 /// Indicates if the poll is closed.
 @property (nonatomic, readonly) BOOL closed;
 
-/// Initialize poll details for creating a new poll.
-/// @param id The poll identifier (use UUID for new polls).
-/// @param name The poll question.
-/// @param pollDescription Optional description.
-/// @param options Array of poll options.
-/// @param anonymous Whether the poll is anonymous.
-/// @param allowMultipleVotes Whether multiple votes are allowed.
-/// @param allowVoteRetract Whether vote retraction is allowed.
-- (instancetype)initWithId:(nonnull NSString *)id
-                      name:(nonnull NSString *)name
-           pollDescription:(nullable NSString *)pollDescription
-                   options:(nonnull NSArray<SCTPollOption *> *)options
-                 anonymous:(BOOL)anonymous
-       allowMultipleVotes:(BOOL)allowMultipleVotes
-        allowVoteRetract:(BOOL)allowVoteRetract
-NS_SWIFT_NAME(init(id:name:description:options:anonymous:allowMultipleVotes:allowVoteRetract:));
-
-/// init is unavailable.
+/// init is unavailable. Use `SCTPollBuilder` to create poll instances.
 - (instancetype)init NS_UNAVAILABLE;
 
 @end

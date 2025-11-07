@@ -36,13 +36,17 @@
 		<data>
 		6kEfOajDQ10uxO8xHO9nEe2XvM4=
 		</data>
+		<key>Headers/SCTChangedVotes.h</key>
+		<data>
+		YpNYiBUiwG/06gbyryuOaJobuV8=
+		</data>
 		<key>Headers/SCTChannel.h</key>
 		<data>
 		RWiJJeYZChlvsd9mdgG3oQ3dutE=
 		</data>
 		<key>Headers/SCTChannelDelegate.h</key>
 		<data>
-		vN2+r71HklV8uhg0hpyaF33lNl8=
+		54bDCC3uKYW2w1JFqt7hLF2j+Sw=
 		</data>
 		<key>Headers/SCTChannelEvent.h</key>
 		<data>
@@ -54,7 +58,7 @@
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
-		9oMM9ZE2ilCXFf6YCDSmyyCXY1Q=
+		gMmieCE8/VKNRoanZuepOdX6n6M=
 		</data>
 		<key>Headers/SCTChannelQueryParam.h</key>
 		<data>
@@ -126,15 +130,15 @@
 		</data>
 		<key>Headers/SCTPollBuilder.h</key>
 		<data>
-		VgHdJT4FELSzMFzNwUOANMrbSl0=
+		XZWBnWNrHqxdM4lRCEB5JuEJ8Jc=
 		</data>
 		<key>Headers/SCTPollDetails+Internal.h</key>
 		<data>
-		KpiPgELxt1XoYmNSB8ubq/Ojf8U=
+		fzK2qiMP1MdcTl26NB6XWZ1LX+A=
 		</data>
 		<key>Headers/SCTPollDetails.h</key>
 		<data>
-		XOusBmqMBHk6x4CMLNShmOinHwU=
+		Ydx9f2ioheZTjwiUKVgzNt/DiW0=
 		</data>
 		<key>Headers/SCTPollOption.h</key>
 		<data>
@@ -150,7 +154,7 @@
 		</data>
 		<key>Headers/SCTPollVotesListQuery.h</key>
 		<data>
-		c8L79l1ENeKPRBAjejW/kl7Tw28=
+		jVj1hdjX6dcHOGYNHPZ0jOEYtME=
 		</data>
 		<key>Headers/SCTPresence.h</key>
 		<data>
@@ -194,7 +198,7 @@
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		JPdnyM2NkaJUIF6o+NJ1t96tLxc=
+		VaRm3pu+xKCRFFnPdfU31gzFUDk=
 		</data>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
 		<data>
@@ -212,9 +216,13 @@
 		<data>
 		l6cRoQawAVfwW79gXW+LA2tP7H0=
 		</data>
+		<key>Headers/SCTVoteDetails.h</key>
+		<data>
+		DUJuicz0mERJk5B2KFcz9hHOycU=
+		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		7vIFLFoFuQja+NuYTM+NjkQOAD4=
+		xA1+qSI9WarST4XQswkX7v+GWlc=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -291,6 +299,13 @@
 			FGGklL9FY0kI3ZmYVvoblSP3MevUK4sObj6+QlsgrnI=
 			</data>
 		</dict>
+		<key>Headers/SCTChangedVotes.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			PokBWOPW7cmY35H+SR8rHRsBJtS4wuLMRkujL+aR3lo=
+			</data>
+		</dict>
 		<key>Headers/SCTChannel.h</key>
 		<dict>
 			<key>hash2</key>
@@ -302,7 +317,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9XOTSe5y+W/AzDtx1E9IvboaUvw2D8PbAw21x4bWpkM=
+			oGzMguIwdAI+XYP8vDH9Lcm1JCvVG7cI7g3WWGmsF94=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelEvent.h</key>
@@ -323,7 +338,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			n//WhzZ+KGFqM7wsIyFJdw+3E4k3TNGZnnAYPxTUtwU=
+			rXyDP+49c3HpJe7+aLyrXRzfpu8cfjsnQMV2VQsqU24=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelQueryParam.h</key>
@@ -449,21 +464,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JQdHexAf/4T6pW5Abru34/dBAolGGZneKxgwbzw87g0=
+			/qcHKIjxrLofRiv1Xu3HSiVp9DffSBKizoh+k65LWyU=
 			</data>
 		</dict>
 		<key>Headers/SCTPollDetails+Internal.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			usUx1Ahs1KxLr9/W5TqEQlQrH4XrC8IOYhm0kQTowUM=
+			+5pGOC4P3io4AS5kboJEP4osiqOwsx/i3Sd41eZFmN8=
 			</data>
 		</dict>
 		<key>Headers/SCTPollDetails.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fkc1b6t6ZIvRZmTcTA9mEqA2nQJTplhATKG/PEBFT50=
+			xodiYovSCgUWZ4FXNBzx6sxigpejtnIBABAkc6lKeWU=
 			</data>
 		</dict>
 		<key>Headers/SCTPollOption.h</key>
@@ -491,7 +506,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VsNMeTzEr4E0saHJo/LaiMaNeBCEiuncHg3shjzmYik=
+			TZShK5qG6PoEIm1b37uyeZMHnkO0Q1Ro7MFpFfvyGRo=
 			</data>
 		</dict>
 		<key>Headers/SCTPresence.h</key>
@@ -568,7 +583,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			q57/lC8qtS5EhRlEgqBQ5BI1Bq8a652NFzts4/famek=
+			dGhY8NOjPfsx+e5p7UtUiW6N0b7pEx9SeVCHb+CBX/w=
 			</data>
 		</dict>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
@@ -599,11 +614,18 @@
 			MP1OBqh2N15hwPdU55PyMn9PZkzIf+DPSmASbgrZ+W0=
 			</data>
 		</dict>
+		<key>Headers/SCTVoteDetails.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kmgDRLJQhEu0+zW/W7SyTVO5DdhGzC93s6ni1tb+2co=
+			</data>
+		</dict>
 		<key>Headers/SceytChat.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			24+h/EHqssajRTxfRNsAUkru2HjyLv2aDIULv24b/sM=
+			CQpmYZl8kPEG9bnrEf9Ru0bAEmCDZefmQz3G/Tlahp4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

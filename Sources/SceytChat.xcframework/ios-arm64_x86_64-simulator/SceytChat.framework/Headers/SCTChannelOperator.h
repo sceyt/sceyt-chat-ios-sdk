@@ -216,7 +216,7 @@ NS_SWIFT_NAME(deleteReaction(messageId:key:completion:));
 - (void)addPollVoteWithMessageId:(SCTMessageId)messageId
                           pollId:(nonnull NSString *)pollId
                        optionIds:(nonnull NSArray<NSString *> *)optionIds
-                      completion:(nonnull SCTMessageCompletion)completion
+                      completion:(nonnull SCTPollVoteCompletion)completion
 NS_SWIFT_NAME(addPollVote(messageId:pollId:optionIds:completion:));
 
 /// Delete a vote from a poll.
@@ -227,7 +227,7 @@ NS_SWIFT_NAME(addPollVote(messageId:pollId:optionIds:completion:));
 - (void)deletePollVoteWithMessageId:(SCTMessageId)messageId
                              pollId:(nonnull NSString *)pollId
                           optionIds:(nonnull NSArray<NSString *> *)optionIds
-                         completion:(nonnull SCTMessageCompletion)completion
+                         completion:(nonnull SCTPollVoteCompletion)completion
 NS_SWIFT_NAME(deletePollVote(messageId:pollId:optionIds:completion:));
 
 /// Retract all votes from a poll.
@@ -236,7 +236,7 @@ NS_SWIFT_NAME(deletePollVote(messageId:pollId:optionIds:completion:));
 /// @param completion The handler block to execute.
 - (void)retractPollVoteWithMessageId:(SCTMessageId)messageId
                               pollId:(nonnull NSString *)pollId
-                          completion:(nonnull SCTMessageCompletion)completion
+                          completion:(nonnull SCTPollVoteCompletion)completion
 NS_SWIFT_NAME(retractPollVote(messageId:pollId:completion:));
 
 /// Close a poll.
@@ -245,7 +245,7 @@ NS_SWIFT_NAME(retractPollVote(messageId:pollId:completion:));
 /// @param completion The handler block to execute.
 - (void)closePollWithMessageId:(SCTMessageId)messageId
                         pollId:(nonnull NSString *)pollId
-                    completion:(nonnull SCTMessageCompletion)completion
+                    completion:(nonnull SCTClosePollCompletion)completion
 NS_SWIFT_NAME(closePoll(messageId:pollId:completion:));
 
 /// Change the channel owner.

@@ -62,6 +62,8 @@
 @class SCTPollDetails;
 @class SCTPollBuilder;
 @class SCTPollVotesListQuery;
+@class SCTChangedVotes;
+@class SCTVoteDetails;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -303,6 +305,10 @@ typedef void(^SCTMessageCompletion)(SCTMessage * _Nullable, SCTError * _Nullable
 NS_SWIFT_NAME(MessageCompletion);
 typedef void(^SCTReactionCompletion)(SCTReaction * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ReactionCompletion);
+typedef void(^SCTPollVoteCompletion)(SCTChangedVotes * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PollVoteCompletion);
+typedef void(^SCTClosePollCompletion)(SCTVoteDetails * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(ClosePollCompletion);
 typedef void(^SCTReactionListQueryCompletion)(SCTReactionListQuery * _Nonnull, NSArray <SCTReaction *> * _Nullable newLoadedReactions, SCTError *_Nullable)
 NS_SWIFT_NAME(ReactionListQueryCompletion);
 typedef void(^SCTMessageMarkerListCompletion)(SCTMessageListMarker * _Nullable, SCTError *_Nullable)
