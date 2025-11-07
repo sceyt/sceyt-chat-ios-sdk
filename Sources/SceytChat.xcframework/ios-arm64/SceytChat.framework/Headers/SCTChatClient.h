@@ -327,7 +327,7 @@ NS_SWIFT_NAME(loadLinkDetails(for:completion:));
 
 /// Generates a unique transaction ID.
 /// @returns A unique transaction ID.
-- (int64_t)generateTId
+- (NSInteger)generateTId
 NS_SWIFT_NAME(generateTId());
 
 - (void)addContactDiscoveries:(NSArray<SCTContactDiscovery*>*)contactDiscoveries completion:(nullable SCTContactsDiscoveryCompletion)completion
