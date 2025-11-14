@@ -210,8 +210,9 @@ NS_SWIFT_NAME(channel(_:user:didChangeVote:changedVotes:));
 /// @param channel The channel where the poll vote is retracted.
 /// @param user The user who retracted the vote.
 /// @param message The message containing the poll with updated vote information.
-- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didRetractVote:(nonnull SCTMessage *)message
-NS_SWIFT_NAME(channel(_:user:didRetractVote:));
+/// @param changedVotes The changed votes information (added and removed votes).
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didRetractVote:(nonnull SCTMessage *)message changedVotes:(nullable SCTChangedVotes *)changedVotes
+NS_SWIFT_NAME(channel(_:user:didRetractVote:changedVotes:));
 
 /// A callback when a poll is closed.
 /// @param channel The channel where the poll is closed.
