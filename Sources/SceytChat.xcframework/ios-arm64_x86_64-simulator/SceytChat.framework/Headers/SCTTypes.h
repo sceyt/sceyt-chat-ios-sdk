@@ -54,6 +54,10 @@
 @class SCTTurnServer;
 @class SCTSignalCall;
 @class SCTCallDetailRecord;
+@class SCTRtpExtension;
+@class SCTCodec;
+@class SCTMediaLine;
+@class SCTSDPData;
 @class SCTCDRParticipant;
 @class SCTCDRListQuery;
 @class SCTPollOption;
@@ -236,6 +240,20 @@ typedef NS_ENUM(NSInteger, SCTMediaFlow) {
     p2p,
     sfu,
 }NS_SWIFT_NAME(MediaFlow);
+
+typedef NS_ENUM(NSInteger, SCTMediaType) {
+    SCTMediaTypeUnspecified = 0,
+    SCTMediaTypeAudio = 1,
+    SCTMediaTypeVideo = 2,
+}NS_SWIFT_NAME(MediaType);
+
+typedef NS_ENUM(NSInteger, SCTMediaDirection) {
+    SCTMediaDirectionUnspecified = 0,
+    SCTMediaDirectionSendRecv = 1,
+    SCTMediaDirectionSendOnly = 2,
+    SCTMediaDirectionRecvOnly = 3,
+    SCTMediaDirectionInactive = 4,
+}NS_SWIFT_NAME(MediaDirection);
 
 typedef NS_ENUM(NSInteger, CDRCallState) {
     CDRCallStateOngoing,
