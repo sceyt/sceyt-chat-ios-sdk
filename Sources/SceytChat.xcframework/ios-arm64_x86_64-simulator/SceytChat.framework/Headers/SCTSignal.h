@@ -100,14 +100,14 @@ NS_SWIFT_NAME(Signal.Call)
 @end
 
 NS_SWIFT_NAME(Signal.RtpExtension)
-@interface SCTRtpExtension : NSObject
+@interface SCTRtpExtension : NSObject <NSSecureCoding>
 @property (nonatomic, readonly) NSInteger id;
 
 - (instancetype)initWithId:(NSInteger)id;
 @end
 
 NS_SWIFT_NAME(Signal.Codec)
-@interface SCTCodec : NSObject
+@interface SCTCodec : NSObject <NSSecureCoding>
 @property (nonatomic, readonly) NSInteger payloadType;
 @property (nonatomic, readonly, nonnull) NSString *name;
 @property (nonatomic, readonly) NSInteger clockRate;
@@ -122,7 +122,7 @@ NS_SWIFT_NAME(Signal.Codec)
 @end
 
 NS_SWIFT_NAME(Signal.MediaLine)
-@interface SCTMediaLine : NSObject
+@interface SCTMediaLine : NSObject <NSSecureCoding>
 @property (nonatomic, readonly) SCTMediaType type;
 @property (nonatomic, readonly, nonnull) NSString *mid;
 @property (nonatomic, readonly) SCTMediaDirection direction;
@@ -141,7 +141,7 @@ NS_SWIFT_NAME(Signal.MediaLine)
 @end
 
 NS_SWIFT_NAME(Signal.SDPData)
-@interface SCTSDPData : NSObject
+@interface SCTSDPData : NSObject <NSSecureCoding>
 @property (nonatomic, readonly, nonnull) NSString *sessionId;
 @property (nonatomic, readonly) int64_t sessionVersion;
 @property (nonatomic, readonly, nonnull) NSString *iceUfrag;
