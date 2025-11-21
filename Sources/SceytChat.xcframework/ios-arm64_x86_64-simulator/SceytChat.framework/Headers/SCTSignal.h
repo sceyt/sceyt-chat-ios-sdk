@@ -99,88 +99,23 @@ NS_SWIFT_NAME(Signal.Call)
                 participants:(NSArray<SCTSignalParticipant *> *)participants;
 @end
 
-NS_SWIFT_NAME(Signal.RtpExtension)
-@interface SCTRtpExtension : NSObject <NSSecureCoding>
-@property (nonatomic, readonly) NSInteger id;
-
-- (instancetype)initWithId:(NSInteger)id;
-@end
-
-NS_SWIFT_NAME(Signal.Codec)
-@interface SCTCodec : NSObject <NSSecureCoding>
-@property (nonatomic, readonly) NSInteger payloadType;
-@property (nonatomic, readonly, nonnull) NSString *name;
-@property (nonatomic, readonly) NSInteger clockRate;
-@property (nonatomic, readonly) NSInteger channels;
-@property (nonatomic, readonly, nonnull) NSDictionary<NSString *, NSString *> *parameters;
-
-- (instancetype)initWithPayloadType:(NSInteger)payloadType
-                                name:(nonnull NSString *)name
-                           clockRate:(NSInteger)clockRate
-                            channels:(NSInteger)channels
-                          parameters:(nonnull NSDictionary<NSString *, NSString *> *)parameters;
-@end
-
-NS_SWIFT_NAME(Signal.MediaLine)
-@interface SCTMediaLine : NSObject <NSSecureCoding>
-@property (nonatomic, readonly) SCTMediaType type;
-@property (nonatomic, readonly, nonnull) NSString *mid;
-@property (nonatomic, readonly) SCTMediaDirection direction;
-@property (nonatomic, readonly, nonnull) NSArray<SCTCodec *> *codecs;
-@property (nonatomic, readonly, nonnull) NSArray<NSNumber *> *ssrcs;
-@property (nonatomic, readonly, nonnull) NSString *msid;
-@property (nonatomic, readonly, nonnull) NSArray<SCTRtpExtension *> *extensions;
-
-- (instancetype)initWithType:(SCTMediaType)type
-                          mid:(nonnull NSString *)mid
-                    direction:(SCTMediaDirection)direction
-                       codecs:(nonnull NSArray<SCTCodec *> *)codecs
-                        ssrcs:(nonnull NSArray<NSNumber *> *)ssrcs
-                        msid:(nonnull NSString *)msid
-                   extensions:(nonnull NSArray<SCTRtpExtension *> *)extensions;
-@end
-
-NS_SWIFT_NAME(Signal.SDPData)
-@interface SCTSDPData : NSObject <NSSecureCoding>
-@property (nonatomic, readonly, nonnull) NSString *sessionId;
-@property (nonatomic, readonly) int64_t sessionVersion;
-@property (nonatomic, readonly, nonnull) NSString *iceUfrag;
-@property (nonatomic, readonly, nonnull) NSString *icePwd;
-@property (nonatomic, readonly, nonnull) NSString *fingerprint;
-@property (nonatomic, readonly, nonnull) NSString *setup;
-@property (nonatomic, readonly, nonnull) NSArray<SCTMediaLine *> *mediaLines;
-
-- (instancetype)initWithSessionId:(nonnull NSString *)sessionId
-                    sessionVersion:(int64_t)sessionVersion
-                          iceUfrag:(nonnull NSString *)iceUfrag
-                            icePwd:(nonnull NSString *)icePwd
-                        fingerprint:(nonnull NSString *)fingerprint
-                              setup:(nonnull NSString *)setup
-                         mediaLines:(nonnull NSArray<SCTMediaLine *> *)mediaLines;
-@end
-
 NS_SWIFT_NAME(Signal.SessionData)
 @interface SCTSessionData : NSObject
 @property (nonatomic, readonly, nonnull) NSString *id;
 @property (nonatomic, readonly, nonnull) NSString *version;
-@property (nonatomic, readonly, nullable) NSString *sdp;
-@property (nonatomic, readonly, nullable) SCTSDPData *sdpData;
+@property (nonatomic, readonly, nonnull) NSString *sdp;
 
 - (instancetype)initWithId:(NSString *)id
                    version:(NSString *)version
                        sdp:(NSString *)sdp;
-- (instancetype)initWithId:(NSString *)id
-                   version:(NSString *)version
-                   sdpData:(SCTSDPData *)sdpData;
 @end
 
-NS_SWIFT_NAME(Signal.SessionDataBuilder)
+NS_SWIFT_NAME(Singal.SessionData)
 @interface SCTSessionDataBuilder : NSObject
 - (instancetype)initWithId: (NSString *)id;
 - (instancetype)version:(nonnull NSString *)version;
 - (instancetype)sdp:(nonnull NSString *)sdp;
-- (instancetype)sdpData:(nonnull SCTSDPData *)sdpData;
-- (SCTSessionData *) build;
+- (SCTSessionDataBuilder *) build;
 @end
 
 NS_SWIFT_NAME(Signal.Builder)
