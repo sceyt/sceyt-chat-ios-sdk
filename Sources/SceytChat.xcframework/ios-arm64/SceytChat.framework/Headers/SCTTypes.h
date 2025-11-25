@@ -247,17 +247,17 @@ typedef NS_ENUM(NSInteger, SCTMediaFlow) {
 }NS_SWIFT_NAME(MediaFlow);
 
 typedef NS_ENUM(NSInteger, SCTMediaType) {
-    SCTMediaTypeUnspecified = 0,
-    SCTMediaTypeAudio = 1,
-    SCTMediaTypeVideo = 2,
+    SCTMediaTypeAudio = 0,
+    SCTMediaTypeVideo = 1,
+    SCTMediaTypeUnspecified = 2,
 }NS_SWIFT_NAME(MediaType);
 
 typedef NS_ENUM(NSInteger, SCTMediaDirection) {
-    SCTMediaDirectionUnspecified = 0,
-    SCTMediaDirectionSendRecv = 1,
-    SCTMediaDirectionSendOnly = 2,
-    SCTMediaDirectionRecvOnly = 3,
-    SCTMediaDirectionInactive = 4,
+    SCTMediaDirectionSendRecv = 0,
+    SCTMediaDirectionSendOnly = 1,
+    SCTMediaDirectionRecvOnly = 2,
+    SCTMediaDirectionInactive = 3,
+    SCTMediaDirectionUnspecified = 4,
 }NS_SWIFT_NAME(MediaDirection);
 
 typedef NS_ENUM(NSInteger, SCTHashFunction) {

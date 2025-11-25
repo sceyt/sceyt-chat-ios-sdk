@@ -119,7 +119,7 @@ NS_SWIFT_NAME(Signal.SessionData)
                    sdpData:(SCTSDPData *)sdpData;
 @end
 
-NS_SWIFT_NAME(Signal.SessionData.Builder)
+NS_SWIFT_NAME(Signal.SessionDataBuilder)
 @interface SCTSessionDataBuilder : NSObject
 - (instancetype)initWithId: (NSString *)id;
 - (instancetype)version:(nonnull NSString *)version;
