@@ -272,10 +272,10 @@ NS_SWIFT_NAME(Signal.IceCandidate)
 NS_SWIFT_NAME(Signal.Fingerprint)
 @interface SCTFingerprint : NSObject
 @property (nonatomic, readonly) SCTHashFunction hashFunc;
-@property (nonatomic, readonly, nonnull) NSString *hashValue;
+@property (nonatomic, readonly, nonnull) NSString *fingerprintHashValue;
 
 - (instancetype)initWithHashFunc:(SCTHashFunction)hashFunc
-                        hashValue:(NSString *)hashValue;
+                fingerprintHashValue:(NSString *)fingerprintHashValue;
 @end
 
 NS_SWIFT_NAME(Signal.FmtpParam)
