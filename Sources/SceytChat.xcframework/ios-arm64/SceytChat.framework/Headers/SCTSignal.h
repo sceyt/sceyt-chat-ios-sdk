@@ -152,7 +152,7 @@ NS_SWIFT_NAME(Signal.SDPData)
                           iceUfrag:(NSString *)iceUfrag
                            icePwd:(NSString *)icePwd
                        iceOptions:(NSArray<NSString *> *)iceOptions
-                       fingerprint:(SCTFingerprint *)fingerprint
+                       fingerprint:(nullable SCTFingerprint *)fingerprint
                              setup:(SCTSetup)setup
                              media:(NSArray<SCTMedia *> *)media
                        sessionName:(NSString *)sessionName
@@ -208,7 +208,7 @@ NS_SWIFT_NAME(Signal.Media)
                      iceUfragRef:(NSUInteger)iceUfragRef
                        icePwdRef:(NSUInteger)icePwdRef
                       iceOptions:(NSArray<NSString *> *)iceOptions
-                      fingerprint:(SCTFingerprint *)fingerprint
+                      fingerprint:(nullable SCTFingerprint *)fingerprint
                             setup:(SCTSetup)setup
                             port:(NSUInteger)port;
 @end
@@ -248,7 +248,7 @@ NS_SWIFT_NAME(Signal.IceCandidate)
 @interface SCTIceCandidate : NSObject
 @property (nonatomic, readonly) NSUInteger foundation;
 @property (nonatomic, readonly) NSUInteger component;
-@property (nonatomic, readonly) SCTIceCandidateProtocol protocol;
+@property (nonatomic, readonly) SCTIceCandidateProtocol protocolType;
 @property (nonatomic, readonly) NSUInteger priority;
 @property (nonatomic, readonly, nonnull) NSString *ip;
 @property (nonatomic, readonly) NSUInteger port;
@@ -259,7 +259,7 @@ NS_SWIFT_NAME(Signal.IceCandidate)
 
 - (instancetype)initWithFoundation:(NSUInteger)foundation
                           component:(NSUInteger)component
-                           protocol:(SCTIceCandidateProtocol)protocol
+                       protocolType:(SCTIceCandidateProtocol)protocolType
                            priority:(NSUInteger)priority
                                  ip:(NSString *)ip
                                port:(NSUInteger)port
