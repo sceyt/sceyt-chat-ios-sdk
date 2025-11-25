@@ -65,6 +65,15 @@
 @class SCTPollVotesListQuery;
 @class SCTChangedVotes;
 @class SCTVoteDetails;
+@class SCTFingerprint;
+@class SCTFmtpParam;
+@class SCTExtmapEntry;
+@class SCTCodec;
+@class SCTSsrc;
+@class SCTSsrcGroup;
+@class SCTIceCandidate;
+@class SCTMedia;
+@class SCTSDPData;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -236,6 +245,52 @@ typedef NS_ENUM(NSInteger, SCTMediaFlow) {
     p2p,
     sfu,
 }NS_SWIFT_NAME(MediaFlow);
+
+typedef NS_ENUM(NSInteger, SCTMediaType) {
+    SCTMediaTypeUnspecified = 0,
+    SCTMediaTypeAudio = 1,
+    SCTMediaTypeVideo = 2,
+}NS_SWIFT_NAME(MediaType);
+
+typedef NS_ENUM(NSInteger, SCTMediaDirection) {
+    SCTMediaDirectionUnspecified = 0,
+    SCTMediaDirectionSendRecv = 1,
+    SCTMediaDirectionSendOnly = 2,
+    SCTMediaDirectionRecvOnly = 3,
+    SCTMediaDirectionInactive = 4,
+}NS_SWIFT_NAME(MediaDirection);
+
+typedef NS_ENUM(NSInteger, SCTHashFunction) {
+    SCTHashFunctionSHA256 = 0,
+    SCTHashFunctionSHA1 = 1,
+    SCTHashFunctionSHA384 = 2,
+    SCTHashFunctionSHA512 = 3,
+    SCTHashFunctionMD5 = 4,
+}NS_SWIFT_NAME(HashFunction);
+
+typedef NS_ENUM(NSInteger, SCTSetup) {
+    SCTSetupActive = 0,
+    SCTSetupPassive = 1,
+    SCTSetupActPass = 2,
+}NS_SWIFT_NAME(Setup);
+
+typedef NS_ENUM(NSInteger, SCTIceCandidateProtocol) {
+    SCTIceCandidateProtocolUDP = 0,
+    SCTIceCandidateProtocolTCP = 1,
+}NS_SWIFT_NAME(IceCandidateProtocol);
+
+typedef NS_ENUM(NSInteger, SCTIceCandidateType) {
+    SCTIceCandidateTypeHost = 0,
+    SCTIceCandidateTypeSrflx = 1,
+    SCTIceCandidateTypePrflx = 2,
+    SCTIceCandidateTypeRelay = 3,
+}NS_SWIFT_NAME(IceCandidateType);
+
+typedef NS_ENUM(NSInteger, SCTIceCandidateTcpType) {
+    SCTIceCandidateTcpTypeActive = 0,
+    SCTIceCandidateTcpTypePassive = 1,
+    SCTIceCandidateTcpTypeSO = 2,
+}NS_SWIFT_NAME(IceCandidateTcpType);
 
 typedef NS_ENUM(NSInteger, CDRCallState) {
     CDRCallStateOngoing,
