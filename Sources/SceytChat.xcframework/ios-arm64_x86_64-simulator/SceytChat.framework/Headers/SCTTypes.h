@@ -18,6 +18,17 @@
 @class SCTError;
 @class SCTAttachment;
 @class SCTMarker;
+@class SCTChannelInviteKeyRequest;
+@class SCTChannelInviteKeyCreateParam;
+@class SCTChannelInviteKeyUpdateParam;
+@class SCTChannelInviteKeyRevokeParam;
+@class SCTChannelInviteKeyDeleteParam;
+@class SCTChannelInviteKeyGetInviteKeyParam;
+@class SCTChannelInviteKeyGetInviteKeysParam;
+@class SCTChannelInviteKeyGetRevokedParam;
+@class SCTChannelInviteKeyRegenerateParam;
+@class SCTChannelInviteKey;
+@class SCTChannelInviteKeyResponse;
 @class SCTMessageListMarker;
 @class SCTAttachmentListQuery;
 @class SCTMessageListQuery;
@@ -42,6 +53,18 @@
 @class SCTMetaFilter;
 @class SCTTurnServer;
 @class SCTSignalCall;
+@class SCTCallDetailRecord;
+@class SCTCDRParticipant;
+@class SCTCDRListQuery;
+@class SCTPollOption;
+@class SCTPollOptionBuilder;
+@class SCTPollBuilder;
+@class SCTPollVote;
+@class SCTPollDetails;
+@class SCTPollBuilder;
+@class SCTPollVotesListQuery;
+@class SCTChangedVotes;
+@class SCTVoteDetails;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -201,6 +224,7 @@ typedef NS_ENUM(NSInteger, SCTPrivacyKey) {
     SCTPrivacyKeyForwardMessages,
     SCTPrivacyKeyReadReceipts,
     SCTPrivacyKeyCall,
+    SCTPrivacyKeyCallWithRing,
 }NS_SWIFT_NAME(PrivacyKey);
 
 typedef NS_ENUM(NSInteger, SCTPrivacyType) {
@@ -212,6 +236,11 @@ typedef NS_ENUM(NSInteger, SCTMediaFlow) {
     p2p,
     sfu,
 }NS_SWIFT_NAME(MediaFlow);
+
+typedef NS_ENUM(NSInteger, CDRCallState) {
+    CDRCallStateOngoing,
+    CDRCallStateClosed,
+}NS_SWIFT_NAME(CallState);
 
 typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventJoin,
@@ -277,6 +306,10 @@ typedef void(^SCTMessageCompletion)(SCTMessage * _Nullable, SCTError * _Nullable
 NS_SWIFT_NAME(MessageCompletion);
 typedef void(^SCTReactionCompletion)(SCTReaction * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(ReactionCompletion);
+typedef void(^SCTPollVoteCompletion)(SCTChangedVotes * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PollVoteCompletion);
+typedef void(^SCTClosePollCompletion)(SCTVoteDetails * _Nullable, SCTMessage * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(ClosePollCompletion);
 typedef void(^SCTReactionListQueryCompletion)(SCTReactionListQuery * _Nonnull, NSArray <SCTReaction *> * _Nullable newLoadedReactions, SCTError *_Nullable)
 NS_SWIFT_NAME(ReactionListQueryCompletion);
 typedef void(^SCTMessageMarkerListCompletion)(SCTMessageListMarker * _Nullable, SCTError *_Nullable)
@@ -335,5 +368,111 @@ NS_SWIFT_NAME(LinkDetailsCompletion);
 typedef void(^SCTUnreadMentionsListQueryCompletion)(SCTUnreadMentionsListQuery * _Nonnull, NSArray<NSNumber *> * _Nullable messageIds, SCTError * _Nullable)
 NS_SWIFT_NAME(UnreadMentionsListQueryCompletion);
 
+typedef void(^SCTCDRListQueryCompletion)(SCTCDRListQuery * _Nonnull, NSArray<SCTCallDetailRecord *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(CDRListQueryCompletion);
+
+//MARK: - Poll Completion Handlers
+typedef void(^SCTPollVotesListQueryCompletion)(SCTPollVotesListQuery * _Nonnull, NSArray<SCTPollVote *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PollVotesListQueryCompletion);
+
+//MARK: - Channel Invite Key Completion Handlers
+typedef void(^SCTChannelInviteKeyCompletion)(SCTChannelInviteKey * _Nullable inviteKey, SCTError * _Nullable)
+NS_SWIFT_NAME(ChannelInviteKeyCompletion);
+typedef void(^SCTChannelInviteKeysCompletion)(NSArray<SCTChannelInviteKey *> * _Nullable inviteKeys, SCTError * _Nullable)
+NS_SWIFT_NAME(ChannelInviteKeysCompletion);
+
+//MARK: - Channel Invite Key Types
+
+typedef NS_ENUM(NSInteger, SCTChannelInviteKeyRequestEvent) {
+    SCTChannelInviteKeyRequestEventCreateChannelInviteKey = 0,
+    SCTChannelInviteKeyRequestEventUpdateChannelInviteKey = 1,
+    SCTChannelInviteKeyRequestEventGetChannelInviteKey = 2,
+    SCTChannelInviteKeyRequestEventGetChannelInviteKeys = 3,
+    SCTChannelInviteKeyRequestEventRegenerateChannelInviteKey = 4,
+    SCTChannelInviteKeyRequestEventRevokeChannelInviteKey = 5,
+    SCTChannelInviteKeyRequestEventDeleteRevokedChannelInviteKey = 6,
+    SCTChannelInviteKeyRequestEventGetRevokedChannelInviteKeys = 7
+}NS_SWIFT_NAME(ChannelInviteKeyRequestEvent);
+
+@interface SCTChannelInviteKeyRequest : NSObject
+
+@property (nonatomic, assign) SCTChannelInviteKeyRequestEvent event;
+@property (nonatomic, nonnull) NSString *requestId;
+
+// Parameters for different operations
+@property (nonatomic, nonnull) SCTChannelInviteKeyCreateParam *createParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyUpdateParam *updateParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyRevokeParam *revokeParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyDeleteParam *deleteParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyGetInviteKeyParam *getInviteKeyParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyGetInviteKeysParam *getInviteKeysParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyGetRevokedParam *getRevokedParam;
+@property (nonatomic, nonnull) SCTChannelInviteKeyRegenerateParam *regenerateParam;
+
+@end
+
+@interface SCTChannelInviteKeyCreateParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@property (nonatomic, assign) uint32_t maxUses;
+@property (nonatomic, assign) uint64_t expiresAt;
+@property (nonatomic, assign) BOOL accessPriorHistory;
+@end
+
+@interface SCTChannelInviteKeyUpdateParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@property (nonatomic, nonnull) NSString *key;
+@property (nonatomic, assign) uint32_t maxUses;
+@property (nonatomic, assign) uint64_t expiresAt;
+@property (nonatomic, assign) BOOL accessPriorHistory;
+@end
+
+@interface SCTChannelInviteKeyRevokeParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@property (nonatomic, nonnull) NSArray<NSString *> *keys;
+@end
+
+@interface SCTChannelInviteKeyDeleteParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@property (nonatomic, nonnull) NSArray<NSString *> *keys;
+@end
+
+@interface SCTChannelInviteKeyGetInviteKeyParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@property (nonatomic, nonnull) NSString *key;
+@end
+
+@interface SCTChannelInviteKeyGetInviteKeysParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@end
+
+@interface SCTChannelInviteKeyGetRevokedParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@end
+
+@interface SCTChannelInviteKeyRegenerateParam : NSObject
+@property (nonatomic, nonnull) NSString *channelId;
+@property (nonatomic, nonnull) NSString *key;
+@end
+
+
+@interface SCTChannelInviteKey : NSObject
+@property (nonatomic, nonnull) NSString *key;
+@property (nonatomic, assign) uint64_t channelId;
+@property (nonatomic, nonnull) SCTMember *createdBy;
+@property (nonatomic, assign) uint32_t maxUses;
+@property (nonatomic, assign) uint64_t expiresAt;
+@property (nonatomic, assign) BOOL revoked;
+@property (nonatomic, assign) uint64_t revokedAt;
+@property (nonatomic, assign) BOOL accessPriorHistory;
+@property (nonatomic, assign) BOOL isPrimary;
+@end
+
+@interface SCTChannelInviteKeyResponse : NSObject
+@property (nonatomic, nullable) SCTChannelInviteKey *createResponse;
+@property (nonatomic, nullable) SCTChannelInviteKey *regenerateResponse;
+@property (nonatomic, nullable) SCTChannelInviteKey *getInviteKeyResponse;
+@property (nonatomic, nullable) NSArray<SCTChannelInviteKey *> *getInviteKeysResponse;
+@property (nonatomic, nullable) NSArray<SCTChannelInviteKey *> *getRevokedResponse;
+@end
 #endif /* SCTTypes_h */
 

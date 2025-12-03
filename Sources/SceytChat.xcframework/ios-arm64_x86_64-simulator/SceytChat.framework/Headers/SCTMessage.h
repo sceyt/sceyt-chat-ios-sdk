@@ -15,6 +15,7 @@
 @class SCTAttachment;
 @class SCTForwardingDetails;
 @class SCTMessageBodyAttribute;
+@class SCTPollDetails;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -98,11 +99,16 @@ NS_SWIFT_NAME(Message)
 /// The message body attributes.
 @property (nonatomic, readonly, nullable) NSArray<SCTMessageBodyAttribute*> *bodyAttributes;
 
+/// The poll details if the message contains a poll.
+@property (nonatomic, readonly, nullable) SCTPollDetails *poll;
+
 @property (nonatomic, readonly) BOOL repliedInThread;
 
 @property (nonatomic, readonly) NSInteger replyCount;
 
 @property (nonatomic, readonly) NSInteger displayCount;
+
+@property (nonatomic, readonly) BOOL disableMentionsCount;
 
 /// init is unavailable.
 - (instancetype)init NS_UNAVAILABLE;
@@ -191,6 +197,16 @@ NS_SWIFT_NAME(silent(_:));
 /// @param displayCount Default value is 1
 - (instancetype)displayCount:(NSInteger)displayCount
 NS_SWIFT_NAME(displayCount(_:));
+
+/// Disable mentions count for the message.
+/// @param disableMentionsCount If YES, mentions will not be counted
+- (instancetype)disableMentionsCount:(BOOL)disableMentionsCount
+NS_SWIFT_NAME(disableMentionsCount(_:));
+
+/// Add poll to the message.
+/// @param poll The poll details.
+- (instancetype)poll:(nonnull SCTPollDetails *)poll
+NS_SWIFT_NAME(poll(_:));
 
 /// Built a message.
 - (SCTMessage *)build

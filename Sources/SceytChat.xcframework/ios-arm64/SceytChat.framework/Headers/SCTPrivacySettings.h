@@ -51,6 +51,9 @@ NS_SWIFT_NAME(PrivacySettings)
 /// Privacy setting for call-related information of the current user.
 @property (nonatomic, readonly) SCTPrivacyValue *call;
 
+/// Privacy setting for call-related information of the current user.
+@property (nonatomic, readonly) SCTPrivacyValue *callWithRing;
+
 /// Array of SCTPrivacySetting objects, representing the collection of all privacy settings for the current user.
 @property (nonatomic, readonly) NSArray<SCTPrivacySetting*> *settings;
 
@@ -123,6 +126,11 @@ NS_SWIFT_NAME(build(withReadReceipts:));
 /// - Parameter value: The SCTPrivacyValue to apply for this setting.
 + (SCTPrivacySetting *)buildWithCall:(SCTPrivacyValue *)value
 NS_SWIFT_NAME(build(withCall:));
+
+/// Builds a privacy setting for call ring information related to the current user.
+/// - Parameter value: The SCTPrivacyValue to apply for this setting.
++ (SCTPrivacySetting *)buildWithCallWithRing:(SCTPrivacyValue *)value
+NS_SWIFT_NAME(build(withCallWithRing:));
 
 @end
 

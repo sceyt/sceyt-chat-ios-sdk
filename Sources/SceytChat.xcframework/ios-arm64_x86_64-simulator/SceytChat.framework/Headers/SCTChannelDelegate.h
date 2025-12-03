@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTChannelEvent;
 @class SCTReactionEvent;
 @class SCTMessageListMarker;
+@class SCTChangedVotes;
+@class SCTVoteDetails;
 
 NS_SWIFT_NAME(ChannelDelegate)
 @protocol SCTChannelDelegate <NSObject>
@@ -195,6 +197,30 @@ NS_SWIFT_NAME(channel(_:user:message:didAdd:));
 /// @param reaction The deleted reaction.
 - (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user message:(nonnull SCTMessage *)message reactionDidDelete:(nonnull SCTReaction *)reaction
 NS_SWIFT_NAME(channel(_:user:message:didDelete:));
+
+/// A callback when a poll vote is changed.
+/// @param channel The channel where the poll vote is changed.
+/// @param user The user who changed the vote.
+/// @param message The message containing the poll with updated vote information.
+/// @param changedVotes The changed votes information (added and removed votes).
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didChangeVote:(nonnull SCTMessage *)message changedVotes:(nullable SCTChangedVotes *)changedVotes
+NS_SWIFT_NAME(channel(_:user:didChangeVote:changedVotes:));
+
+/// A callback when a poll vote is retracted.
+/// @param channel The channel where the poll vote is retracted.
+/// @param user The user who retracted the vote.
+/// @param message The message containing the poll with updated vote information.
+/// @param changedVotes The changed votes information (added and removed votes).
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didRetractVote:(nonnull SCTMessage *)message changedVotes:(nullable SCTChangedVotes *)changedVotes
+NS_SWIFT_NAME(channel(_:user:didRetractVote:changedVotes:));
+
+/// A callback when a poll is closed.
+/// @param channel The channel where the poll is closed.
+/// @param user The user who closed the poll.
+/// @param message The message containing the closed poll.
+/// @param voteDetails The vote details information (votes per option, all votes, and own votes).
+- (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didClosePoll:(nonnull SCTMessage *)message voteDetails:(nullable SCTVoteDetails *)voteDetails
+NS_SWIFT_NAME(channel(_:user:didClosePoll:voteDetails:));
 
 /// A callback when a user send an event.
 /// @param channel The channel where the user sends an event.
