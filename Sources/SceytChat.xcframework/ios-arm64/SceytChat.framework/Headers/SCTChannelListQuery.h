@@ -19,6 +19,9 @@ NS_SWIFT_NAME(ChannelListQuery)
 /// The channel list query filter keyword.
 @property (nonatomic, readonly, nullable) NSString *query;
 
+/// The mutual with user id.
+@property (nonatomic, readonly, nullable) NSString *mutualWithUserId;
+
 /// Sets the number of channels per page.
 @property (nonatomic) NSUInteger limit;
 
@@ -103,6 +106,9 @@ NS_SWIFT_NAME(ChannelListQuery.Builder)
 - (instancetype)requestParams:(SCTChannelQueryParam*)params
 NS_SWIFT_NAME(requestParams(_:));
 
+/// Filter channels by mutual with user id.
+/// @param mutualWithUserId The user id to find mutual channels with.
+- (instancetype)mutualWithUserId:(nullable NSString *)mutualWithUserId;
 
 /// Built a ChannelListQuery.
 - (SCTChannelListQuery *)build;

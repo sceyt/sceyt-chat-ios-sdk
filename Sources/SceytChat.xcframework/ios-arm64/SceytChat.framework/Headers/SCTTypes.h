@@ -452,6 +452,7 @@ typedef NS_ENUM(NSInteger, SCTChannelInviteKeyRequestEvent) {
 @interface SCTChannelInviteKeyRegenerateParam : NSObject
 @property (nonatomic, nonnull) NSString *channelId;
 @property (nonatomic, nonnull) NSString *key;
+@property (nonatomic, assign) BOOL deletePermanently;
 @end
 
 

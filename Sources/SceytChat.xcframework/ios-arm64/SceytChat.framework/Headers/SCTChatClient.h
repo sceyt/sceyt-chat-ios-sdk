@@ -413,11 +413,13 @@ NS_SWIFT_NAME(getChannelInviteKeys(channelId:completion:));
 /// Regenerates a channel invite key.
 /// @param channelId The channel id.
 /// @param key The invite key to regenerate.
+/// @param deletePermanently Whether to delete the old key permanently.
 /// @param completion The completion handler to call after execution.
 - (void)regenerateChannelInviteKeyForChannelId:(nonnull NSString *)channelId
                                            key:(nonnull NSString *)key
+                             deletePermanently:(BOOL)deletePermanently
                                     completion:(nullable SCTChannelInviteKeyCompletion)completion
-NS_SWIFT_NAME(regenerateChannelInviteKey(channelId:key:completion:));
+NS_SWIFT_NAME(regenerateChannelInviteKey(channelId:key:deletePermanently:completion:));
 
 /// Revokes channel invite keys.
 /// @param channelId The channel id.
