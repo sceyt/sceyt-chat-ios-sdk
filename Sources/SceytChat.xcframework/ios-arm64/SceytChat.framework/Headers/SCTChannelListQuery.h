@@ -31,6 +31,9 @@ NS_SWIFT_NAME(ChannelListQuery)
 /// The channel list by query types.
 @property (nonatomic, readonly) NSArray<NSString*> *types;
 
+/// The channel list by exclude types.
+@property (nonatomic, readonly) NSArray<NSString*> *excludeTypes;
+
 /// The channel list by order.
 @property (nonatomic, readonly) SCTChannelListOrder order;
 
@@ -90,6 +93,10 @@ NS_SWIFT_NAME(ChannelListQuery.Builder)
 /// Filter the channels by type.
 /// @param types The query types.
 - (instancetype)types:(NSArray<NSString*> *)types;
+
+/// Exclude channels by type.
+/// @param excludeTypes The query exclude types.
+- (instancetype)excludeTypes:(NSArray<NSString*> *)excludeTypes;
 
 /// Get channels by order.
 /// @param order The query order.
