@@ -14,6 +14,7 @@
 @class SCTSignalParticipant;
 @class SCTSignalCall;
 @class SCTSessionData;
+@class SCTSDPData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -103,18 +104,18 @@ NS_SWIFT_NAME(Signal.SessionData)
 @interface SCTSessionData : NSObject
 @property (nonatomic, readonly, nonnull) NSString *id;
 @property (nonatomic, readonly, nonnull) NSString *version;
-@property (nonatomic, readonly, nonnull) NSString *sdp;
+@property (nonatomic, readonly, nullable) SCTSDPData *sdpData;
 
 - (instancetype)initWithId:(NSString *)id
                    version:(NSString *)version
-                       sdp:(NSString *)sdp;
+                   sdpData:(nullable SCTSDPData *)sdpData;
 @end
 
-NS_SWIFT_NAME(Singal.SessionData)
+NS_SWIFT_NAME(Signal.SessionDataBuilder)
 @interface SCTSessionDataBuilder : NSObject
 - (instancetype)initWithId: (NSString *)id;
 - (instancetype)version:(nonnull NSString *)version;
-- (instancetype)sdp:(nonnull NSString *)sdp;
+- (instancetype)sdpData:(nonnull SCTSDPData *)sdpData;
 - (SCTSessionDataBuilder *) build;
 @end
 
