@@ -245,6 +245,7 @@ typedef NS_ENUM(NSInteger, SCTPrivacyType) {
 typedef NS_ENUM(NSInteger, SCTMediaFlow) {
     p2p,
     sfu,
+    s2w,
 }NS_SWIFT_NAME(MediaFlow);
 
 typedef NS_ENUM(NSInteger, CDRCallState) {
