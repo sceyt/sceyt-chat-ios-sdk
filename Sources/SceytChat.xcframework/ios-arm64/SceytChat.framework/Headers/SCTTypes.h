@@ -281,7 +281,14 @@ typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventVideoOff,
     SCTSignalEventScreenShareOn,
     SCTSignalEventScreenShareOff,
+    SCTSignalEventCreate,
 }NS_SWIFT_NAME(Signal.Event);
+
+typedef NS_ENUM(NSInteger, SCTSignalOptionsCase) {
+    SCTSignalOptionsCaseNotSet      = 0,
+    SCTSignalOptionsCaseSettings    = 16,
+    SCTSignalOptionsCaseJoinOptions = 17,
+}NS_SWIFT_NAME(Signal.OptionsCase);
 
 typedef NS_ENUM(NSUInteger, SCTParticipantState) {
     SCTParticipantStateIdle,

@@ -15,6 +15,9 @@
 @class SCTSignalCall;
 @class SCTSessionData;
 @class SCTSDPData;
+@class SCTBroadcastOptions;
+@class SCTCallSettings;
+@class SCTJoinOptions;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -36,6 +39,10 @@ NS_SWIFT_NAME(Signal)
 @property (nonatomic, readonly, nonnull) NSArray<SCTTurnServer*> *turnServers;
 @property (nonatomic, readonly, nullable) NSArray<SCTSignalCall*> *calls;
 @property (nonatomic, readonly, nullable) SCTSessionData *sessionData;
+
+@property (nonatomic, readonly) SCTSignalOptionsCase optionsCase;
+@property (nonatomic, readonly, nullable) SCTCallSettings *settings;
+@property (nonatomic, readonly, nullable) SCTJoinOptions *joinOptions;
 
 @end
 
@@ -138,10 +145,43 @@ NS_SWIFT_NAME(Signal.Builder)
 - (instancetype)calls:(nonnull NSArray<SCTSignalCall*> *)calls;
 - (instancetype)turnServers:(nonnull NSArray<SCTTurnServer *> *)turnServers;
 - (instancetype)sessionData:(nonnull SCTSessionData *)sessionData;
+- (instancetype)settings:(nonnull SCTCallSettings *)settings;
+- (instancetype)joinOptions:(nonnull SCTJoinOptions *)joinOptions;
 
 /// Create Signal
 - (SCTSignal *)build;
 
+@end
+
+
+NS_SWIFT_NAME(Signal.BroadcastOptions)
+@interface SCTBroadcastOptions : NSObject
+@property (nonatomic, readonly) BOOL enabled;
+- (instancetype)initWithEnabled:(BOOL)enabled;
+@end
+
+
+NS_SWIFT_NAME(Signal.CallSettings)
+@interface SCTCallSettings : NSObject
+@property (nonatomic, readonly, nonnull) SCTBroadcastOptions *broadcastOptions;
+@property (nonatomic, readonly) int64_t startsAt;
+@property (nonatomic, readonly) int64_t expiresAt;
+- (instancetype)initWithBroadcastOptions:(nonnull SCTBroadcastOptions *)broadcastOptions
+                                startsAt:(int64_t)startsAt
+                               expiresAt:(int64_t)expiresAt;
+@end
+
+
+NS_SWIFT_NAME(Signal.JoinOptions)
+@interface SCTJoinOptions : NSObject
+@property (nonatomic, readonly) BOOL videoEnabled;
+@property (nonatomic, readonly) BOOL muted;
+@property (nonatomic, readonly) BOOL screenSharing;
+@property (nonatomic, readonly, nonnull) SCTCallSettings *settings;
+- (instancetype)initWithVideoEnabled:(BOOL)videoEnabled
+                               muted:(BOOL)muted
+                       screenSharing:(BOOL)screenSharing
+                            settings:(nonnull SCTCallSettings *)settings;
 @end
 
 

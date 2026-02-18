@@ -198,11 +198,11 @@
 		</data>
 		<key>Headers/SCTSignal.h</key>
 		<data>
-		3vT96ENp+UkmyGm3ylD0HI4n2ms=
+		FLOxve0Rl3RP+cFQfC6tjfQhil8=
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		WrZOcpxDmUat2f7u8CX0CO0RZpA=
+		KSzGu49RZH7X2nnxRyo4m7ltdeM=
 		</data>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
 		<data>
@@ -230,7 +230,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		irw0dWUCCr8bG/+qX/sZ+5EIdLE=
+		cpxKJCvoSqyqZOCMnC+51vFk7h4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -587,14 +587,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			j7/kFpj5IzgbnK+2PEMpBXintLvRmv3k4lT2ZKfKGSo=
+			tJ28sXBq67HdjH5YlkmbF7ZFP9VNIvtH4f17zKxfy+M=
 			</data>
 		</dict>
 		<key>Headers/SCTTypes.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			uMnwL1t/1kPJB2ztQbzEvlf2Gx4NySwC7hFgjH/utT0=
+			ouPRmEEpNkYuJeoDEHCPcLDFIgSpEdDtgAO/9mJZV8g=
 			</data>
 		</dict>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
