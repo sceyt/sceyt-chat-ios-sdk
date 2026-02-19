@@ -96,15 +96,19 @@ NS_SWIFT_NAME(Signal.Call)
 @property (nonatomic, readonly) NSString *sessionId;
 @property (nonatomic, readonly) SCTMediaFlow mediaFlow;
 @property (nonatomic, readonly) NSString *createdBy;
+@property (nonatomic, readonly, nullable) NSDate *createdAt;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
 @property (nonatomic, readonly) NSArray<SCTSignalParticipant *> *participants;
+@property (nonatomic, readonly, nullable) SCTCallSettings *settings;
 
 - (instancetype)initWithId:(NSString *)callId
                 sessionId:(NSString *)sessionId
                 mediaFlow:(SCTMediaFlow)mediaFlow
                 createdBy:(NSString *)createdBy
-                metadata:(NSDictionary<NSString *, NSString *> *)metadata
-                participants:(NSArray<SCTSignalParticipant *> *)participants;
+                createdAt:(nullable NSDate *)createdAt
+                 metadata:(NSDictionary<NSString *, NSString *> *)metadata
+             participants:(NSArray<SCTSignalParticipant *> *)participants
+                 settings:(nullable SCTCallSettings *)settings;
 @end
 
 NS_SWIFT_NAME(Signal.SessionData)
