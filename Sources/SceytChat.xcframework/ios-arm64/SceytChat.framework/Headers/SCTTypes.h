@@ -282,6 +282,7 @@ typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventScreenShareOn,
     SCTSignalEventScreenShareOff,
     SCTSignalEventCreate,
+    SCTSignalEventSessionRenewed,
 }NS_SWIFT_NAME(Signal.Event);
 
 typedef NS_ENUM(NSInteger, SCTSignalOptionsCase) {

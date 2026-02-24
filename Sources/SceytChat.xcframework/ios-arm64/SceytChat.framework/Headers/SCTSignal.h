@@ -170,9 +170,11 @@ NS_SWIFT_NAME(Signal.CallSettings)
 @property (nonatomic, readonly, nonnull) SCTBroadcastOptions *broadcastOptions;
 @property (nonatomic, readonly) int64_t startsAt;
 @property (nonatomic, readonly) int64_t expiresAt;
+@property (nonatomic, readonly) BOOL persistent;
 - (instancetype)initWithBroadcastOptions:(nonnull SCTBroadcastOptions *)broadcastOptions
                                 startsAt:(int64_t)startsAt
-                               expiresAt:(int64_t)expiresAt;
+                               expiresAt:(int64_t)expiresAt
+                              persistent:(BOOL)persistent;
 @end
 
 
