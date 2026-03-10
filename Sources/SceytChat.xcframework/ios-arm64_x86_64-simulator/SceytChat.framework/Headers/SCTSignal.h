@@ -161,7 +161,8 @@ NS_SWIFT_NAME(Signal.Builder)
 NS_SWIFT_NAME(Signal.BroadcastOptions)
 @interface SCTBroadcastOptions : NSObject
 @property (nonatomic, readonly) BOOL enabled;
-- (instancetype)initWithEnabled:(BOOL)enabled;
+@property (nonatomic, readonly, nullable) NSString *url;
+- (instancetype)initWithEnabled:(BOOL)enabled url:(nullable NSString *)url;
 @end
 
 
@@ -172,11 +173,13 @@ NS_SWIFT_NAME(Signal.CallSettings)
 @property (nonatomic, readonly) int64_t expiresAt;
 @property (nonatomic, readonly) BOOL persistent;
 @property (nonatomic, readonly) BOOL notifyOnParticipantJoin;
+@property (nonatomic, readonly) int32_t maxParticipantsCount;
 - (instancetype)initWithBroadcastOptions:(nonnull SCTBroadcastOptions *)broadcastOptions
                                 startsAt:(int64_t)startsAt
                                expiresAt:(int64_t)expiresAt
                               persistent:(BOOL)persistent
-                  notifyOnParticipantJoin:(BOOL)notifyOnParticipantJoin;
+                  notifyOnParticipantJoin:(BOOL)notifyOnParticipantJoin
+                     maxParticipantsCount:(int32_t)maxParticipantsCount;
 @end
 
 
