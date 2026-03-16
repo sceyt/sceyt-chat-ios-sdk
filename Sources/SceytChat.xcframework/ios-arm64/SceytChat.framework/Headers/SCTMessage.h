@@ -46,6 +46,9 @@ NS_SWIFT_NAME(Message)
 /// The silent message. If the value is `YES` the server will not send a push notification
 @property (nonatomic, readonly) BOOL silent;
 
+/// The view once message. If the value is `YES` the message will be deleted after being viewed once
+@property (nonatomic, readonly) BOOL viewOnce;
+
 /// Show the message is incoming or outgoing.
 @property (nonatomic, readonly) BOOL incoming;
 
@@ -192,6 +195,11 @@ NS_SWIFT_NAME(transient(_:));
 /// @param silent `YES` to do not send a push notification for the messa
 - (instancetype)silent:(BOOL)silent
 NS_SWIFT_NAME(silent(_:));
+
+/// Create view once message
+/// @param viewOnce `YES` to delete the message after being viewed once
+- (instancetype)viewOnce:(BOOL)viewOnce
+NS_SWIFT_NAME(viewOnce(_:));
 
 /// Add custom read count.
 /// @param displayCount Default value is 1
