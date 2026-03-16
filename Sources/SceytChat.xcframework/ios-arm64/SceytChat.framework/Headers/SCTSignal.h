@@ -14,6 +14,10 @@
 @class SCTSignalParticipant;
 @class SCTSignalCall;
 @class SCTSessionData;
+@class SCTSDPData;
+@class SCTBroadcastOptions;
+@class SCTCallSettings;
+@class SCTJoinOptions;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +39,10 @@ NS_SWIFT_NAME(Signal)
 @property (nonatomic, readonly, nonnull) NSArray<SCTTurnServer*> *turnServers;
 @property (nonatomic, readonly, nullable) NSArray<SCTSignalCall*> *calls;
 @property (nonatomic, readonly, nullable) SCTSessionData *sessionData;
+
+@property (nonatomic, readonly) SCTSignalOptionsCase optionsCase;
+@property (nonatomic, readonly, nullable) SCTCallSettings *settings;
+@property (nonatomic, readonly, nullable) SCTJoinOptions *joinOptions;
 
 @end
 
@@ -88,33 +96,37 @@ NS_SWIFT_NAME(Signal.Call)
 @property (nonatomic, readonly) NSString *sessionId;
 @property (nonatomic, readonly) SCTMediaFlow mediaFlow;
 @property (nonatomic, readonly) NSString *createdBy;
+@property (nonatomic, readonly, nullable) NSDate *createdAt;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
 @property (nonatomic, readonly) NSArray<SCTSignalParticipant *> *participants;
+@property (nonatomic, readonly, nullable) SCTCallSettings *settings;
 
 - (instancetype)initWithId:(NSString *)callId
                 sessionId:(NSString *)sessionId
                 mediaFlow:(SCTMediaFlow)mediaFlow
                 createdBy:(NSString *)createdBy
-                metadata:(NSDictionary<NSString *, NSString *> *)metadata
-                participants:(NSArray<SCTSignalParticipant *> *)participants;
+                createdAt:(nullable NSDate *)createdAt
+                 metadata:(NSDictionary<NSString *, NSString *> *)metadata
+             participants:(NSArray<SCTSignalParticipant *> *)participants
+                 settings:(nullable SCTCallSettings *)settings;
 @end
 
 NS_SWIFT_NAME(Signal.SessionData)
 @interface SCTSessionData : NSObject
 @property (nonatomic, readonly, nonnull) NSString *id;
 @property (nonatomic, readonly, nonnull) NSString *version;
-@property (nonatomic, readonly, nonnull) NSString *sdp;
+@property (nonatomic, readonly, nullable) SCTSDPData *sdpData;
 
 - (instancetype)initWithId:(NSString *)id
                    version:(NSString *)version
-                       sdp:(NSString *)sdp;
+                   sdpData:(nullable SCTSDPData *)sdpData;
 @end
 
-NS_SWIFT_NAME(Singal.SessionData)
+NS_SWIFT_NAME(Signal.SessionDataBuilder)
 @interface SCTSessionDataBuilder : NSObject
 - (instancetype)initWithId: (NSString *)id;
 - (instancetype)version:(nonnull NSString *)version;
-- (instancetype)sdp:(nonnull NSString *)sdp;
+- (instancetype)sdpData:(nonnull SCTSDPData *)sdpData;
 - (SCTSessionDataBuilder *) build;
 @end
 
@@ -137,10 +149,50 @@ NS_SWIFT_NAME(Signal.Builder)
 - (instancetype)calls:(nonnull NSArray<SCTSignalCall*> *)calls;
 - (instancetype)turnServers:(nonnull NSArray<SCTTurnServer *> *)turnServers;
 - (instancetype)sessionData:(nonnull SCTSessionData *)sessionData;
+- (instancetype)settings:(nonnull SCTCallSettings *)settings;
+- (instancetype)joinOptions:(nonnull SCTJoinOptions *)joinOptions;
 
 /// Create Signal
 - (SCTSignal *)build;
 
+@end
+
+
+NS_SWIFT_NAME(Signal.BroadcastOptions)
+@interface SCTBroadcastOptions : NSObject
+@property (nonatomic, readonly) BOOL enabled;
+@property (nonatomic, readonly, nullable) NSString *url;
+- (instancetype)initWithEnabled:(BOOL)enabled url:(nullable NSString *)url;
+@end
+
+
+NS_SWIFT_NAME(Signal.CallSettings)
+@interface SCTCallSettings : NSObject
+@property (nonatomic, readonly, nonnull) SCTBroadcastOptions *broadcastOptions;
+@property (nonatomic, readonly) int64_t startsAt;
+@property (nonatomic, readonly) int64_t expiresAt;
+@property (nonatomic, readonly) BOOL persistent;
+@property (nonatomic, readonly) BOOL notifyOnParticipantJoin;
+@property (nonatomic, readonly) int32_t maxParticipantsCount;
+- (instancetype)initWithBroadcastOptions:(nonnull SCTBroadcastOptions *)broadcastOptions
+                                startsAt:(int64_t)startsAt
+                               expiresAt:(int64_t)expiresAt
+                              persistent:(BOOL)persistent
+                  notifyOnParticipantJoin:(BOOL)notifyOnParticipantJoin
+                     maxParticipantsCount:(int32_t)maxParticipantsCount;
+@end
+
+
+NS_SWIFT_NAME(Signal.JoinOptions)
+@interface SCTJoinOptions : NSObject
+@property (nonatomic, readonly) BOOL videoEnabled;
+@property (nonatomic, readonly) BOOL muted;
+@property (nonatomic, readonly) BOOL screenSharing;
+@property (nonatomic, readonly, nonnull) SCTCallSettings *settings;
+- (instancetype)initWithVideoEnabled:(BOOL)videoEnabled
+                               muted:(BOOL)muted
+                       screenSharing:(BOOL)screenSharing
+                            settings:(nonnull SCTCallSettings *)settings;
 @end
 
 
