@@ -16,6 +16,7 @@ NS_SWIFT_NAME(CDRRecord)
 @property (nonatomic, readonly) int64_t sessionId;
 @property (nonatomic, readonly, nonnull) NSString *callId;
 @property (nonatomic, readonly, nonnull) NSString *originatorId;
+@property (nonatomic, readonly, nonnull) NSString *callType;
 @property (nonatomic, readonly) SCTMediaFlow mediaFlow;
 @property (nonatomic, readonly, nullable) NSDictionary<NSString*, NSString*> *metadata;
 @property (nonatomic, readonly, nullable) NSDate *startedAt;

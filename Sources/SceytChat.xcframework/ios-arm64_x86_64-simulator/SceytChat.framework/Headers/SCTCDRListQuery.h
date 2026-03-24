@@ -10,6 +10,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class SCTCallDetailRecord;
 @class SCTError;
+@class SCTCDRFilter;
+
+NS_SWIFT_NAME(CDRFilter)
+@interface SCTCDRFilter : NSObject
+@property (nonatomic, readonly, nonnull) NSArray<NSString *> *callTypes;
+- (instancetype)initWithCallTypes:(nonnull NSArray<NSString *> *)callTypes;
+@end
 
 typedef NS_ENUM(NSInteger, SCTCDROrder) {
     SCTCDROrderAsc = 0,
@@ -71,6 +78,7 @@ NS_SWIFT_NAME(CDRListQuery.Builder)
 - (instancetype)sessionId:(int64_t)sessionId;
 - (instancetype)nextToken:(NSString *)nextToken;
 - (instancetype)participantCount:(NSUInteger)participantCount;
+- (instancetype)filter:(nullable SCTCDRFilter *)filter;
 - (SCTCDRListQuery *)build;
 
 @end
