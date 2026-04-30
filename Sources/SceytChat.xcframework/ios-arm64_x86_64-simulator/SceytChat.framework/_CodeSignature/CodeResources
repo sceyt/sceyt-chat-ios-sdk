@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/SCTCDRListQuery.h</key>
 		<data>
-		M97wSou/Bq4+U44/g72lPKW1Qtg=
+		/9Nfx2xityCG9uqTGphnSGpE/ic=
 		</data>
 		<key>Headers/SCTCDRParticipant.h</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Headers/SCTCallDetailRecord.h</key>
 		<data>
-		6kEfOajDQ10uxO8xHO9nEe2XvM4=
+		RbYVuNUVQXAqHr4aESNL6QHDXsY=
 		</data>
 		<key>Headers/SCTChangedVotes.h</key>
 		<data>
@@ -66,11 +66,11 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		zd54b3DMpuCm+uebl4gcYMKqvOk=
+		5CagdRaRJDAMMIadwnGiZ5H445E=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
-		M79sLquA3zYwvTc8Rs3dT0MgaUI=
+		oEqnQVUNYdtnSofGJ8ADhDks9FM=
 		</data>
 		<key>Headers/SCTContact.h</key>
 		<data>
@@ -198,11 +198,11 @@
 		</data>
 		<key>Headers/SCTSignal.h</key>
 		<data>
-		Zv889M0KON0jvzSHR8dZy07xm8Q=
+		AFSmuCW+sLuhYPbA8G0JPPI0xbc=
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		HsoglULQlSYOAFY2PT5lnzAbNDM=
+		nZSfz+tMRl1kI//NIl5AOrKLdo0=
 		</data>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
 		<data>
@@ -211,6 +211,10 @@
 		<key>Headers/SCTUser.h</key>
 		<data>
 		vIfoUFjR3lz4kDMSNbaEfBGNcm8=
+		</data>
+		<key>Headers/SCTUserEvent.h</key>
+		<data>
+		OzYqx81b0oZToH1x+KAvuvZ5A3Y=
 		</data>
 		<key>Headers/SCTUserListQuery.h</key>
 		<data>
@@ -226,11 +230,11 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		gxTVDcHfBYVeBBUqeYLCWps6BmU=
+		3y2mNKtgX5fZbqGhdkNlF/55Rq0=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ksfBprXUmG/MPKA/eZMUaJX1fq4=
+		Xhe093+NKa/raIzEfq+ZDkgCMpY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -286,7 +290,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1ev9O74FyaYbYgeWCLD4gltClOPYv8Vz+w386xqB/qo=
+			dms27LemLCJwDngkHeHSr4bMbYpyTn2mSnXPakOdDt0=
 			</data>
 		</dict>
 		<key>Headers/SCTCDRParticipant.h</key>
@@ -300,7 +304,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FGGklL9FY0kI3ZmYVvoblSP3MevUK4sObj6+QlsgrnI=
+			YuF7C41IiwFQGnAhbVOfLev41uOpuqVA4V8F3cjURqY=
 			</data>
 		</dict>
 		<key>Headers/SCTChangedVotes.h</key>
@@ -356,14 +360,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			r4guSvQV+aE9w0upRDkewGEDPZ2uiXdhMlVPI8zqeL8=
+			qoukAcA5ngW92CBJGl7iF7vnX2wdn+Qek/G93fasskA=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			v4l+RqATXMFj6mrjnF/XybjoxXZwXnWIzha3YfLEAZo=
+			awvIaDq6W7HfrKJAA6u3fJXUi4HyhHfh+X7Qf0xJUVw=
 			</data>
 		</dict>
 		<key>Headers/SCTContact.h</key>
@@ -587,14 +591,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aF49Dw6BlYqOGV7IhtiyTm5kkbZTs25JlXCVuT2E0GQ=
+			IhjUcyMlJJE93fMbtTJOM8VZwstw2OGtr1teZARP6W4=
 			</data>
 		</dict>
 		<key>Headers/SCTTypes.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RAP2xRuWPoSmrekU7pdccF0aKog3yAeACTslluBkg4Q=
+			wkwbMRIowYGyKHV9WiOX/ZF2kLzaALPUvL6fosFnY34=
 			</data>
 		</dict>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
@@ -609,6 +613,13 @@
 			<key>hash2</key>
 			<data>
 			auyECemCFCQONIDWCY4iiVf65aSaRU6y55NSU7YfheU=
+			</data>
+		</dict>
+		<key>Headers/SCTUserEvent.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dzy5JcQhIIXIlnxq2LjwuhYRJmYIz1C58K6CsU2oECY=
 			</data>
 		</dict>
 		<key>Headers/SCTUserListQuery.h</key>
@@ -636,7 +647,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MuDOwApCciJFiVaQERinIPON+ZT+KUKz23pNF6NiSFg=
+			/ufUvxeHmiSRy4bPUbs5jZbzIyITh0/RJhspfklWrng=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

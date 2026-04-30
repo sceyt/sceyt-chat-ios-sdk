@@ -75,6 +75,7 @@
 @class SCTSsrcGroup;
 @class SCTMappingEntry;
 @class SCTFmtpParam;
+@class SCTUserEvent;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
