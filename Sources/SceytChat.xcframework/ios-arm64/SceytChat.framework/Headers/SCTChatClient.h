@@ -448,6 +448,20 @@ NS_SWIFT_NAME(getRevokedChannelInviteKeys(channelId:completion:));
 
 + (void)setLogFilePath:(NSString *)path;
 
+/// Subscribes to channels by their IDs.
+/// @param channelIds Array of channel IDs to subscribe to.
+/// @param completion The completion handler to call after execution.
+- (void)subscribeChannelsByIds:(nonnull NSArray<NSNumber *> *)channelIds
+                    completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(subscribeChannels(ids:completion:));
+
+/// Unsubscribes from channels by their IDs.
+/// @param channelIds Array of channel IDs to unsubscribe from.
+/// @param completion The completion handler to call after execution.
+- (void)unsubscribeChannelsByIds:(nonnull NSArray<NSNumber *> *)channelIds
+                      completion:(nullable SCTCompletion)completion
+NS_SWIFT_NAME(unsubscribeChannels(ids:completion:));
+
 @end
 
 NS_ASSUME_NONNULL_END

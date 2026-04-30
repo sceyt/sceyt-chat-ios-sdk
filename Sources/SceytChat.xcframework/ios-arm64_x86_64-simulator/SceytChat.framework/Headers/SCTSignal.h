@@ -17,6 +17,7 @@
 @class SCTSDPData;
 @class SCTBroadcastOptions;
 @class SCTCallSettings;
+@class SCTCallOptions;
 @class SCTJoinOptions;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -41,7 +42,7 @@ NS_SWIFT_NAME(Signal)
 @property (nonatomic, readonly, nullable) SCTSessionData *sessionData;
 
 @property (nonatomic, readonly) SCTSignalOptionsCase optionsCase;
-@property (nonatomic, readonly, nullable) SCTCallSettings *settings;
+@property (nonatomic, readonly, nullable) SCTCallOptions *callOptions;
 @property (nonatomic, readonly, nullable) SCTJoinOptions *joinOptions;
 
 @end
@@ -99,7 +100,7 @@ NS_SWIFT_NAME(Signal.Call)
 @property (nonatomic, readonly, nullable) NSDate *createdAt;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *metadata;
 @property (nonatomic, readonly) NSArray<SCTSignalParticipant *> *participants;
-@property (nonatomic, readonly, nullable) SCTCallSettings *settings;
+@property (nonatomic, readonly, nullable) SCTCallOptions *options;
 
 - (instancetype)initWithId:(NSString *)callId
                 sessionId:(NSString *)sessionId
@@ -108,7 +109,7 @@ NS_SWIFT_NAME(Signal.Call)
                 createdAt:(nullable NSDate *)createdAt
                  metadata:(NSDictionary<NSString *, NSString *> *)metadata
              participants:(NSArray<SCTSignalParticipant *> *)participants
-                 settings:(nullable SCTCallSettings *)settings;
+                  options:(nullable SCTCallOptions *)options;
 @end
 
 NS_SWIFT_NAME(Signal.SessionData)
@@ -149,7 +150,7 @@ NS_SWIFT_NAME(Signal.Builder)
 - (instancetype)calls:(nonnull NSArray<SCTSignalCall*> *)calls;
 - (instancetype)turnServers:(nonnull NSArray<SCTTurnServer *> *)turnServers;
 - (instancetype)sessionData:(nonnull SCTSessionData *)sessionData;
-- (instancetype)settings:(nonnull SCTCallSettings *)settings;
+- (instancetype)callOptions:(nonnull SCTCallOptions *)callOptions;
 - (instancetype)joinOptions:(nonnull SCTJoinOptions *)joinOptions;
 
 /// Create Signal
@@ -183,16 +184,23 @@ NS_SWIFT_NAME(Signal.CallSettings)
 @end
 
 
+NS_SWIFT_NAME(Signal.CallOptions)
+@interface SCTCallOptions : NSObject
+@property (nonatomic, readonly, nonnull) NSString *callType;
+@property (nonatomic, readonly, nonnull) SCTCallSettings *settings;
+- (instancetype)initWithCallType:(nonnull NSString *)callType
+                        settings:(nonnull SCTCallSettings *)settings;
+@end
+
+
 NS_SWIFT_NAME(Signal.JoinOptions)
 @interface SCTJoinOptions : NSObject
 @property (nonatomic, readonly) BOOL videoEnabled;
 @property (nonatomic, readonly) BOOL muted;
 @property (nonatomic, readonly) BOOL screenSharing;
-@property (nonatomic, readonly, nonnull) SCTCallSettings *settings;
 - (instancetype)initWithVideoEnabled:(BOOL)videoEnabled
                                muted:(BOOL)muted
-                       screenSharing:(BOOL)screenSharing
-                            settings:(nonnull SCTCallSettings *)settings;
+                       screenSharing:(BOOL)screenSharing;
 @end
 
 
