@@ -19,6 +19,10 @@
 @class SCTCallSettings;
 @class SCTCallOptions;
 @class SCTJoinOptions;
+@class SCTMediaState;
+@class SCTParticipantMediaState;
+@class SCTParticipantPermissions;
+@class SCTCallPermissions;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -62,15 +66,22 @@ NS_SWIFT_NAME(Signal.Participant)
 @property (nonatomic, readonly, nonnull) NSString *id;
 @property (nonatomic, readonly, nonnull) NSString *clientId;
 @property (nonatomic, readonly) BOOL presenter;
-@property (nonatomic, readonly) BOOL videoEnabled;
-@property (nonatomic, readonly) BOOL muted;
 @property (nonatomic, readonly) BOOL onHold;
-@property (nonatomic, readonly) BOOL screenSharing;
 @property (nonatomic, readonly) BOOL isCallSilenced;
 @property (nonatomic, readonly) SCTParticipantState state;
 @property (nonatomic, readonly) SCTParticipantConnectionState connectionState;
+@property (nonatomic, readonly, nonnull) SCTParticipantMediaState *mediaState;
+@property (nonatomic, readonly, nonnull) SCTParticipantPermissions *permissions;
 
-- (instancetype)initWithId:(nonnull NSString *)id clientId:(nonnull NSString *)clientId videoEnabled:(BOOL)videoEnabled presenter:(BOOL)presenter muted:(BOOL)muted onHold:(BOOL)onHold screenSharing:(BOOL)screenSharing isCallSilenced:(BOOL)isCallSilenced state: (SCTParticipantState)state connectionState:(SCTParticipantConnectionState)connectionState;
+- (instancetype)initWithId:(nonnull NSString *)id
+                  clientId:(nonnull NSString *)clientId
+                 presenter:(BOOL)presenter
+                    onHold:(BOOL)onHold
+            isCallSilenced:(BOOL)isCallSilenced
+                     state:(SCTParticipantState)state
+           connectionState:(SCTParticipantConnectionState)connectionState
+                mediaState:(nonnull SCTParticipantMediaState *)mediaState
+               permissions:(nonnull SCTParticipantPermissions *)permissions;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 
@@ -175,12 +186,14 @@ NS_SWIFT_NAME(Signal.CallSettings)
 @property (nonatomic, readonly) BOOL persistent;
 @property (nonatomic, readonly) BOOL notifyOnParticipantJoin;
 @property (nonatomic, readonly) int32_t maxParticipantsCount;
+@property (nonatomic, readonly, nonnull) SCTCallPermissions *permissions;
 - (instancetype)initWithBroadcastOptions:(nonnull SCTBroadcastOptions *)broadcastOptions
                                 startsAt:(int64_t)startsAt
                                expiresAt:(int64_t)expiresAt
                               persistent:(BOOL)persistent
                   notifyOnParticipantJoin:(BOOL)notifyOnParticipantJoin
-                     maxParticipantsCount:(int32_t)maxParticipantsCount;
+                     maxParticipantsCount:(int32_t)maxParticipantsCount
+                              permissions:(nonnull SCTCallPermissions *)permissions;
 @end
 
 
@@ -201,6 +214,41 @@ NS_SWIFT_NAME(Signal.JoinOptions)
 - (instancetype)initWithVideoEnabled:(BOOL)videoEnabled
                                muted:(BOOL)muted
                        screenSharing:(BOOL)screenSharing;
+@end
+
+
+NS_SWIFT_NAME(Signal.MediaState)
+@interface SCTMediaState : NSObject
+@property (nonatomic, readonly) BOOL enabled;
+@property (nonatomic, readonly, nonnull) NSString *changedBy;
+- (instancetype)initWithEnabled:(BOOL)enabled changedBy:(nonnull NSString *)changedBy;
+@end
+
+
+NS_SWIFT_NAME(Signal.ParticipantMediaState)
+@interface SCTParticipantMediaState : NSObject
+@property (nonatomic, readonly, nonnull) SCTMediaState *audio;
+@property (nonatomic, readonly, nonnull) SCTMediaState *video;
+@property (nonatomic, readonly, nonnull) SCTMediaState *screenShare;
+- (instancetype)initWithAudio:(nonnull SCTMediaState *)audio
+                        video:(nonnull SCTMediaState *)video
+                  screenShare:(nonnull SCTMediaState *)screenShare;
+@end
+
+
+NS_SWIFT_NAME(Signal.ParticipantPermissions)
+@interface SCTParticipantPermissions : NSObject
+@property (nonatomic, readonly) BOOL canPublishAudio;
+@property (nonatomic, readonly) BOOL canPublishVideo;
+- (instancetype)initWithCanPublishAudio:(BOOL)canPublishAudio canPublishVideo:(BOOL)canPublishVideo;
+@end
+
+
+NS_SWIFT_NAME(Signal.CallPermissions)
+@interface SCTCallPermissions : NSObject
+@property (nonatomic, readonly) BOOL allowPublishAudio;
+@property (nonatomic, readonly) BOOL allowPublishVideo;
+- (instancetype)initWithAllowPublishAudio:(BOOL)allowPublishAudio allowPublishVideo:(BOOL)allowPublishVideo;
 @end
 
 
