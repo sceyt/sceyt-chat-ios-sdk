@@ -32,6 +32,7 @@ FOUNDATION_EXPORT const unsigned char SceytChat_iOSVersionString[];
 #import "SCTLinkDetails.h"
 #import "SCTUserSettings.h"
 #import "SCTChannelEvent.h"
+#import "SCTUserEvent.h"
 #import "SCTUserListQuery.h"
 #import "SCTPrivacySettings.h"
 #import "SCTMemberListQuery.h"

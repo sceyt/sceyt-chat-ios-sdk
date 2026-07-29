@@ -75,6 +75,7 @@
 @class SCTSsrcGroup;
 @class SCTMappingEntry;
 @class SCTFmtpParam;
+@class SCTUserEvent;
 
 NS_SWIFT_NAME(UserId)
 typedef NSString * SCTUserId NS_SWIFT_BRIDGED_TYPEDEF;
@@ -283,6 +284,10 @@ typedef NS_ENUM(NSUInteger, SCTSignalEvent) {
     SCTSignalEventScreenShareOff,
     SCTSignalEventCreate,
     SCTSignalEventSessionRenewed,
+    SCTSignalEventDisableRemoteAudio,
+    SCTSignalEventDisableRemoteVideo,
+    SCTSignalEventCallPermissionsUpdate,
+    SCTSignalEventParticipantPermissionsUpdate,
 }NS_SWIFT_NAME(Signal.Event);
 
 typedef NS_ENUM(NSInteger, SCTSignalOptionsCase) {

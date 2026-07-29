@@ -39,6 +39,9 @@ NS_SWIFT_NAME(chatClient(_:didReceiveDirectMessage:));
 - (void)chatClient:(SCTChatClient *)chatClient didReceiveSignal:(SCTSignal *)signal
 NS_SWIFT_NAME(chatClient(_:didReceiveSignal:));
 
+- (void)chatClient:(SCTChatClient *)chatClient didReceiveUserEvent:(SCTUserEvent *)userEvent
+NS_SWIFT_NAME(chatClient(_:didReceiveUserEvent:));
+
 @end
 
 NS_ASSUME_NONNULL_END
