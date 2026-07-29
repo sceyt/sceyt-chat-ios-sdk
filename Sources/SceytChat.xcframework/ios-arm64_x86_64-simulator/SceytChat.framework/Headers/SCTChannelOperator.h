@@ -161,7 +161,7 @@ NS_SWIFT_NAME(deleteMessage(id:type:completion:));
 /// @param messageTid The message tid which will be deleted.
 /// @param deleteType The type of deleting message.
 /// @param completion The handler block to execute.
-- (void)deleteMessageWithTid:(NSInteger)messageTid type:(SCTDeleteMessageType)deleteType completion:(SCTMessageCompletion)completion
+- (void)deleteMessageWithTid:(int64_t)messageTid type:(SCTDeleteMessageType)deleteType completion:(SCTMessageCompletion)completion
 NS_SWIFT_NAME(deleteMessage(tid:type:completion:));
 
 /// Delete the message.
