@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/SCTChannelEvent.h</key>
 		<data>
-		gAAojFcjTyQr0I+PjbDKeIaFUgA=
+		OCxPqitMOpmvRedQwimEiC7wFQw=
 		</data>
 		<key>Headers/SCTChannelListQuery.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/SCTChannelOperator.h</key>
 		<data>
-		gMmieCE8/VKNRoanZuepOdX6n6M=
+		3GuecZRyKD1Ue1ZuHUprDYJUenY=
 		</data>
 		<key>Headers/SCTChannelQueryParam.h</key>
 		<data>
@@ -198,11 +198,11 @@
 		</data>
 		<key>Headers/SCTSignal.h</key>
 		<data>
-		AFSmuCW+sLuhYPbA8G0JPPI0xbc=
+		MLHX2CV16vEj+0XEYi7M1VYEQG8=
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
-		nZSfz+tMRl1kI//NIl5AOrKLdo0=
+		21O5BhhLvINj/smFLDCpN4AnD08=
 		</data>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>
 		<data>
@@ -234,7 +234,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Xhe093+NKa/raIzEfq+ZDkgCMpY=
+		UDd5qRylDqCjxHymzhE3YLCf604=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -332,7 +332,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yz6FpuhcWabb7Y/YPAVKUWuz0j9/TagZ2d88mDXTl2s=
+			U4Yk6QQHHDC8Blr62JS6LdlEKbkjbqYh17VPyi116FE=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelListQuery.h</key>
@@ -346,7 +346,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rXyDP+49c3HpJe7+aLyrXRzfpu8cfjsnQMV2VQsqU24=
+			JYSUDXUvTDDLAr5z+KSADNjCVvpr5HHaD51fOTP67mM=
 			</data>
 		</dict>
 		<key>Headers/SCTChannelQueryParam.h</key>
@@ -591,14 +591,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IhjUcyMlJJE93fMbtTJOM8VZwstw2OGtr1teZARP6W4=
+			kZKzR8wQVF0mtxcLz5PweKDHCxtWmPbyk30r+EnmerM=
 			</data>
 		</dict>
 		<key>Headers/SCTTypes.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			wkwbMRIowYGyKHV9WiOX/ZF2kLzaALPUvL6fosFnY34=
+			XIGKTzKShlBrDw3WYdr/+vd2KzjSYnOZTwEi+UNEJEQ=
 			</data>
 		</dict>
 		<key>Headers/SCTUnreadMentionsListQuery.h</key>

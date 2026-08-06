@@ -158,6 +158,13 @@ NS_SWIFT_NAME(resendMessage(_:completion:));
 NS_SWIFT_NAME(deleteMessage(id:type:completion:));
 
 /// Delete the message.
+/// @param messageTid The message tid which will be deleted.
+/// @param deleteType The type of deleting message.
+/// @param completion The handler block to execute.
+- (void)deleteMessageWithTid:(int64_t)messageTid type:(SCTDeleteMessageType)deleteType completion:(SCTMessageCompletion)completion
+NS_SWIFT_NAME(deleteMessage(tid:type:completion:));
+
+/// Delete the message.
 /// @param message The message which will be deleted.
 /// @param deleteType The type of deleting message.
 /// @param completion The handler block to execute.
@@ -303,3 +310,4 @@ NS_SWIFT_NAME(join(completion:));
 @end
 
 NS_ASSUME_NONNULL_END
+

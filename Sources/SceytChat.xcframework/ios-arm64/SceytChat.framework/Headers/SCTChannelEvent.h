@@ -18,6 +18,7 @@ NS_SWIFT_NAME(ChannelEvent)
 @property (nonatomic, readonly) SCTChannelId channelId;
 @property (nonatomic, readonly, nonnull) NSString *name;
 @property (nonatomic, readonly, nonnull) SCTUser *user;
+@property (nonatomic, readonly, nullable) NSDictionary<NSString *, NSString *> *data;
 
 @end
 
