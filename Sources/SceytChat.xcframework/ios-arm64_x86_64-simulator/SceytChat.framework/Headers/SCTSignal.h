@@ -22,6 +22,7 @@
 @class SCTMediaState;
 @class SCTParticipantMediaState;
 @class SCTParticipantPermissions;
+@class SCTParticipantUserProfile;
 @class SCTCallPermissions;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -76,6 +77,8 @@ NS_SWIFT_NAME(Signal.Participant)
 @property (nonatomic, readonly, nullable) NSDate *joinedAt;
 /// When the participant's media (audio/video) first connected, or nil if media never connected.
 @property (nonatomic, readonly, nullable) NSDate *mediaConnectedAt;
+/// The participant's user profile.
+@property (nonatomic, readonly, nonnull) SCTParticipantUserProfile *userProfile;
 
 - (instancetype)initWithId:(nonnull NSString *)id
                   clientId:(nonnull NSString *)clientId
@@ -87,7 +90,8 @@ NS_SWIFT_NAME(Signal.Participant)
                 mediaState:(nonnull SCTParticipantMediaState *)mediaState
                permissions:(nonnull SCTParticipantPermissions *)permissions
                   joinedAt:(nullable NSDate *)joinedAt
-          mediaConnectedAt:(nullable NSDate *)mediaConnectedAt;
+          mediaConnectedAt:(nullable NSDate *)mediaConnectedAt
+               userProfile:(nonnull SCTParticipantUserProfile *)userProfile;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 
@@ -247,6 +251,33 @@ NS_SWIFT_NAME(Signal.ParticipantPermissions)
 @property (nonatomic, readonly) BOOL canPublishAudio;
 @property (nonatomic, readonly) BOOL canPublishVideo;
 - (instancetype)initWithCanPublishAudio:(BOOL)canPublishAudio canPublishVideo:(BOOL)canPublishVideo;
+@end
+
+
+NS_SWIFT_NAME(Signal.ParticipantUserProfile)
+@interface SCTParticipantUserProfile : NSObject
+/// The user given name.
+@property (nonatomic, readonly, nullable) NSString *firstName;
+/// The user hereditary family name.
+@property (nonatomic, readonly, nullable) NSString *lastName;
+/// The user username.
+@property (nonatomic, readonly, nullable) NSString *username;
+/// The user profile avatar url.
+@property (nonatomic, readonly, nullable) NSString *avatarUrl;
+/// The user metadata as a dictionary.
+@property (nonatomic, readonly, nonnull) NSDictionary<NSString *, NSString *> *metadataMap;
+/// When the profile was created, or nil if unknown.
+@property (nonatomic, readonly, nullable) NSDate *createdAt;
+/// When the profile was last updated, or nil if it was never updated.
+@property (nonatomic, readonly, nullable) NSDate *updatedAt;
+
+- (instancetype)initWithFirstName:(nullable NSString *)firstName
+                         lastName:(nullable NSString *)lastName
+                         username:(nullable NSString *)username
+                        avatarUrl:(nullable NSString *)avatarUrl
+                      metadataMap:(nullable NSDictionary<NSString *, NSString *> *)metadataMap
+                        createdAt:(nullable NSDate *)createdAt
+                        updatedAt:(nullable NSDate *)updatedAt;
 @end
 
 
