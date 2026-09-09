@@ -72,6 +72,10 @@ NS_SWIFT_NAME(Signal.Participant)
 @property (nonatomic, readonly) SCTParticipantConnectionState connectionState;
 @property (nonatomic, readonly, nonnull) SCTParticipantMediaState *mediaState;
 @property (nonatomic, readonly, nonnull) SCTParticipantPermissions *permissions;
+/// When the participant transitioned into the call, or nil if it never joined.
+@property (nonatomic, readonly, nullable) NSDate *joinedAt;
+/// When the participant's media (audio/video) first connected, or nil if media never connected.
+@property (nonatomic, readonly, nullable) NSDate *mediaConnectedAt;
 
 - (instancetype)initWithId:(nonnull NSString *)id
                   clientId:(nonnull NSString *)clientId
@@ -81,7 +85,9 @@ NS_SWIFT_NAME(Signal.Participant)
                      state:(SCTParticipantState)state
            connectionState:(SCTParticipantConnectionState)connectionState
                 mediaState:(nonnull SCTParticipantMediaState *)mediaState
-               permissions:(nonnull SCTParticipantPermissions *)permissions;
+               permissions:(nonnull SCTParticipantPermissions *)permissions
+                  joinedAt:(nullable NSDate *)joinedAt
+          mediaConnectedAt:(nullable NSDate *)mediaConnectedAt;
 - (instancetype)initWithId:(nonnull NSString *)id;
 @end
 

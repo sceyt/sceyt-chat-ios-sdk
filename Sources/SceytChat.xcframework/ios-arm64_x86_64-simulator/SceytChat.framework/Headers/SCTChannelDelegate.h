@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTMessageListMarker;
 @class SCTChangedVotes;
 @class SCTVoteDetails;
+@class SCTPinnedMessage;
 
 NS_SWIFT_NAME(ChannelDelegate)
 @protocol SCTChannelDelegate <NSObject>
@@ -221,6 +222,18 @@ NS_SWIFT_NAME(channel(_:user:didRetractVote:changedVotes:));
 /// @param voteDetails The vote details information (votes per option, all votes, and own votes).
 - (void)channel:(nonnull SCTChannel *)channel user:(nonnull SCTUser *)user didClosePoll:(nonnull SCTMessage *)message voteDetails:(nullable SCTVoteDetails *)voteDetails
 NS_SWIFT_NAME(channel(_:user:didClosePoll:voteDetails:));
+
+/// A callback when messages were pinned in the channel.
+/// @param channel The channel where the messages were pinned.
+/// @param pinnedMessages The pinned messages.
+- (void)channel:(nonnull SCTChannel *)channel didPinMessages:(nonnull NSArray<SCTPinnedMessage *> *)pinnedMessages
+NS_SWIFT_NAME(channel(_:didPinMessages:));
+
+/// A callback when messages were unpinned in the channel.
+/// @param channel The channel where the messages were unpinned.
+/// @param pinnedMessages The unpinned messages.
+- (void)channel:(nonnull SCTChannel *)channel didUnpinMessages:(nonnull NSArray<SCTPinnedMessage *> *)pinnedMessages
+NS_SWIFT_NAME(channel(_:didUnpinMessages:));
 
 /// A callback when a user send an event.
 /// @param channel The channel where the user sends an event.

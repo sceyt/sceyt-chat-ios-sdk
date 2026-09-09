@@ -67,4 +67,7 @@ FOUNDATION_EXPORT const unsigned char SceytChat_iOSVersionString[];
 #import "SCTPollVotesListQuery.h"
 #import "SCTChangedVotes.h"
 #import "SCTVoteDetails.h"
+#import "SCTPinDetails.h"
+#import "SCTPinnedMessage.h"
+#import "SCTPinnedMessagesListQuery.h"
 #import "SCTSDPData.h"
