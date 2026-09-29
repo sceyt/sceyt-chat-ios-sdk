@@ -65,6 +65,9 @@
 @class SCTPollVotesListQuery;
 @class SCTChangedVotes;
 @class SCTVoteDetails;
+@class SCTPinDetails;
+@class SCTPinnedMessage;
+@class SCTPinnedMessagesListQuery;
 @class SCTSessionData;
 @class SCTSDPData;
 @class SCTMedia;
@@ -361,6 +364,22 @@ typedef NS_ENUM(NSInteger, SCTIceCandidateTcpType) {
     SCTIceCandidateTcpTypeSO = 2,
 }NS_SWIFT_NAME(IceCandidateTcpType);
 
+typedef NS_ENUM(NSInteger, SCTPinType) {
+    SCTPinTypeShared = 0,
+    SCTPinTypePersonal = 1,
+}NS_SWIFT_NAME(PinType);
+
+typedef NS_ENUM(NSInteger, SCTPinTypeFilter) {
+    SCTPinTypeFilterShared = 0,
+    SCTPinTypeFilterPersonal = 1,
+    SCTPinTypeFilterAll = 2,
+}NS_SWIFT_NAME(PinTypeFilter);
+
+typedef NS_ENUM(NSInteger, SCTPinnedMessagesOrder) {
+    SCTPinnedMessagesOrderAsc = 0,
+    SCTPinnedMessagesOrderDesc = 1,
+}NS_SWIFT_NAME(PinnedMessagesOrder);
+
 typedef void(^SCTCompletion)(SCTError * _Nullable)
 NS_SWIFT_NAME(Completion);
 typedef void(^SCTUserProfileCompletion)(SCTUser * _Nullable, SCTError * _Nullable)
@@ -445,6 +464,12 @@ NS_SWIFT_NAME(CDRListQueryCompletion);
 //MARK: - Poll Completion Handlers
 typedef void(^SCTPollVotesListQueryCompletion)(SCTPollVotesListQuery * _Nonnull, NSArray<SCTPollVote *> * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(PollVotesListQueryCompletion);
+
+//MARK: - Pinned Message Completion Handlers
+typedef void(^SCTPinnedMessagesListQueryCompletion)(SCTPinnedMessagesListQuery * _Nonnull, NSArray<SCTPinnedMessage *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PinnedMessagesListQueryCompletion);
+typedef void(^SCTPinnedMessagesCompletion)(NSArray<SCTPinnedMessage *> * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(PinnedMessagesCompletion);
 
 //MARK: - Channel Invite Key Completion Handlers
 typedef void(^SCTChannelInviteKeyCompletion)(SCTChannelInviteKey * _Nullable inviteKey, SCTError * _Nullable)

@@ -16,6 +16,7 @@
 @class SCTForwardingDetails;
 @class SCTMessageBodyAttribute;
 @class SCTPollDetails;
+@class SCTPinDetails;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -104,6 +105,9 @@ NS_SWIFT_NAME(Message)
 
 /// The poll details if the message contains a poll.
 @property (nonatomic, readonly, nullable) SCTPollDetails *poll;
+
+/// The pin details if the message is pinned.
+@property (nonatomic, readonly, nullable) SCTPinDetails *pin;
 
 @property (nonatomic, readonly) BOOL repliedInThread;
 

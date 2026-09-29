@@ -255,6 +255,26 @@ NS_SWIFT_NAME(retractPollVote(messageId:pollId:completion:));
                     completion:(nonnull SCTClosePollCompletion)completion
 NS_SWIFT_NAME(closePoll(messageId:pollId:completion:));
 
+//MARK: - Pinned Message Operations
+
+/// Pin messages in the channel.
+/// @param messageIds The `SCTMessageId` list to pin.
+/// @param pinTill The date until the messages stay pinned, pass nil to pin without expiration.
+/// @param pinType The pin scope, shared for all channel members or personal for the current user.
+/// @param completion The handler block to execute.
+- (void)pinMessagesWithIds:(nonnull NSArray<NSNumber *> *)messageIds
+                   pinTill:(nullable NSDate *)pinTill
+                   pinType:(SCTPinType)pinType
+                completion:(nonnull SCTPinnedMessagesCompletion)completion
+NS_SWIFT_NAME(pinMessages(ids:pinTill:pinType:completion:));
+
+/// Unpin messages in the channel.
+/// @param messageIds The `SCTMessageId` list to unpin.
+/// @param completion The handler block to execute.
+- (void)unpinMessagesWithIds:(nonnull NSArray<NSNumber *> *)messageIds
+                  completion:(nonnull SCTPinnedMessagesCompletion)completion
+NS_SWIFT_NAME(unpinMessages(ids:completion:));
+
 /// Change the channel owner.
 /// @param userId the new owner user id.
 /// @param completion The handler block to execute.
