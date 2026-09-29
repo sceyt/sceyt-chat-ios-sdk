@@ -149,7 +149,7 @@ NS_SWIFT_NAME(SDPData)
 @interface SCTSDPData : NSObject
 @property (nonatomic, readonly, nonnull) NSString *sessionId;
 @property (nonatomic, readonly) uint32_t sessionVersion;
-@property (nonatomic, readonly, nonnull) NSArray<NSNumber *> *bundleGroup; // Array of uint32_t
+@property (nonatomic, readonly, nonnull) NSString *bundleGroup;
 @property (nonatomic, readonly, nullable) NSString *iceUfrag;
 @property (nonatomic, readonly, nullable) NSString *icePwd;
 @property (nonatomic, readonly, nonnull) NSArray<NSString *> *iceOptions;
@@ -166,7 +166,7 @@ NS_SWIFT_NAME(SDPData)
 
 - (instancetype)initWithSessionId:(nonnull NSString *)sessionId
                     sessionVersion:(uint32_t)sessionVersion
-                       bundleGroup:(nonnull NSArray<NSNumber *> *)bundleGroup
+                       bundleGroup:(nonnull NSString *)bundleGroup
                           iceUfrag:(nullable NSString *)iceUfrag
                            icePwd:(nullable NSString *)icePwd
                        iceOptions:(nonnull NSArray<NSString *> *)iceOptions
@@ -183,4 +183,3 @@ NS_SWIFT_NAME(SDPData)
 @end
 
 NS_ASSUME_NONNULL_END
-
