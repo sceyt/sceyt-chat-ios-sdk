@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		5CagdRaRJDAMMIadwnGiZ5H445E=
+		xcfmK2Nr18xTyGsZiygLflEOwg0=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
@@ -79,6 +79,10 @@
 		<key>Headers/SCTError.h</key>
 		<data>
 		5dG0f2O3XA7KUyCb8BuEfxrYkUU=
+		</data>
+		<key>Headers/SCTFileEncryption.h</key>
+		<data>
+		Zfyvt8cJ/nJCcn8xrhVkZvP1qcw=
 		</data>
 		<key>Headers/SCTForwardingDetails.h</key>
 		<data>
@@ -210,7 +214,7 @@
 		</data>
 		<key>Headers/SCTSDPData.h</key>
 		<data>
-		Xqg3J4XB3unMRtvSxHVCRyzR9mU=
+		TetTFlNwvez8QULMuOzLqDC812Y=
 		</data>
 		<key>Headers/SCTSettings.h</key>
 		<data>
@@ -218,7 +222,7 @@
 		</data>
 		<key>Headers/SCTSignal.h</key>
 		<data>
-		MLHX2CV16vEj+0XEYi7M1VYEQG8=
+		xcOlfTFyqqbmQQDvSfp8MtVelks=
 		</data>
 		<key>Headers/SCTTypes.h</key>
 		<data>
@@ -250,11 +254,11 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		4g20JISct527my7zc3iU/n6XYPM=
+		sBDVQiCuj41Yh2HSHQsCb54/KvU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UDd5qRylDqCjxHymzhE3YLCf604=
+		rceQ+SlCllKHvYi69ro8XI4+xrA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -380,7 +384,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qoukAcA5ngW92CBJGl7iF7vnX2wdn+Qek/G93fasskA=
+			gvLz7p4MY369DcMIIWuL2FQds9RhzKU4LHWeR2FuYYg=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
@@ -402,6 +406,13 @@
 			<key>hash2</key>
 			<data>
 			8GaS15ogasJUuS7ag1WYpIcs0aa6x26uXjFkOXLlrXw=
+			</data>
+		</dict>
+		<key>Headers/SCTFileEncryption.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			loHByN0RI8Qs00nr0vGb4YzjtSTgTj69ahYcYfPDGH0=
 			</data>
 		</dict>
 		<key>Headers/SCTForwardingDetails.h</key>
@@ -632,7 +643,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xkVPv+lR8ISuM2uqMfFnEit4wbFrmjnHq/wQj7hglzg=
+			JWw384sze3OJsPwfiZALZ6bRYU6sObnkrcM/TqKecDs=
 			</data>
 		</dict>
 		<key>Headers/SCTSettings.h</key>
@@ -646,7 +657,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kZKzR8wQVF0mtxcLz5PweKDHCxtWmPbyk30r+EnmerM=
+			reQDzw7inGeCdsHehF5P/w8eCQZugwKexMeKrKGvTlo=
 			</data>
 		</dict>
 		<key>Headers/SCTTypes.h</key>
@@ -702,7 +713,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			INgv6D+Wq5NGVogZ1E2uT8p6JjND+m7N5OL8mAM7B8Y=
+			ngp0pR3O8l4rX+46LIg9t1Wv5ch0ODendqTi5s76WIk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

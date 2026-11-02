@@ -19,8 +19,27 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTContactDiscovery;
 @class SCTChannelQueryParam;
 @class SCTPushSubscription;
+@class SCTFileEncryptionInfo;
 @protocol SCTChannelDelegate;
 @protocol SCTChatClientDelegate;
+@protocol SCTPreparedUpload;
+
+/// The completion of an encrypted upload: the stored file's URL and the encryption info to add to
+/// the attachment's metadata, or an error.
+typedef void(^SCTEncryptedFileCompletion)(NSURL * _Nullable, SCTFileEncryptionInfo * _Nullable, SCTError * _Nullable)
+NS_SWIFT_NAME(EncryptedFileCompletion);
+
+/// A running upload.
+NS_SWIFT_NAME(UploadOperation)
+@interface SCTUploadOperation : NSObject
+
+/// Stops the upload; its completion reports an error. Does nothing after it ended.
+- (void)cancel;
+
+/// init is unavailable.
+- (instancetype)init NS_UNAVAILABLE;
+
+@end
 
 NS_SWIFT_NAME(ChatClient)
 @interface SCTChatClient : NSObject
@@ -220,6 +239,21 @@ NS_SWIFT_NAME(unblockUsers(ids:completion:));
 /// @param completion The completion handler to call after execution.
 - (void)uploadFile:(nonnull NSURL *)fileUrl progressHandler:(nonnull SCTProgressCompletion)progressHandler completion:(nonnull SCTFileCompletion)completion
 NS_SWIFT_NAME(upload(fileUrl:progressHandler:completion:));
+
+/// Uploads the encrypted file `upload` makes to the SDK's file endpoint, in one request: its bytes
+/// are made while they are sent, so no encrypted copy is stored. Progress is a fraction of the
+/// encrypted file. Keep `upload` open until the completion; on success add its encryption info to
+/// the attachment's metadata (`SCTFileEncryptionMetadata writeInfo:toMetadata:error:`).
+/// Raises NSInvalidArgumentException for an upload not prepared by
+/// `SCTStreamingAeadFileEncryptionProvider`.
+/// @param upload An upload prepared by `SCTStreamingAeadFileEncryptionProvider`.
+/// @param progressHandler The upload progress handler.
+/// @param completion The completion handler to call after execution.
+/// @return The running upload, to cancel it.
+- (nonnull SCTUploadOperation *)uploadEncrypted:(nonnull id<SCTPreparedUpload>)upload
+                                progressHandler:(nonnull SCTProgressCompletion)progressHandler
+                                     completion:(nonnull SCTEncryptedFileCompletion)completion
+NS_SWIFT_NAME(uploadEncrypted(_:progressHandler:completion:));
 
 /// Gets channel member roles associated with the Application.
 /// @param completion The completion handler to call after execution.
