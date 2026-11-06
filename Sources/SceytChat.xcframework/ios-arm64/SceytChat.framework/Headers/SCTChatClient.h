@@ -19,14 +19,14 @@ NS_ASSUME_NONNULL_BEGIN
 @class SCTContactDiscovery;
 @class SCTChannelQueryParam;
 @class SCTPushSubscription;
-@class SCTFileEncryptionInfo;
+@class SCTAttachmentCipher;
 @protocol SCTChannelDelegate;
 @protocol SCTChatClientDelegate;
 @protocol SCTPreparedUpload;
 
-/// The completion of an encrypted upload: the stored file's URL and the encryption info to add to
-/// the attachment's metadata, or an error.
-typedef void(^SCTEncryptedFileCompletion)(NSURL * _Nullable, SCTFileEncryptionInfo * _Nullable, SCTError * _Nullable)
+/// The completion of an encrypted upload: the stored file's URL and the upload's cipher, whose token
+/// goes in the attachment's metadata, or an error.
+typedef void(^SCTEncryptedFileCompletion)(NSURL * _Nullable, SCTAttachmentCipher * _Nullable, SCTError * _Nullable)
 NS_SWIFT_NAME(EncryptedFileCompletion);
 
 /// A running upload.
@@ -243,10 +243,10 @@ NS_SWIFT_NAME(upload(fileUrl:progressHandler:completion:));
 /// Uploads the encrypted file `upload` makes to the SDK's file endpoint, in one request: its bytes
 /// are made while they are sent, so no encrypted copy is stored. Progress is a fraction of the
 /// encrypted file. Keep `upload` open until the completion; on success add its encryption info to
-/// the attachment's metadata (`SCTFileEncryptionMetadata writeInfo:toMetadata:error:`).
+/// the attachment's metadata (the UI kit does it).
 /// Raises NSInvalidArgumentException for an upload not prepared by
-/// `SCTStreamingAeadFileEncryptionProvider`.
-/// @param upload An upload prepared by `SCTStreamingAeadFileEncryptionProvider`.
+/// `SCTAeadFileEncryptionProvider`.
+/// @param upload An upload prepared by `SCTAeadFileEncryptionProvider`.
 /// @param progressHandler The upload progress handler.
 /// @param completion The completion handler to call after execution.
 /// @return The running upload, to cancel it.

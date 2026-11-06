@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/SCTChatClient.h</key>
 		<data>
-		xcfmK2Nr18xTyGsZiygLflEOwg0=
+		NxMhy3TR/YUUHtKbaGh3kxkggIY=
 		</data>
 		<key>Headers/SCTChatClientDelegate.h</key>
 		<data>
@@ -82,7 +82,7 @@
 		</data>
 		<key>Headers/SCTFileEncryption.h</key>
 		<data>
-		VpaN+WgMqZclWanI8i7/87GtJxs=
+		TYWtdVdxPMARq27N7KtNjWiBeIU=
 		</data>
 		<key>Headers/SCTForwardingDetails.h</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Headers/SCTMediaDownload.h</key>
 		<data>
-		V1hvSTIDreeIogwFGuZ/RD6Qp30=
+		TRYkjxxU/0VRhI8Bb+VQRR3Ei6g=
 		</data>
 		<key>Headers/SCTMember.h</key>
 		<data>
@@ -388,7 +388,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gvLz7p4MY369DcMIIWuL2FQds9RhzKU4LHWeR2FuYYg=
+			B7A7cOQgPVBcaw3+090qESIki21LJlzNDVgEjxwyQ64=
 			</data>
 		</dict>
 		<key>Headers/SCTChatClientDelegate.h</key>
@@ -416,7 +416,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			41vtL0tEjpS1yr/36DFhofIiVYoQbChhiY0lt79naVI=
+			0PLN6AQhS4Apf+1NLPTN1QZB3SBcQ0wJw6nkimzJKmk=
 			</data>
 		</dict>
 		<key>Headers/SCTForwardingDetails.h</key>
@@ -451,7 +451,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RM3Ci+O/RCtXiwIpnuNp87kKzc62+4DDk933SYOC0Kk=
+			Rs+Xknbg9DlIZttbe5DXK9Puvolnh8EILURWACivRrM=
 			</data>
 		</dict>
 		<key>Headers/SCTMember.h</key>

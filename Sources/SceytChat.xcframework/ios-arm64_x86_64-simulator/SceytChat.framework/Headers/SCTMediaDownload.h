@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class SCTFileEncryptionInfo;
+@class SCTAttachmentCipher;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,7 +46,7 @@ typedef NS_ERROR_ENUM(SCTMediaDownloadErrorDomain, SCTMediaDownloadErrorCode) {
     SCTMediaDownloadErrorTimedOut = 7,
     /// The encrypted bytes didn't verify, even fetched again: tampered, or a wrong key.
     SCTMediaDownloadErrorIntegrity = 8,
-    /// The encryption info is malformed or unsupported: show the attachment as unavailable.
+    /// The cipher is malformed or unsupported: show the attachment as unavailable.
     SCTMediaDownloadErrorInvalidEncryption = 9,
 } NS_SWIFT_NAME(MediaDownloadError);
 
@@ -200,13 +200,13 @@ NS_SWIFT_NAME(MediaDownload)
 NS_SWIFT_NAME(download(_:destinationPath:statusHandler:requestProvider:));
 
 /// The same for an encrypted attachment: `destinationPath` gets the decrypted file, and every
-/// part is verified before it is written. If `encryption` has no size (`SCTFileEncryptionData
-/// unknownPlainSize`, the "enc" metadata layout), it comes from the stored object; until then
+/// part is verified before it is written. If the cipher `encryption` has no size (e.g. from the "enc"
+/// metadata layout), it comes from the stored object; until then
 /// the status's size is -1. Fails with `SCTMediaDownloadErrorInvalidEncryption` if `encryption`
 /// is malformed or unsupported.
 + (instancetype)downloadEncryptedRequest:(SCTDownloadRequest *)request
                          destinationPath:(NSString *)destinationPath
-                              encryption:(SCTFileEncryptionInfo *)encryption
+                              encryption:(SCTAttachmentCipher *)encryption
                            statusHandler:(nullable SCTMediaDownloadStatusHandler)statusHandler
                          requestProvider:(nullable SCTDownloadRequestProvider)requestProvider
 NS_SWIFT_NAME(downloadEncrypted(_:destinationPath:encryption:statusHandler:requestProvider:));
