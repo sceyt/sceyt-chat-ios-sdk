@@ -30,6 +30,7 @@ FOUNDATION_EXPORT const unsigned char SceytChat_iOSVersionString[];
 #import "SCTAttachment.h"
 #import "SCTChatClient.h"
 #import "SCTFileEncryption.h"
+#import "SCTMediaDownload.h"
 #import "SCTLinkDetails.h"
 #import "SCTUserSettings.h"
 #import "SCTChannelEvent.h"

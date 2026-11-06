@@ -82,7 +82,7 @@
 		</data>
 		<key>Headers/SCTFileEncryption.h</key>
 		<data>
-		Zfyvt8cJ/nJCcn8xrhVkZvP1qcw=
+		VpaN+WgMqZclWanI8i7/87GtJxs=
 		</data>
 		<key>Headers/SCTForwardingDetails.h</key>
 		<data>
@@ -99,6 +99,10 @@
 		<key>Headers/SCTMarker.h</key>
 		<data>
 		G+6HowaL05a7TeB3xfM4lPTX6h8=
+		</data>
+		<key>Headers/SCTMediaDownload.h</key>
+		<data>
+		V1hvSTIDreeIogwFGuZ/RD6Qp30=
 		</data>
 		<key>Headers/SCTMember.h</key>
 		<data>
@@ -254,7 +258,7 @@
 		</data>
 		<key>Headers/SceytChat.h</key>
 		<data>
-		sBDVQiCuj41Yh2HSHQsCb54/KvU=
+		t7LAYkapCXfZz52L+5bRKOIH17k=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -412,7 +416,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			loHByN0RI8Qs00nr0vGb4YzjtSTgTj69ahYcYfPDGH0=
+			41vtL0tEjpS1yr/36DFhofIiVYoQbChhiY0lt79naVI=
 			</data>
 		</dict>
 		<key>Headers/SCTForwardingDetails.h</key>
@@ -441,6 +445,13 @@
 			<key>hash2</key>
 			<data>
 			s0NCJCcwJrwb4hU4gwHGUxv2x4Lj/2noK/fTMynWPIU=
+			</data>
+		</dict>
+		<key>Headers/SCTMediaDownload.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			RM3Ci+O/RCtXiwIpnuNp87kKzc62+4DDk933SYOC0Kk=
 			</data>
 		</dict>
 		<key>Headers/SCTMember.h</key>
@@ -713,7 +724,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ngp0pR3O8l4rX+46LIg9t1Wv5ch0ODendqTi5s76WIk=
+			cpegYjvhn/nafP8VtvrqyYOo/0JrmbZCSwnJJuT0v8E=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -21,11 +21,11 @@ NS_SWIFT_NAME(FileEncryptionErrorDomain);
 
 /// File encryption error codes, the same as the native FileEncryptionErrorCode.
 typedef NS_ERROR_ENUM(SCTFileEncryptionErrorDomain, SCTFileEncryptionErrorCode) {
-    /// An invalid argument, e.g. a missing or too long unique id, or a URL that isn't a file.
+    /// An invalid argument, e.g. a URL that isn't a file.
     SCTFileEncryptionErrorInvalidArgument = 1,
     /// A range outside the object or plaintext.
     SCTFileEncryptionErrorOutOfRange = 2,
-    /// Malformed or unsupported encryption info, checkpoint or metadata. Show the attachment as
+    /// Malformed or unsupported encryption info, checkpoint, metadata or unique id. Show the attachment as
     /// unavailable, never as a plain file.
     SCTFileEncryptionErrorInvalidEncryption = 3,
     /// The file isn't the one the upload started with: start a new upload.
@@ -45,14 +45,18 @@ typedef NS_ERROR_ENUM(SCTFileEncryptionErrorDomain, SCTFileEncryptionErrorCode) 
 NS_SWIFT_NAME(FileEncryptionData)
 @interface SCTFileEncryptionData : NSObject <NSCopying>
 
-/// The unique id the upload was bound to, 1 to 64 UTF-8 bytes.
+/// The unique id the upload was bound to: 16 bytes, base64url without padding.
 @property (nonatomic, readonly, copy) NSString *uniqueId;
 
 /// The 32-byte file key, base64url without padding.
 @property (nonatomic, readonly, copy) NSString *key;
 
-/// The original file's size in bytes.
+/// The original file's size in bytes, or `unknownPlainSize`.
 @property (nonatomic, readonly) uint64_t plainSize;
+
+/// The size of a file whose metadata has none (the "enc" layout): a download takes it from the
+/// stored object. Safe, as every segment is authenticated with its index and whether it is the last.
+@property (class, nonatomic, readonly) uint64_t unknownPlainSize;
 
 /// Initialize the data of an encrypted file.
 /// @param uniqueId The unique id the upload was bound to.
@@ -184,7 +188,8 @@ NS_SWIFT_NAME(FileEncryptionProvider)
 
 /// A new upload of the file (after any resizing or transcoding): a new key and session.
 /// @param fileURL The local file to upload.
-/// @param uniqueId Any string of 1 to 64 UTF-8 bytes unique to the upload, e.g. the attachment id.
+/// @param uniqueId The attachment id, unique to the upload: 16 bytes, base64url without padding
+///                 (22 characters), e.g. from `newUniqueId`. The encryption is bound to its decoded bytes.
 - (nullable id<SCTPreparedUpload>)prepareUploadWithFileURL:(NSURL *)fileURL
                                                   uniqueId:(NSString *)uniqueId
                                                      error:(NSError **)error
@@ -211,6 +216,76 @@ NS_SWIFT_NAME(openDownload(source:encryptionInfo:));
 
 @end
 
+/// Encrypts a stream given in pieces, like Tink's `StreamingAead.newEncryptingStream`: `write`
+/// the plaintext in pieces of any size, e.g. 5 MB upload parts, then `close` once to seal the
+/// last segment. All the output, joined, is what `SCTStreamingAeadFileEncryptionProvider encrypt`
+/// gives for all the plaintext. Without `close` the output has no last segment and doesn't decrypt.
+/// `checkpoint` saves where it is, to continue the encryption after an app restart
+/// (`SCTStreamingAeadFileEncryptionProvider restoreEncryptingStream`). Thread safe; calls block.
+///
+/// The ciphertext of a plaintext part isn't the part's size: the held-back segment (up to 64 KiB)
+/// makes it smaller, and the header and the 16-byte tag per segment make it larger. So 5 MiB of
+/// plaintext can give less than 5 MiB of ciphertext, and S3 multipart uploads reject parts other
+/// than the last below 5 MiB. Collect the ciphertext until it is at least the minimum part size
+/// before uploading a part; what `close` returns, with any ciphertext not yet uploaded, is the
+/// last part, of any size.
+NS_SWIFT_NAME(EncryptingStream)
+@interface SCTEncryptingStream : NSObject
+
+/// The plaintext bytes written so far. For a restored stream, it starts where to write the
+/// plaintext from again: up to 64 KiB before where the old stream was, as its last segment
+/// wasn't sealed.
+@property (nonatomic, readonly) uint64_t position;
+
+/// The ciphertext bytes returned so far; for a restored stream, including those the old stream
+/// returned. After a restore, the upload continues at this offset.
+@property (nonatomic, readonly) uint64_t ciphertextPosition;
+
+/// The state at the end of the ciphertext returned so far, for
+/// `SCTStreamingAeadFileEncryptionProvider restoreEncryptingStream`. Save it after each part is
+/// uploaded, in private storage. Its data has no key; the info has: keep it like the message. A
+/// closed stream's checkpoint doesn't restore: there is nothing to continue.
+@property (nonatomic, readonly, copy) SCTFileEncryptionCheckpoint *checkpoint;
+
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+/// The ciphertext `plaintext` completes, possibly empty: the header on the first call, then whole
+/// 64 KiB segments. As in Tink, the last segment of the plaintext so far stays buffered until more
+/// comes or `close`. Fails with `SCTFileEncryptionErrorInvalidArgument` for more bytes than the
+/// info's size, and with `SCTFileEncryptionErrorClosed` once closed or failed.
+- (nullable NSData *)write:(NSData *)plaintext error:(NSError **)error NS_SWIFT_NAME(write(_:));
+
+/// The rest of the ciphertext, sealed as the last segment. Fails with
+/// `SCTFileEncryptionErrorInvalidArgument` if the info has a size other than the bytes written.
+- (nullable NSData *)closeWithError:(NSError **)error NS_SWIFT_NAME(close());
+
+@end
+
+/// Decrypts a stream given in pieces, like Tink's `StreamingAead.newDecryptingStream`: `write` the
+/// stored bytes in pieces of any size, then `close` once. Each segment's plaintext is returned
+/// once it verifies; `close` verifies the last one. On an error
+/// (`SCTFileEncryptionErrorAuthentication`: tampered, truncated, or a wrong key or unique id),
+/// discard all the plaintext returned before. Thread safe; calls block.
+NS_SWIFT_NAME(DecryptingStream)
+@interface SCTDecryptingStream : NSObject
+
+/// The stored bytes written so far.
+@property (nonatomic, readonly) uint64_t position;
+
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+/// The plaintext of the segments `ciphertext` completes, possibly empty. As in Tink, a segment is
+/// decrypted only once more bytes follow it.
+- (nullable NSData *)write:(NSData *)ciphertext error:(NSError **)error NS_SWIFT_NAME(write(_:));
+
+/// The last segment's plaintext. Fails with `SCTFileEncryptionErrorAuthentication` if the stream
+/// was truncated.
+- (nullable NSData *)closeWithError:(NSError **)error NS_SWIFT_NAME(close());
+
+@end
+
 /// The SDK's provider: Tink's AES-256-GCM-HKDF streaming format with 64 KiB segments and a key
 /// commitment (`format`). Uploads it prepares can be sent with `SCTChatClient uploadEncrypted`.
 NS_SWIFT_NAME(StreamingAeadFileEncryptionProvider)
@@ -219,34 +294,120 @@ NS_SWIFT_NAME(StreamingAeadFileEncryptionProvider)
 /// "tink-aes256-gcm-hkdf-64k+commit-v1".
 @property (class, nonatomic, readonly, copy) NSString *format;
 
-/// A random unique id for `prepareUpload`: a version 4 UUID string, lowercase.
+/// A random unique id for `prepareUpload`: 16 random bytes, base64url without padding.
 + (NSString *)newUniqueId NS_SWIFT_NAME(newUniqueId());
+
+/// A new random key for `encrypt` and `decrypt`, bound to `uniqueId`. Bytes encrypted
+/// with it are in `format`, the same as encrypted files, so a download of them decrypts them.
+///
+/// The result's plain size is `SCTFileEncryptionData.unknownPlainSize`, as the bytes aren't known
+/// yet: to put the info in attachment metadata (`SCTFileEncryptionMetadata`), use one with the
+/// size of the bytes encrypted. The info contains the key: never log it. Fails with
+/// `SCTFileEncryptionErrorInvalidEncryption` if `uniqueId` isn't 16 bytes of base64url.
+/// @param uniqueId 16 bytes, base64url without padding (22 characters), e.g. from `newUniqueId`.
++ (nullable SCTFileEncryptionInfo *)prepareWithUniqueId:(NSString *)uniqueId error:(NSError **)error
+NS_SWIFT_NAME(prepare(uniqueId:));
+
+/// The info for a key you already have, e.g. from a message, as `prepare(uniqueId:)` gives it:
+/// for `encrypt` and `decrypt`. Its plain size is `SCTFileEncryptionData.unknownPlainSize`.
+/// The info contains the key: never log it. Fails with `SCTFileEncryptionErrorInvalidEncryption` if
+/// the key or the unique id is malformed.
+/// @param uniqueId The unique id the key is bound to: 16 bytes, base64url without padding.
+/// @param key The 32-byte key, base64url without padding, as `SCTFileEncryptionData.key`.
++ (nullable SCTFileEncryptionInfo *)prepareWithUniqueId:(NSString *)uniqueId key:(NSString *)key error:(NSError **)error
+NS_SWIFT_NAME(prepare(uniqueId:key:));
+
+/// `plaintext` encrypted with `info`, in `format`. Each call picks a new random salt and nonce
+/// prefix, so one key may encrypt several byte arrays. Fails with
+/// `SCTFileEncryptionErrorInvalidEncryption` if `info` is malformed or of another format, and with
+/// `SCTFileEncryptionErrorInvalidArgument` if `info` has a size that isn't the plaintext's. Blocks:
+/// call it off the main thread for large data.
++ (nullable NSData *)encrypt:(NSData *)plaintext info:(SCTFileEncryptionInfo *)info error:(NSError **)error
+NS_SWIFT_NAME(encrypt(_:info:));
+
+/// The plaintext of `ciphertext`, all of it verified first: bytes from `encrypt`, or the
+/// stored object of an encrypted upload. Fails with `SCTFileEncryptionErrorAuthentication`, and
+/// returns no plaintext, if the bytes were tampered with or truncated or the key or unique id is
+/// wrong; if `info` has a size, the ciphertext must be of a plaintext of that size. Blocks: call
+/// it off the main thread for large data.
++ (nullable NSData *)decrypt:(NSData *)ciphertext info:(SCTFileEncryptionInfo *)info error:(NSError **)error
+NS_SWIFT_NAME(decrypt(_:info:));
+
+/// `encrypt` in pieces, like Tink's encrypting stream (`SCTEncryptingStream`). With a size in
+/// `info`, exactly that many bytes must be written. Fails with
+/// `SCTFileEncryptionErrorInvalidEncryption` if `info` is malformed or of another format.
++ (nullable SCTEncryptingStream *)newEncryptingStreamWithInfo:(SCTFileEncryptionInfo *)info error:(NSError **)error
+NS_SWIFT_NAME(newEncryptingStream(info:));
+
+/// Continues the encrypting stream saved in `checkpoint` (`SCTEncryptingStream checkpoint`), e.g.
+/// after an app restart: the same key, salt and nonce prefix, at the end of the ciphertext the old
+/// stream had returned, so its output continues it. Write the plaintext again from the stream's
+/// `position`; those must be the same bytes as before: other bytes reuse nonces, which leaks both.
+/// If the source may have changed, start over with a new unique id. Fails with
+/// `SCTFileEncryptionErrorInvalidEncryption` if the checkpoint is malformed, isn't of an encrypting
+/// stream, or is of a closed one.
++ (nullable SCTEncryptingStream *)restoreEncryptingStreamWithCheckpoint:(SCTFileEncryptionCheckpoint *)checkpoint
+                                                                  error:(NSError **)error
+NS_SWIFT_NAME(restoreEncryptingStream(checkpoint:));
+
+/// `decrypt` in pieces, like Tink's decrypting stream (`SCTDecryptingStream`). With a size in
+/// `info`, the ciphertext must be of a plaintext of that size.
++ (nullable SCTDecryptingStream *)newDecryptingStreamWithInfo:(SCTFileEncryptionInfo *)info error:(NSError **)error
+NS_SWIFT_NAME(newDecryptingStream(info:));
 
 @end
 
-/// Keeps an attachment's encryption info in its metadata JSON under `field`, next to the other
-/// keys, as {"format": ..., "data": {"v": 2, "uniqueId": ..., "key": ..., "plainSize": ...}}.
+/// Another encrypted file that belongs to an attachment, e.g. its video's thumbnail.
+NS_SWIFT_NAME(FileEncryptionRendition)
+@interface SCTFileEncryptionRendition : NSObject
+
+/// E.g. "thumbnail".
+@property (nonatomic, readonly, copy) NSString *role;
+/// What decrypts it; its size is `SCTFileEncryptionData unknownPlainSize`.
+@property (nonatomic, readonly, copy) SCTFileEncryptionInfo *info;
+
+/// init is unavailable.
+- (instancetype)init NS_UNAVAILABLE;
+
+@end
+
+/// Keeps an attachment's encryption info in its metadata JSON, next to the other keys. Writes the
+/// SDK's layout under `field`: {"format": ..., "data": {"v": 2, "uniqueId": ..., "key": ...,
+/// "plainSize": ...}}. Reads it, or the layout other clients write under `encField`: {"v": 1,
+/// "alg": ..., "attachmentId": ..., "key": ..., "renditions": [{"role": ..., "attachmentId": ...,
+/// "key": ...}]}, which has no size (`SCTFileEncryptionData unknownPlainSize`).
 NS_SWIFT_NAME(FileEncryptionMetadata)
 @interface SCTFileEncryptionMetadata : NSObject
 
 /// "sceyt_file_encryption".
 @property (class, nonatomic, readonly, copy) NSString *field;
 
+/// "enc".
+@property (class, nonatomic, readonly, copy) NSString *encField;
+
 /// The encryption info of an attachment, or nil without an error for a plain one (no metadata,
-/// metadata that isn't a JSON object, or no `field`). Fails with
-/// `SCTFileEncryptionErrorInvalidEncryption` if the field is there but malformed: show the
-/// attachment as unavailable, never treat it as plain.
+/// metadata that isn't a JSON object, or neither field). Fails with
+/// `SCTFileEncryptionErrorInvalidEncryption` if a field is there but malformed: show the
+/// attachment as unavailable, never treat it as plain. With both fields, `field` is read.
 + (nullable SCTFileEncryptionInfo *)readFromMetadata:(nullable NSString *)metadata error:(NSError **)error
 NS_SWIFT_NAME(read(metadata:)) __attribute__((swift_error(nonnull_error)));
 
-/// The metadata with `info` added or replaced; other keys are kept. Fails with
-/// `SCTFileEncryptionErrorInvalidArgument` if the metadata isn't nil, empty or a JSON object.
+/// The other encrypted files of the attachment (the "enc" renditions); empty if there are none.
+/// Fails with `SCTFileEncryptionErrorInvalidEncryption` if they are malformed.
++ (nullable NSArray<SCTFileEncryptionRendition *> *)readRenditionsFromMetadata:(nullable NSString *)metadata
+                                                                         error:(NSError **)error
+NS_SWIFT_NAME(readRenditions(metadata:));
+
+/// The metadata with `info` added or replaced under `field`; other keys are kept. Fails with
+/// `SCTFileEncryptionErrorInvalidArgument` if the metadata isn't nil, empty or a JSON object, or
+/// if the size is `SCTFileEncryptionData unknownPlainSize`.
 + (nullable NSString *)writeInfo:(SCTFileEncryptionInfo *)info
                       toMetadata:(nullable NSString *)metadata
                            error:(NSError **)error
 NS_SWIFT_NAME(write(_:to:));
 
-/// The metadata without encryption info, e.g. for a new plain attachment made from this one.
+/// The metadata without encryption info of either layout, e.g. for a new plain attachment made
+/// from this one.
 + (nullable NSString *)removeFromMetadata:(nullable NSString *)metadata
 NS_SWIFT_NAME(remove(from:));
 
