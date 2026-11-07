@@ -56,7 +56,8 @@ NS_SWIFT_NAME(AttachmentCipher)
 @interface SCTAttachmentCipher : NSObject
 
 /// The cipher as one string for the decrypting side: base64url without padding of the JSON
-/// {"v":1,"format":…,"uniqueId":…,"key":…,"plainSize":…} (no plainSize when the size is unknown).
+/// {"v":1,"alg":…,"aid":…,"k":…,"ps":…}: the format, the unique id, the key and the plain size (no
+/// "ps" when the size is unknown).
 /// Base64 is not encryption: it contains the key.
 @property (nonatomic, readonly, copy) NSString *token;
 
