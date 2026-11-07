@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class SCTAttachmentCipher;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -200,16 +199,18 @@ NS_SWIFT_NAME(MediaDownload)
 NS_SWIFT_NAME(download(_:destinationPath:statusHandler:requestProvider:));
 
 /// The same for an encrypted attachment: `destinationPath` gets the decrypted file, and every
-/// part is verified before it is written. If the cipher `encryption` has no size (e.g. from the "enc"
-/// metadata layout), it comes from the stored object; until then
-/// the status's size is -1. Fails with `SCTMediaDownloadErrorInvalidEncryption` if `encryption`
-/// is malformed or unsupported.
+/// part is verified before it is written. The download fetches the stored object's header and
+/// restores the cipher from it and `attachmentKey` (`SCTAttachmentCipher restoreWithAttachmentKey:header:`);
+/// the size comes from the stored object with it, so until then the status's size is -1. Fails
+/// with `SCTMediaDownloadErrorInvalidEncryption` if `attachmentKey` is malformed or of an unknown
+/// version, and with an integrity error if the header isn't this key's.
+/// @param attachmentKey The message's `SCTAttachmentCipher attachmentKey`.
 + (instancetype)downloadEncryptedRequest:(SCTDownloadRequest *)request
                          destinationPath:(NSString *)destinationPath
-                              encryption:(SCTAttachmentCipher *)encryption
+                           attachmentKey:(NSString *)attachmentKey
                            statusHandler:(nullable SCTMediaDownloadStatusHandler)statusHandler
                          requestProvider:(nullable SCTDownloadRequestProvider)requestProvider
-NS_SWIFT_NAME(downloadEncrypted(_:destinationPath:encryption:statusHandler:requestProvider:));
+NS_SWIFT_NAME(downloadEncrypted(_:destinationPath:attachmentKey:statusHandler:requestProvider:));
 
 /// The download of `destinationPath` that is running, paused or waiting, or nil.
 + (nullable instancetype)findWithDestinationPath:(NSString *)destinationPath
