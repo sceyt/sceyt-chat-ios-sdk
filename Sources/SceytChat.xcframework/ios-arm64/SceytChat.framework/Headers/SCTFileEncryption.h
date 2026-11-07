@@ -61,10 +61,11 @@ NS_SWIFT_NAME(RandomAccessStream)
 /// The exact number of bytes.
 @property (nonatomic, readonly) uint64_t size;
 
-/// Exactly `length` bytes at `offset`, or nil and an error, which reaches the view's caller
-/// unchanged. Return the same bytes for repeated and overlapping reads.
-- (nullable NSData *)pread:(uint64_t)offset length:(NSUInteger)length error:(NSError **)error
-NS_SWIFT_NAME(pread(offset:length:));
+/// Exactly `length` bytes at `offset`, never fewer, or nil and an error, which reaches the view's
+/// caller unchanged. A range that ends past `size` is an error; zero bytes at `size` are not, zero
+/// bytes past it are. Return the same bytes for repeated and overlapping reads.
+- (nullable NSData *)read:(uint64_t)offset length:(NSUInteger)length error:(NSError **)error
+NS_SWIFT_NAME(read(offset:length:));
 
 @optional
 /// Called once when the view that owns this source is closed.
@@ -90,8 +91,9 @@ NS_SWIFT_NAME(RandomAccessView)
 /// are fixed when it is created, so every encryption it makes gives the same bytes for the same
 /// plaintext. Two values leave it:
 ///
-/// - `attachmentKey`: base64url without padding of the version (1), the attachment id (16 bytes)
-///   and the key (32 bytes), 66 characters. **Secret**: it goes in the chat message, sent and
+/// - `attachmentKey`: base64url without padding of the UTF-8 JSON
+///   `{"v":1,"k":"<base64url of the 32-byte key>","aid":"<base64url of the 16-byte attachment id>"}`,
+///   exactly these members, in any order. Version 1 fixes the algorithm. **Secret**: it goes in the chat message, sent and
 ///   stored like the message, never with the stored object, and never logged.
 /// - `header`: the stored object's first `SCTAttachmentHeaderSize` (72) bytes, the key commitment
 ///   and Tink's header. Not secret. The sender keeps it, with the key, until the upload is
@@ -139,7 +141,7 @@ NS_SWIFT_NAME(restore(attachmentKey:header:));
 /// after a restart, use that view instead: it makes any part again.
 - (nullable SCTEncryptingStream *)newEncryptingStreamWithError:(NSError **)error NS_SWIFT_NAME(newEncryptingStream());
 
-/// The stored object of `plaintextSource`, read by range: `pread` takes stored offsets and returns
+/// The stored object of `plaintextSource`, read by range: `read` takes stored offsets and returns
 /// exactly those bytes, reading only the plaintext of the segments they cover, so an upload can
 /// make any part, in any order, again after a restart. Its `size` is the stored size. The view
 /// owns the source and closes it; on failure the source stays the caller's.
@@ -151,7 +153,7 @@ NS_SWIFT_NAME(newEncryptingRandomAccessStream(source:));
 /// header must be `header`.
 - (nullable SCTDecryptingStream *)newDecryptingStreamWithError:(NSError **)error NS_SWIFT_NAME(newDecryptingStream());
 
-/// The verified plaintext of the stored object `ciphertextSource`, read by range: `pread` takes
+/// The verified plaintext of the stored object `ciphertextSource`, read by range: `read` takes
 /// plaintext offsets, fetching and verifying only the segments it needs (in aligned 1 MiB windows,
 /// keeping recent segments, so a player can seek). Its `size` is the plaintext size, from the
 /// source's. Checks the source's size and that its header is `header` (and an empty file's only
